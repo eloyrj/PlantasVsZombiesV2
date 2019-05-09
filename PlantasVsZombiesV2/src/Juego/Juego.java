@@ -4,6 +4,9 @@ package Juego;
 
 import interfaz.Comandos;
 import Excepciones.ExcepcionJuego;
+import Personajes.Caracubo;
+import Personajes.Deportista;
+import Personajes.Zombie;
 import java.util.Arrays;
 import Personajes.ZombieComun;
 
@@ -107,9 +110,22 @@ public class Juego {
                     if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
                         int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY());
                         int zombiesGenerados=0;
+                        int tipoZombie = (int) (Math.random()*3);
                         for (int i = 0; i<zombiesRonda; i++){
                             int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;
-                            ZombieComun z = new ZombieComun();
+                            Zombie z ;
+                            switch (tipoZombie) {
+                                case 0:
+                                    z = new ZombieComun();
+                                    break;
+                                case 1:
+                                    z = new Caracubo();
+                                    break;
+                                default:
+                                    z = new Deportista();
+                                    break;
+                            }
+                            
                             if (getPartida().getTablero().getTableroPos(getPartida().getTablero().lonX(),pos) == null){
                                 getPartida().getTablero().addT(getPartida().getTablero().lonX(), pos, z);
                                 z.setPosX(getPartida().getTablero().lonX());
