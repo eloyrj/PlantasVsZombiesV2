@@ -15,11 +15,11 @@ public class ZombieComun extends Zombie {
      */
     public ZombieComun() {
         super();
-        /** El zombie avanza 1 casilla cada 2 turnos*/
+        /** El zombie Común avanza 1 casilla cada 2 turnos*/
         super.setVelocidad(2);
         /** Le resta una vida al enemigo cada turno que se encuentre frente a él*/
         super.setDaño(1);
-        /** El zombie tendrá 5 vidas*/
+        /** El zombie Común tendrá 5 vidas*/
         super.setVida(5);
         /** Turnos que lleva el ZombieComun en la partida*/
         super.setContador(0);
@@ -33,7 +33,7 @@ public class ZombieComun extends Zombie {
     }
     
     /** Mñetodo que permite atacar al ZombieComún
-     * @param p personaje, en este caso el zombie
+     * @param p personaje, en este caso el zombie tipo Común
      */
     @Override
     public void Ataque(Personaje p) {
@@ -41,7 +41,7 @@ public class ZombieComun extends Zombie {
     }
 
     /** Método que localiza al ZombieComún en el tablero
-     * @return la posición del zombie y las vidas que le quedan */
+     * @return la posición del zombie Común y las vidas que le quedan */
     @Override
     public String localizador() {
         return "Z(" + super.getVida()+")";
