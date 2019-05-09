@@ -7,6 +7,8 @@ import Juego.Juego;
 import Personajes.LanzaGuisantes;
 import Juego.Partida;
 import Juego.Tablero;
+import Personajes.Nuez;
+import Personajes.Petacereza;
 
 /**
  *
@@ -89,6 +91,44 @@ public class Comandos {
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
                 if (j.getPartida() != null){
                     LanzaGuisantes l = new LanzaGuisantes();
+                    int x = Integer.parseInt(partesEntrada[1]);
+                    int y = Integer.parseInt(partesEntrada[2]);
+                    l.addPlanta(x, y, j);
+                    j.getPartida().getTablero().pintarTablero();
+                    l.setPosX(x);
+                    l.setPosY(y);
+
+                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                }
+            }
+            else System.out.println("tiene que crear una partida primero");
+        }
+        /** El comando "P" servirá para plantar un Petacereza
+         */
+        else if ("P".equals(modo)){
+                
+            if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
+                if (j.getPartida() != null){
+                    Petacereza l = new Petacereza();
+                    int x = Integer.parseInt(partesEntrada[1]);
+                    int y = Integer.parseInt(partesEntrada[2]);
+                    l.addPlanta(x, y, j);
+                    j.getPartida().getTablero().pintarTablero();
+                    l.setPosX(x);
+                    l.setPosY(y);
+
+                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                }
+            }
+            else System.out.println("tiene que crear una partida primero");
+        }
+        /** El comando "U" servirá para plantar una Nuez
+         */
+        else if ("U".equals(modo)){
+                
+            if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
+                if (j.getPartida() != null){
+                    Nuez l = new Nuez();
                     int x = Integer.parseInt(partesEntrada[1]);
                     int y = Integer.parseInt(partesEntrada[2]);
                     l.addPlanta(x, y, j);
