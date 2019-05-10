@@ -23,9 +23,35 @@ public class Deportista extends Zombie{
         super.setContador(0);
     }
 
+    /**Método que imprimirá un mensaje en caso de que se pierda la partida
+    */
+    public void fin(){
+        System.out.println("por suerte los zombies te mataron, ahora eres uno de ellos disfruta de tu vida de muerto");
+        System.exit(0);
+    }
+    
+    /** Método que controla el ataque de un zombie Deportista
+     * @param j partida
+     */
     @Override
     public void actua(Juego j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.getPosX()==1) fin();
+        
+        
+        if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){
+            if (getContador() % getVelocidad() ==0){
+                j.getPartida().getTablero().setTableroPos(super.getPosX(), super.getPosY(), null) ;
+                j.getPartida().getTablero().setTableroPos(super.getPosX()-1, super.getPosY(), this);
+                this.setPosX(super.getPosX()-1);
+            }
+        }
+                else{
+            if ( this.getPosX()!= 1 ){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                    Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
+                }
+            }
+        }
     }
 
     /** Metodo que permite atacar al Deportista
