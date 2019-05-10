@@ -1,7 +1,6 @@
 
 package interfaz;
 
-import interfaz.Comandos;
 import Excepciones.ExcepcionJuego;
 import java.util.Scanner;
 import Juego.Juego;

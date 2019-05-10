@@ -1,8 +1,6 @@
 
 package Juego;
 
-import java.util.Arrays;
-
 
 
 /**
@@ -24,6 +22,10 @@ public class Partida {
     private int enemigos;
     /** Atributo que indica los turnos iniciales sin zombies dependiendo de la dificultad de la partida*/
     private int turnoInicial; 
+    /** Atributo que indica si se ha ganado una partida*/
+    private boolean ganada;
+    /** Atributo que indica los puntos obtenidos en la partida*/
+    private int puntos;
                               
     /** Constructor de Partida
      * @param soles que hay en la partida
@@ -40,6 +42,7 @@ public class Partida {
         this.tablero = tablero;
         this.turnoInicial = turnoInicial;
         this.enemigos=enemigos;
+        ganada = false;
     
     }
 
@@ -83,8 +86,6 @@ public class Partida {
         this.enemigos = enemigos;
     }
 
-    
-
     public int getTurnoInicial() {
         return turnoInicial;
     }
@@ -92,6 +93,28 @@ public class Partida {
     public void setTurnoInicial(int turnoInicial) {
         this.turnoInicial = turnoInicial;
     }
+
+    public boolean isGanada() {
+        return ganada;
+    }
+
+    public void setGanada(boolean ganada) {
+        this.ganada = ganada;
+    }
+    
+    public void ganada(){
+        ganada = true;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+    
+    
  
     /** Imprime todos los elementos a tener en cuenta dentro de una partida
      * @return los datos de todos estos elementos

@@ -1,6 +1,8 @@
 
 package Juego;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Eloy Rodríguez y María Chantal
@@ -8,16 +10,18 @@ package Juego;
 public class Jugador {
     private String Nombre;
     private String DNI;
-    private int puntos; 
+    private ArrayList<Partida> partidas ;
+    private int[] puntosTotales; 
+    private int partidasJugadas ;
     private int partidasGanadas;
     private int partidasPerdidas;
 
-    public Jugador(String Nombre, String DNI, int puntos, int partidasGanadas, int partidasPerdidas) {
+    public Jugador(String Nombre, String DNI) {
         this.Nombre = Nombre;
         this.DNI = DNI;
-        this.puntos = puntos;
-        this.partidasGanadas = partidasGanadas;
-        this.partidasPerdidas = partidasPerdidas;
+        puntosTotales = new int[4] ;
+        partidas = new ArrayList<>();
+        
     }
 
     public String getNombre() {
@@ -36,12 +40,35 @@ public class Jugador {
         this.DNI = DNI;
     }
 
-    public int getPuntos() {
-        return puntos;
+    public int[] getPuntosTotales() {
+        return puntosTotales;
     }
 
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
+    public void setPuntosTotales(int[] puntosTotales) {
+        this.puntosTotales = puntosTotales;
+    }
+    
+    public void actualizarPuntosTotales(){
+        for (int i = 0;i < partidas.size(); i++){
+            switch(partidas.get(i).getDificultad()){
+                case("BAJA"):
+                    puntosTotales[0]+=partidas.get(i).getPuntos();
+                    break;
+                    
+                case("MEDIA"):
+                    puntosTotales[1]+=partidas.get(i).getPuntos();
+                    break;
+                    
+                case("ALTA"):
+                    puntosTotales[2]+=partidas.get(i).getPuntos();
+                    break;
+                    
+                case("IMPOSIBLE"):
+                    puntosTotales[3]+=partidas.get(i).getPuntos();
+                    break;
+                
+            }
+        }
     }
 
     public int getPartidasGanadas() {
@@ -51,6 +78,15 @@ public class Jugador {
     public void setPartidasGanadas(int partidasGanadas) {
         this.partidasGanadas = partidasGanadas;
     }
+    
+    public void actualizarPartidasGanadas(){
+        int ganadas = 0;
+        for (int i = 0; i<partidas.size(); i++ ){
+            if (partidas.get(i).isGanada())
+                ganadas++;
+        }
+        partidasGanadas = ganadas;
+    }
 
     public int getPartidasPerdidas() {
         return partidasPerdidas;
@@ -59,6 +95,40 @@ public class Jugador {
     public void setPartidasPerdidas(int partidasPerdidas) {
         this.partidasPerdidas = partidasPerdidas;
     }
+    
+    public void actualizarPartidasPerdidas(){
+        int perdidas = 0;
+        for (int i = 0; i<partidas.size(); i++ ){
+            if (!partidas.get(i).isGanada())
+                perdidas++;
+        }
+        partidasPerdidas = perdidas;
+    }
+    public ArrayList<Partida> getPartidas() {
+        return partidas;
+    }
+
+    public void setPartidas(ArrayList<Partida> partidas) {
+        this.partidas = partidas;
+    }
+    public void addPartida(Partida p){
+        partidas.add(p);
+    }
+
+    public int getPartidasJugadas() {
+        actualizarPartidasJugadas();
+        return partidasJugadas;
+    }
+
+    public void setPartidasJugadas(int partidasJugadas) {
+        this.partidasJugadas = partidasJugadas;
+    }
+    
+    public void actualizarPartidasJugadas(){
+        partidasJugadas = partidas.size();
+    }
+    
+    
     
     
 }

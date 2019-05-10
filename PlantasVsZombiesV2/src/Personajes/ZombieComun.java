@@ -63,23 +63,6 @@ public class ZombieComun extends Zombie {
             }
         }
         
-        //comentamos estas lineas que lo que hacen es que los zombies ataquen tanto a la planta que tengan arriba como a la que tengan debajo
-        //creemos que el hecho de que el zombie ataque solo delante proporcione al jugaror menos confusiones y mejora su inversion en el juego
-        
-        /*
-        if ( this.getPosY()!= 1){
-            if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
-                Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
-            }
-        }
-        
-        if (this.getPosY()!= j.getPartida().getTablero().lonY()){
-            if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
-                Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
-            }
-        }
-        */
-        
         else{
             if ( this.getPosX()!= 1 ){
                 if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Planta  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
