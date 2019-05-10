@@ -7,8 +7,14 @@ import Excepciones.ExcepcionJuego;
 import Personajes.Caracubo;
 import Personajes.Deportista;
 import Personajes.Zombie;
-import java.util.Arrays;
 import Personajes.ZombieComun;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 
 
 
@@ -32,6 +38,8 @@ public class Juego {
     private int turnosTotales;
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
+    
+    private HashMap<String, Jugador> jugadores = new HashMap<>();
     
 
 
@@ -87,6 +95,36 @@ public class Juego {
 
     public void setExcepcionJuego(ExcepcionJuego excepcionJuego) {
         this.excepcionJuego = excepcionJuego;
+    }
+
+    public HashMap<String, Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(HashMap<String, Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+    
+    public void añadirJugador(Jugador j){
+        String dni = j.getDNI();
+        jugadores.put(dni, j);
+    }
+    
+    public Jugador buscarJugador(String dni){
+        return jugadores.get(dni);
+    } 
+    
+    public void guardarDatos() throws FileNotFoundException, IOException{
+        FileOutputStream fos = new FileOutputStream("fichero.dat");
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(jugadores);
+        fos.close();
+    }
+    public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
+        FileInputStream fis = new FileInputStream("fichero.dat");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        jugadores = (HashMap<String, Jugador>) ois.readObject();
+        fis.close();
     }
     
     /** Método que actualiza la partida a cada turno que pasa

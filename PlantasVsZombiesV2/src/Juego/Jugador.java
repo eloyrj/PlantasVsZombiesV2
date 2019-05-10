@@ -127,7 +127,7 @@ public class Jugador {
     public void actualizarPartidasJugadas(){
         partidasJugadas = partidas.size();
     }
-    
+
     
     
     

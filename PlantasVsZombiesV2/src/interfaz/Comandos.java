@@ -199,28 +199,8 @@ public class Comandos {
             
     }
     
-    /** Método para plantar un Girasol
-     * @param x filas del tablero
-     * @param y columnas del tablero
-     * @param j partida en curso
-     */
-    public void colGirasol(int x,int y,Juego j){
-        Girasol g = new Girasol();
-        g.addPlanta(x, y, j);
-        j.getPartida().setSoles(j.getPartida().getSoles()-g.getCoste());
-    }
-    
-    /** Método para plantar un LanzaGuisantes
-     * @param x filas del tablero
-     * @param y columnas del tablero
-     * @param j partida en curso
-     */    
-    public void colLaGisantes(int x,int y,Juego j){
-        LanzaGuisantes l = new LanzaGuisantes();
-        l.addPlanta(x, y, j);
-        j.getPartida().setSoles(j.getPartida().getSoles()-l.getCoste());
-    }
-    
+   
+   
     /** Método para salir de la partida
     */
     public void salir(){
