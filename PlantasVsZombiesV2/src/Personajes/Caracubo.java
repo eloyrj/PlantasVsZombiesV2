@@ -22,20 +22,13 @@ public class Caracubo extends Zombie{
         /** Turnos que lleva el Caracubo en la partida*/
         super.setContador(0);
     }
-
-    /**Método que imprimirá un mensaje en caso de que se pierda la partida
-    */
-    public void fin(){
-        System.out.println("por suerte los zombies te mataron, ahora eres uno de ellos disfruta de tu vida de muerto");
-        System.exit(0);
-    }
     
     /** Método que controla el ataque de un zombie Deportista
      * @param j partida
      */
     @Override
     public void actua(Juego j) {
-        if (this.getPosX()==1) fin();
+        if (this.getPosX()==1) j.fin();
         
         
         if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){

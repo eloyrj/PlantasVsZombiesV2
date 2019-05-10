@@ -34,7 +34,7 @@ public class Juego {
     private int turnosTotales;
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
-    
+        /** Atributo que controla los jugadores registrados en el juego*/
     private HashMap<String, Jugador> jugadores = new HashMap<>();
     
 
@@ -100,6 +100,13 @@ public class Juego {
     public void setJugadores(HashMap<String, Jugador> jugadores) {
         this.jugadores = jugadores;
     }
+    /**Método que imprimirá un mensaje en caso de que se pierda la partida
+     */
+    public void fin(){
+        System.out.println("por suerte los zombies te mataron, ahora eres uno de ellos disfruta de tu vida de muerto");
+        System.exit(0);
+    }
+    
     
     public void añadirJugador(Jugador j){
         String dni = j.getDNI();
@@ -120,6 +127,7 @@ public class Juego {
         oos.writeObject(jugadores);
         fos.close();
     }
+    
     public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
         FileInputStream fis = new FileInputStream("fichero.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
@@ -148,15 +156,15 @@ public class Juego {
                     if (getPartida().getTurno()>getPartida().getTurnoInicial() && totalEnemigos < getPartida().getEnemigos() ){
                         int zombiesRonda = (int) (Math.random() * getPartida().getTablero().lonY());
                         int zombiesGenerados=0;
-                        int tipoZombie = (int) (Math.random()*3);
+                        int tipoZombie = (int) (Math.random()*3+1);
                         for (int i = 0; i<zombiesRonda; i++){
                             int pos =(int) (Math.random() * getPartida().getTablero().lonY()) + 1;
                             Zombie z ;
                             switch (tipoZombie) {
-                                case 0:
+                                case 1:
                                     z = new ZombieComun();
                                     break;
-                                case 1:
+                                case 2:
                                     z = new Caracubo();
                                     break;
                                 default:
