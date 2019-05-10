@@ -8,12 +8,8 @@ import Personajes.Caracubo;
 import Personajes.Deportista;
 import Personajes.Zombie;
 import Personajes.ZombieComun;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+
 import java.util.HashMap;
 
 
@@ -113,6 +109,10 @@ public class Juego {
     public Jugador buscarJugador(String dni){
         return jugadores.get(dni);
     } 
+    
+    public void borrarJugador(String dni){
+        jugadores.remove(dni);
+    }
     
     public void guardarDatos() throws FileNotFoundException, IOException{
         FileOutputStream fos = new FileOutputStream("fichero.dat");
