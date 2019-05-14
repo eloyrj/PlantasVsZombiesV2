@@ -1,13 +1,14 @@
 
 package Juego;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Eloy Rodríguez y María Chantal
  */
-public class Jugador {
+public class Jugador implements Serializable{
     private String Nombre;
     private String DNI;
     private ArrayList<Partida> partidas ;

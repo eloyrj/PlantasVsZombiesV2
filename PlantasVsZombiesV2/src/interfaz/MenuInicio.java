@@ -5,17 +5,29 @@
  */
 package interfaz;
 
+import Juego.LecturaEscritura;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+
 /**
  *
  * @author Usuario
  */
 public class MenuInicio extends javax.swing.JFrame {
 
+    private LecturaEscritura lecEscr;
+    
     /**
      * Creates new form MenuInicio
      */
     public MenuInicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -32,6 +44,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Plantas Vs Zombies ");
 
         jLabel1.setFont(new java.awt.Font("Rockwell Nova Extra Bold", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido a Plantas vs Zombies ");
@@ -46,6 +59,11 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Registrarse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,8 +96,24 @@ public class MenuInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        IniSesion iSesion = new IniSesion();
+        try {
+            IniSesion iSesion = new IniSesion(this);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            Registro registro = new Registro(this);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

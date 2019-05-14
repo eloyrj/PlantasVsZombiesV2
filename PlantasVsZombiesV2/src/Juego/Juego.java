@@ -8,9 +8,7 @@ import Personajes.Caracubo;
 import Personajes.Deportista;
 import Personajes.Zombie;
 import Personajes.ZombieComun;
-import java.io.*;
-
-import java.util.HashMap;
+import java.io.Serializable;
 
 
 
@@ -21,7 +19,7 @@ import java.util.HashMap;
 
 /** La clase Juego engloba todos los comandos, excepciones y partidas que habrá al iniciar una partida
 */
-public class Juego {
+public class Juego implements Serializable{
     /** Atributo para controlar los comandos introducidos por teclado de la partida*/
     private Comandos comandos;
     /** Atributo que indica la partida a jugar*/
@@ -34,8 +32,7 @@ public class Juego {
     private int turnosTotales;
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
-        /** Atributo que controla los jugadores registrados en el juego*/
-    private HashMap<String, Jugador> jugadores ;
+        
     
 
 
@@ -46,7 +43,7 @@ public class Juego {
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
         this.excepcionJuego = excepcionJuego;
-        jugadores = new HashMap<>();
+        
     }
 
     public Comandos getComandos() {
@@ -94,13 +91,7 @@ public class Juego {
         this.excepcionJuego = excepcionJuego;
     }
 
-    public HashMap<String, Jugador> getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(HashMap<String, Jugador> jugadores) {
-        this.jugadores = jugadores;
-    }
+    
     /**Método que imprimirá un mensaje en caso de que se pierda la partida
      */
     public void fin(){
@@ -109,32 +100,7 @@ public class Juego {
     }
     
     
-    public void añadirJugador(Jugador j){
-        String dni = j.getDNI();
-        jugadores.put(dni, j);
-    }
     
-    public Jugador buscarJugador(String dni){
-        return jugadores.get(dni);
-    } 
-    
-    public void borrarJugador(String dni){
-        jugadores.remove(dni);
-    }
-    
-    public void guardarDatos() throws FileNotFoundException, IOException{
-        FileOutputStream fos = new FileOutputStream("jugadores.dat");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(jugadores);
-        fos.close();
-    }
-    
-    public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
-        FileInputStream fis = new FileInputStream("jugadores.dat");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        jugadores = (HashMap<String, Jugador>) ois.readObject();
-        fis.close();
-    }
     
     /** Método que actualiza la partida a cada turno que pasa
      * @param j partida en curso

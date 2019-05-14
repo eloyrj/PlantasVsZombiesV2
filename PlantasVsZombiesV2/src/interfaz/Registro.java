@@ -4,26 +4,24 @@
  * and open the template in the editor.
  */
 package interfaz;
-
 import Juego.Jugador;
 import Juego.LecturaEscritura;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author eloy
  */
-public class IniSesion extends javax.swing.JFrame {
-    
+public class Registro extends javax.swing.JFrame {
+
+    private LecturaEscritura lecEscr ;
     private MenuInicio inicio;
-    private LecturaEscritura lecEscr;
     /**
-     * Creates new form iniSesion
+     * Creates new form Registro
      */
-    public IniSesion( MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
+    public Registro(MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
         this.inicio = inicio;
         lecEscr = new LecturaEscritura();
         
@@ -32,8 +30,6 @@ public class IniSesion extends javax.swing.JFrame {
         this.setVisible(true);
         lecEscr.leerDatos();
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,22 +40,28 @@ public class IniSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jDialog1 = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
+        jLabel3.setText("NOMBRE");
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog1.setMaximumSize(new java.awt.Dimension(571, 180));
         jDialog1.setMinimumSize(new java.awt.Dimension(571, 180));
 
-        jLabel4.setText("¿ESTAS SEGURO?");
+        jLabel7.setText("¿ESTAS SEGURO?");
 
         jButton2.setText("SI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,10 +85,10 @@ public class IniSesion extends javax.swing.JFrame {
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGap(212, 212, 212)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel7)))
                 .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(jDialog1Layout.createSequentialGroup()
                 .addGap(139, 139, 139)
@@ -99,11 +101,11 @@ public class IniSesion extends javax.swing.JFrame {
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialog1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(jLabel7)
                         .addGap(50, 50, 50))
                     .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -112,22 +114,24 @@ public class IniSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(246, 249, 251));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMinimumSize(new java.awt.Dimension(200, 200));
 
         jPanel1.setBackground(new java.awt.Color(28, 134, 230));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("INICIAR SESIÓN");
+        jLabel1.setText("REGISTRARSE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(143, 143, 143))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,14 +141,17 @@ public class IniSesion extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
-        jLabel2.setText("DNI");
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
+        jLabel4.setText("DNI");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextField3ActionPerformed(evt);
             }
         });
+
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
+        jLabel5.setText("NOMBRE");
 
         jButton1.setText("ACEPTAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,50 +168,65 @@ public class IniSesion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(279, 279, 279)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jButton1)))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(75, 75, 75))
+                .addGap(49, 49, 49))
         );
 
-        setBounds(0, 0, 688, 452);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String dni = jTextField1.getText();
+        String dni = jTextField3.getText();
+        String nombre = jTextField4.getText();
+        lecEscr.añadirJugador(new Jugador(nombre,dni));
+        try {
+            lecEscr.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Jugador j = lecEscr.buscarJugador(dni);
-        jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
+        jLabel6.setText("Estas apunto de registrarte como: "+ j.getNombre()+" con DNI: "+j.getDNI());
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField1.getText()));
+        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText()));
         inicio.setVisible(false);
         this.dispose();
         jDialog1.dispose();
-        
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -228,33 +250,28 @@ public class IniSesion extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IniSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IniSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IniSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IniSesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new IniSesion(new MenuInicio()).setVisible(true);
+                    new Registro(new MenuInicio()).setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(IniSesion.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(IniSesion.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-    }
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {                                  
-
-        inicio.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -263,10 +280,13 @@ public class IniSesion extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
