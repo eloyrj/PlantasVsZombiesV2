@@ -35,7 +35,7 @@ public class Juego {
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
         /** Atributo que controla los jugadores registrados en el juego*/
-    private HashMap<String, Jugador> jugadores = new HashMap<>();
+    private HashMap<String, Jugador> jugadores ;
     
 
 
@@ -46,6 +46,7 @@ public class Juego {
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
         this.excepcionJuego = excepcionJuego;
+        jugadores = new HashMap<>();
     }
 
     public Comandos getComandos() {
@@ -122,14 +123,14 @@ public class Juego {
     }
     
     public void guardarDatos() throws FileNotFoundException, IOException{
-        FileOutputStream fos = new FileOutputStream("fichero.dat");
+        FileOutputStream fos = new FileOutputStream("jugadores.dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(jugadores);
         fos.close();
     }
     
     public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
-        FileInputStream fis = new FileInputStream("fichero.dat");
+        FileInputStream fis = new FileInputStream("jugadores.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
         jugadores = (HashMap<String, Jugador>) ois.readObject();
         fis.close();

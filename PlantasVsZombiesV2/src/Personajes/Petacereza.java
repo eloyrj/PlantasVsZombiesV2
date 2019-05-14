@@ -20,7 +20,7 @@ public class Petacereza extends Planta {
         super.setVida(2);
         /** Cuesta 50 soles*/
         super.setCoste(50);
-        /** Lanza un guisante por turno*/
+        /** explota al segundo turno */
         super.setFrecuencia(2);
         /** Le resta una vida al enemigo por lanzamiento*/
         super.setDaño(2);
@@ -41,7 +41,7 @@ public class Petacereza extends Planta {
     @Override
     public void actua(Juego j) {
        if (getContador() % getFrecuencia() ==0){
-            if ( this.getPosY()!= 1){
+            if ( this.getPosY()!= 0){
                 if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
                 }   
@@ -51,13 +51,13 @@ public class Petacereza extends Planta {
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
                 }
             }
-            if ( this.getPosX()!= 1 ){
+            if ( this.getPosX()!= 0 ){
                 if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
                 }
             }
             if ( this.getPosX()!= j.getPartida().getTablero().lonX()){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY()));
                 }
             }
