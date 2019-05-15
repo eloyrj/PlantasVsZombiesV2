@@ -3,6 +3,7 @@ package Personajes;
 
 import Juego.Juego;
 import Excepciones.ExcepcionPlanta;
+import interfaz.Excepciones;
 
 /**
  *

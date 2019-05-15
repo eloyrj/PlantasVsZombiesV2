@@ -242,9 +242,7 @@ public class IniSesion extends javax.swing.JFrame {
             public void run() {
                 try {
                     new IniSesion(new MenuInicio()).setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(IniSesion.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
+                } catch (IOException | ClassNotFoundException ex) {
                     Logger.getLogger(IniSesion.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

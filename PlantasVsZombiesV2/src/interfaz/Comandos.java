@@ -1,7 +1,6 @@
 
 package interfaz;
 
-import Excepciones.ExcepcionJuego;
 import Personajes.Girasol;
 import Juego.Juego;
 import Personajes.LanzaGuisantes;
@@ -46,7 +45,7 @@ public class Comandos {
         
         Comandos c = j.getComandos();
 
-        
+        Excepciones dialog;
 
         /** El comando "G" servirá para plantar un Girasol
          */
@@ -106,9 +105,9 @@ public class Comandos {
             }
             
         }
-        /** El comando "U" servirá para plantar una Nuez
+        /** El comando "N" servirá para plantar una Nuez
          */
-        else if ("U".equals(modo)){
+        else if ("N".equals(modo)){
                 
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
                 if (j.getPartida() != null){
@@ -152,6 +151,7 @@ public class Comandos {
                 
             }
         }
+        else   dialog = new Excepciones(new javax.swing.JFrame(), true,4);
     }
     
     /** Método para crear una nueva partida

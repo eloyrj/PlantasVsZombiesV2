@@ -2,6 +2,7 @@
 package Excepciones;
 
 import Personajes.Personaje;
+import interfaz.Excepciones;
 
 /**
  *
@@ -26,9 +27,10 @@ public class ExcepcionPlanta {
     public boolean costePosible(int coste,int solesTotales){
         if (solesTotales >= coste) return true;
         else {
-            System.out.println("No puedes añadir esto, no tienes suficientes Soles para ello.");
+            Excepciones dialog = new Excepciones(new javax.swing.JFrame(), true,1);
             return false;
         }
+        
     }
     
     /** Método para controlar si la casilla seleccionada por el usuario está libre u ocupada
@@ -38,9 +40,10 @@ public class ExcepcionPlanta {
     public boolean casillaOcupada(Personaje p){
         if (p == null) return true;
         else {
-            System.out.println("Esa casilla esta ocupada, pon otra casilla para continuar");
+            Excepciones dialog = new Excepciones(new javax.swing.JFrame(), true,2);
             return false;
         }
+        
     }
     
     /** Método que controla si se introduce una coordenada fuera del tablero o si es inexistente
@@ -51,12 +54,12 @@ public class ExcepcionPlanta {
      * @return si la posición existe
     */
     public boolean dentroTablero(int x, int y, int lTX,int lTY){
-        
         if (lTX >= x && lTY >= y) return true;
-        else  {
-            System.out.println("Esa posicion no exixte, intoduzca una posicion valida del tablero para continuar.");
+        else {
+            Excepciones dialog = new Excepciones(new javax.swing.JFrame(), true,3);
             return false;
         }
+        
     }
     
     
