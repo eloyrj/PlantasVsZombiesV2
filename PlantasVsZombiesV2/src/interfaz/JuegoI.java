@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import Excepciones.ExcepcionJuego;
+import Juego.Juego;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -14,11 +16,15 @@ import javax.swing.ImageIcon;
  */
 public class JuegoI extends javax.swing.JFrame {
 
+    private Juego juego;
     /**
      * Creates new form Juego
      */
-    public JuegoI() {
+    public JuegoI(Juego j) {
+        juego = j;
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
         jLabel1.setIcon(imagen);
@@ -482,7 +488,7 @@ public class JuegoI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JuegoI().setVisible(true);
+                new JuegoI(new Juego(new Comandos(),new ExcepcionJuego())).setVisible(true);
             }
         });
     }

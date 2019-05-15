@@ -32,6 +32,8 @@ public class Juego implements Serializable{
     private int turnosTotales;
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
+    
+    private Jugador jugador;
         
     
 
@@ -98,6 +100,23 @@ public class Juego implements Serializable{
         System.out.println("por suerte los zombies te mataron, ahora eres uno de ellos disfruta de tu vida de muerto");
         System.exit(0);
     }
+
+    public int getTurnoAnt() {
+        return turnoAnt;
+    }
+
+    public void setTurnoAnt(int turnoAnt) {
+        this.turnoAnt = turnoAnt;
+    }
+
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+    
     
     
     
