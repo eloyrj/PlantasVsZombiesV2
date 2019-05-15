@@ -36,6 +36,7 @@ public class Juego implements Serializable{
     private Jugador jugador;
         
     private boolean fin;
+    private boolean finMalo;
 
 
     /** Constructor de Juego
@@ -45,6 +46,8 @@ public class Juego implements Serializable{
     public Juego(Comandos comandos, ExcepcionJuego excepcionJuego) {
         this.comandos = comandos;
         this.excepcionJuego = excepcionJuego;
+        fin = false;
+        finMalo=false;
         
     }
 
@@ -97,9 +100,17 @@ public class Juego implements Serializable{
     /**Método que imprimirá un mensaje en caso de que se pierda la partida
      */
     public void fin(){
-        System.out.println("por suerte los zombies te mataron, ahora eres uno de ellos disfruta de tu vida de muerto");
-        System.exit(0);
+        finMalo=true;
     }
+
+    public boolean isFinMalo() {
+        return finMalo;
+    }
+
+    public void setFinMalo(boolean finMalo) {
+        this.finMalo = finMalo;
+    }
+    
 
     public int getTurnoAnt() {
         return turnoAnt;
@@ -176,6 +187,11 @@ public class Juego implements Serializable{
                         }
                         totalEnemigos += zombiesGenerados;
                     }                      
+                }
+                for(int i = 0; i<j.getPartida().getTablero().lonY();i++){
+                    if (j.getPartida().getTablero().getTableroPos(1, i+1) != null && j.getPartida().getTablero().getTableroPos(1, i+1) instanceof Zombie){
+                        j.setFinMalo(true);
+                    }
                 }
         }
         

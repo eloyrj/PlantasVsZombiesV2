@@ -189,7 +189,7 @@ public class IniSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String dni = jTextField1.getText();
+        String dni = jTextField1.getText().toUpperCase();
         Jugador j = lecEscr.buscarJugador(dni);
         jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
         jDialog1.setLocationRelativeTo(this);

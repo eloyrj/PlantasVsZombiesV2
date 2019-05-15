@@ -21,7 +21,7 @@ public class Jugador implements Serializable{
         this.Nombre = Nombre;
         this.DNI = DNI;
         puntosTotales = new int[4] ;
-        partidas = new ArrayList<>();
+        partidas = new ArrayList<Partida>();
         
     }
 

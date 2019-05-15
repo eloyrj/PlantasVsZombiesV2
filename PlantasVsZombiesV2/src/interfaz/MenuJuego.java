@@ -9,6 +9,9 @@ import Excepciones.ExcepcionJuego;
 import Juego.Juego;
 import Juego.Jugador;
 import Juego.Partida;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,6 +28,8 @@ public class MenuJuego extends javax.swing.JFrame {
     public MenuJuego(Jugador J) {
         initComponents();
         
+        juego = new Juego(new Comandos(),new ExcepcionJuego()); 
+        juego.setJugador(J);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
@@ -161,8 +166,7 @@ public class MenuJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        juego = new Juego(new Comandos(),new ExcepcionJuego()); 
-        juego.setJugador(j);
+        
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -173,28 +177,52 @@ public class MenuJuego extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         juego.getComandos().nuevaPartida(juego, "FACIL", 9, 5);
-        JuegoI ij = new JuegoI(juego);
+        try {
+            JuegoI ij = new JuegoI(juego);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
         jDialog1.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         juego.getComandos().nuevaPartida(juego, "MEDIA", 9, 5);
-        JuegoI ij = new JuegoI(juego);
+        try {
+            JuegoI ij = new JuegoI(juego);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
         jDialog1.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         juego.getComandos().nuevaPartida(juego, "ALTA", 9, 5);
-        JuegoI ij = new JuegoI(juego);
+        try {
+            JuegoI ij = new JuegoI(juego);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
         jDialog1.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         juego.getComandos().nuevaPartida(juego, "IMPOSIBLE", 9, 5);
-        JuegoI ij = new JuegoI(juego);
+        try {
+            JuegoI ij = new JuegoI(juego);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
         jDialog1.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed

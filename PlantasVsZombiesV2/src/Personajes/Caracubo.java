@@ -28,7 +28,7 @@ public class Caracubo extends Zombie{
      */
     @Override
     public void actua(Juego j) {
-        if (this.getPosX()==1) j.fin();
+        
         
         
         if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){

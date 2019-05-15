@@ -206,8 +206,8 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String dni = jTextField3.getText();
-        String nombre = jTextField4.getText();
+        String dni = jTextField3.getText().toUpperCase();
+        String nombre = jTextField4.getText().toUpperCase();
         lecEscr.añadirJugador(new Jugador(nombre,dni));
         try {
             lecEscr.guardarDatos();
@@ -222,7 +222,7 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText()));
+        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText().toUpperCase()));
         inicio.setVisible(false);
         this.dispose();
         jDialog1.dispose();

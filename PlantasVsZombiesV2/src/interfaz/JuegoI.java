@@ -7,9 +7,12 @@ package interfaz;
 
 import Excepciones.ExcepcionJuego;
 import Juego.Juego;
+import Juego.LecturaEscritura;
 import Juego.Tablero;
 import Personajes.*;
 import java.awt.Image;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -23,13 +26,15 @@ public class JuegoI extends javax.swing.JFrame {
 
     private Juego juego;
     private JLabel[][] tableroI;
-    
+    private LecturaEscritura le;
     /**
      * Creates new form Juego
      */
-    public JuegoI(Juego j) {
+    public JuegoI(Juego j) throws IOException, FileNotFoundException, ClassNotFoundException {
         juego = j;
         tableroI = new JLabel[5][9];
+        le= new LecturaEscritura();
+        le.leerDatos();
         rellenar();
         initComponents();
         this.setLocationRelativeTo(null);
@@ -39,7 +44,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel1.setIcon(imagen);
         jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
         jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
-        
+        juego.setTurnosTotales(juego.getPartida().getTurnoInicial()+30);
 
         
         
@@ -103,6 +108,12 @@ public class JuegoI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gano = new javax.swing.JDialog();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        perdio = new javax.swing.JDialog();
+        jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         c11 = new javax.swing.JLabel();
@@ -155,8 +166,84 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        gano.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        gano.setMaximumSize(new java.awt.Dimension(552, 199));
+        gano.setMinimumSize(new java.awt.Dimension(552, 199));
+
+        jButton2.setText("Aceptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("ENORABUENA, LO HAS CONSEGUIDO , O NO ;)");
+
+        javax.swing.GroupLayout ganoLayout = new javax.swing.GroupLayout(gano.getContentPane());
+        gano.getContentPane().setLayout(ganoLayout);
+        ganoLayout.setHorizontalGroup(
+            ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ganoLayout.createSequentialGroup()
+                .addGroup(ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ganoLayout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jButton2))
+                    .addGroup(ganoLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel4)))
+                .addContainerGap(114, Short.MAX_VALUE))
+        );
+        ganoLayout.setVerticalGroup(
+            ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ganoLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(34, 34, 34))
+        );
+
+        perdio.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        perdio.setMaximumSize(new java.awt.Dimension(579, 199));
+        perdio.setMinimumSize(new java.awt.Dimension(579, 199));
+
+        jButton3.setText("Aceptar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("BUENO LO CONSEGUISTE, HAS LLEGADO AL FINAL DE TU VIDA POR FIN.");
+
+        javax.swing.GroupLayout perdioLayout = new javax.swing.GroupLayout(perdio.getContentPane());
+        perdio.getContentPane().setLayout(perdioLayout);
+        perdioLayout.setHorizontalGroup(
+            perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(perdioLayout.createSequentialGroup()
+                .addGroup(perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(perdioLayout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addComponent(jButton3))
+                    .addGroup(perdioLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5)))
+                .addGap(20, 20, 20))
+        );
+        perdioLayout.setVerticalGroup(
+            perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(perdioLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(34, 34, 34))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
+        setMinimumSize(new java.awt.Dimension(1150, 720));
+        setPreferredSize(new java.awt.Dimension(1150, 720));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(950, 520));
@@ -538,16 +625,15 @@ public class JuegoI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -560,15 +646,59 @@ public class JuegoI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (juego.isFinMalo()) finLose();
         rellenar();
         juego.getComandos().lecturaComando(jTextField1.getText(), juego);
-        
         juego.actualizar(juego);
         actualizarCasillas();
         jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
         jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
         jTextField1.setText(null);
+        if (juego.getPartida() !=null) if (juego.getTurnosTotales() == juego.getPartida().getTurno()) juego.setFin(true);
+        if (juego.isFin()) finWin();
+        if (juego.isFinMalo()) finLose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        juego.getJugador().addPartida(juego.getPartida());
+        
+        try {
+            le.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(JuegoI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        gano.dispose();
+        MenuJuego mj = new MenuJuego(juego.getJugador());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        System.out.println(juego.getJugador().getDNI());
+        if (juego.getPartida()!= null) juego.getJugador().addPartida(juego.getPartida());
+        
+        try {
+            le.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(JuegoI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        perdio.dispose();
+        MenuJuego mj = new MenuJuego(juego.getJugador());
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    public void finWin(){
+        juego.getPartida().ganada();
+        gano.setLocationRelativeTo(this);
+        gano.setVisible(true);
+        
+    }
+    
+    public void finLose(){
+        perdio.setLocationRelativeTo(this);
+        perdio.setVisible(true);
+
+    }
     
     /**
      * @param args the command line arguments
@@ -601,7 +731,11 @@ public class JuegoI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JuegoI(new Juego(new Comandos(),new ExcepcionJuego())).setVisible(true);
+                try {
+                    new JuegoI(new Juego(new Comandos(),new ExcepcionJuego())).setVisible(true);
+                } catch (IOException | ClassNotFoundException ex) {
+                    Logger.getLogger(JuegoI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -653,6 +787,8 @@ public class JuegoI extends javax.swing.JFrame {
             }
         }
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel c11;
@@ -700,11 +836,17 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel c93;
     private javax.swing.JLabel c94;
     private javax.swing.JLabel c95;
+    private javax.swing.JDialog gano;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JDialog perdio;
     // End of variables declaration//GEN-END:variables
 }
