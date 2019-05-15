@@ -41,23 +41,24 @@ public class Petacereza extends Planta {
     @Override
     public void actua(Juego j) {
        if (getContador() % getFrecuencia() ==0){
+            
             if ( this.getPosY()!= 0){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto() && j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) != null){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
                 }   
             }
             if (this.getPosY()!= j.getPartida().getTablero().lonY()){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto() && j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) != null){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
                 }
             }
             if ( this.getPosX()!= 0 ){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto() && j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) != null){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
                 }
             }
             if ( this.getPosX()!= j.getPartida().getTablero().lonX()){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto() && j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) != null){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY()));
                 }
             }

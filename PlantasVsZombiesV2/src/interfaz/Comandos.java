@@ -46,41 +46,25 @@ public class Comandos {
         
         Comandos c = j.getComandos();
 
-        /** El comando "N" servirá para iniciar una nueva partida 
-         */
-        if ("N".equals(modo)){
-            if (j.getExcepcionJuego().puedeCrear(partesEntrada)){
-                int x = Integer.parseInt(partesEntrada[1]);
-                int y = Integer.parseInt(partesEntrada[2]);
-                String dificultad = partesEntrada[3];
-                c = new Comandos();
-                ExcepcionJuego ex = new ExcepcionJuego();
-                if (ex.nivelValido(dificultad) && ex.partidaCreada(j) ){           
-                    nuevaPartida(j,dificultad,x, y);
-                    j.getPartida().getTablero().pintarTablero();
-                    j.setTurnosTotales(j.getPartida().getTurnoInicial()+30);
-                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
-                }
-            }
-        }
+        
 
         /** El comando "G" servirá para plantar un Girasol
          */
-        else if ("G".equals(modo)){
+        if ("G".equals(modo)){
             if (j.getExcepcionJuego().comandoCompleto(partesEntrada)){
                 if (j.getPartida() != null){
                     Girasol g = new Girasol();
                     int x = Integer.parseInt(partesEntrada[1]);
                     int y = Integer.parseInt(partesEntrada[2]);
                     g.addPlanta(x, y, j);
-                    j.getPartida().getTablero().pintarTablero();
+                    
                     g.setPosX(x);
                     g.setPosY(y);
 
 
-                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                    
                 }
-                else System.out.println("tiene que crear una partida primero");
+                
             }
 
         } 
@@ -94,14 +78,14 @@ public class Comandos {
                     int x = Integer.parseInt(partesEntrada[1]);
                     int y = Integer.parseInt(partesEntrada[2]);
                     l.addPlanta(x, y, j);
-                    j.getPartida().getTablero().pintarTablero();
+                    
                     l.setPosX(x);
                     l.setPosY(y);
 
-                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                    
                 }
             }
-            else System.out.println("tiene que crear una partida primero");
+           
         }
         /** El comando "P" servirá para plantar un Petacereza
          */
@@ -113,14 +97,14 @@ public class Comandos {
                     int x = Integer.parseInt(partesEntrada[1]);
                     int y = Integer.parseInt(partesEntrada[2]);
                     l.addPlanta(x, y, j);
-                    j.getPartida().getTablero().pintarTablero();
+                    
                     l.setPosX(x);
                     l.setPosY(y);
 
-                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                    
                 }
             }
-            else System.out.println("tiene que crear una partida primero");
+            
         }
         /** El comando "U" servirá para plantar una Nuez
          */
@@ -132,14 +116,14 @@ public class Comandos {
                     int x = Integer.parseInt(partesEntrada[1]);
                     int y = Integer.parseInt(partesEntrada[2]);
                     l.addPlanta(x, y, j);
-                    j.getPartida().getTablero().pintarTablero();
+                    
                     l.setPosX(x);
                     l.setPosY(y);
 
-                    System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                    
                 }
             }
-            else System.out.println("tiene que crear una partida primero");
+            
         }
         
         /** El comando "S" servirá para salir de la partida
@@ -165,8 +149,7 @@ public class Comandos {
         else if ("".equals(modo)){
             if (j.getPartida() != null){
                 j.getPartida().setTurno(j.getPartida().getTurno()+1);
-                j.getPartida().getTablero().pintarTablero();
-                System.out.println("tienes "+ j.getPartida().getSoles() + " soles y estas en el turno " + j.getPartida().getTurno());
+                
             }
         }
     }
