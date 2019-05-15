@@ -45,6 +45,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Plantas Vs Zombies ");
+        setMinimumSize(new java.awt.Dimension(1080, 720));
 
         jLabel1.setFont(new java.awt.Font("Rockwell Nova Extra Bold", 0, 36)); // NOI18N
         jLabel1.setText("Bienvenido a Plantas vs Zombies ");

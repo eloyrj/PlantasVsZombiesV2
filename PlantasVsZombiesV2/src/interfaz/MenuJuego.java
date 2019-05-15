@@ -47,7 +47,6 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jDialog1.setMaximumSize(new java.awt.Dimension(601, 193));
         jDialog1.setMinimumSize(new java.awt.Dimension(601, 193));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
