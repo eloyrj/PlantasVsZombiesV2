@@ -35,7 +35,7 @@ public class Juego implements Serializable{
     
     private Jugador jugador;
         
-    
+    private boolean fin;
 
 
     /** Constructor de Juego
@@ -116,6 +116,15 @@ public class Juego implements Serializable{
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
+
+    public boolean isFin() {
+        return fin;
+    }
+
+    public void setFin(boolean fin) {
+        this.fin = fin;
+    }
+    
     
     
     

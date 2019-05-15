@@ -10,6 +10,8 @@ import Juego.Juego;
 import Juego.Tablero;
 import Personajes.*;
 import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -21,6 +23,7 @@ public class JuegoI extends javax.swing.JFrame {
 
     private Juego juego;
     private JLabel[][] tableroI;
+    
     /**
      * Creates new form Juego
      */
@@ -34,6 +37,12 @@ public class JuegoI extends javax.swing.JFrame {
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
         jLabel1.setIcon(imagen);
+        jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
+        jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
+        
+
+        
+        
     }
     public void rellenar(){
         tableroI[0][0]= c11;
@@ -141,6 +150,10 @@ public class JuegoI extends javax.swing.JFrame {
         c93 = new javax.swing.JLabel();
         c94 = new javax.swing.JLabel();
         c95 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
@@ -485,6 +498,19 @@ public class JuegoI extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Enviar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
+        jLabel2.setText("1");
+
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 48)); // NOI18N
+        jLabel3.setText("1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -496,20 +522,53 @@ public class JuegoI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1366, 1366, 1366))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(401, 401, 401)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton1)
+                .addGap(487, 487, 487))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(1086, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(223, 223, 223)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)))
+                .addGap(29, 29, 29))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(615, 615, 615)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        rellenar();
+        juego.getComandos().lecturaComando(jTextField1.getText(), juego);
+        
+        juego.actualizar(juego);
+        actualizarCasillas();
+        jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
+        jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
+        jTextField1.setText(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -546,47 +605,51 @@ public class JuegoI extends javax.swing.JFrame {
             }
         });
     }
+    
+   
+    
     public void actualizarCasillas(){
         Tablero t = juego.getPartida().getTablero();
         for (int i = 0; i<t.lonY();i++){
             for (int j = 0 ;j<t.lonX();j++){
-                if (t.getTableroPos(j, i)!= null){
-                    if (t.getTableroPos(j, i) instanceof Girasol ){
+                if (t.getTableroPos(j+1, i+1)!= null){
+                    if (t.getTableroPos(j+1, i+1) instanceof Girasol ){
                         ImageIcon f = new ImageIcon("src/img/girasol.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof LanzaGuisantes ){
+                    else if (t.getTableroPos(j+1, i+1) instanceof LanzaGuisantes ){
                         ImageIcon f = new ImageIcon("src/img/Lanzagisantes.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof Nuez ){
+                    else if (t.getTableroPos(j+1, i+1) instanceof Nuez ){
                         ImageIcon f = new ImageIcon("src/img/nuez.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof Petacereza ){
+                    else if (t.getTableroPos(j+1, i+1) instanceof Petacereza ){
                         ImageIcon f = new ImageIcon("src/img/petacereza.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof ZombieComun){
+                    else if (t.getTableroPos(j+1, i+1) instanceof ZombieComun){
                         ImageIcon f = new ImageIcon("src/img/zombiecomun.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof Deportista ){
+                    else if (t.getTableroPos(j+1, i+1) instanceof Deportista ){
                         ImageIcon f = new ImageIcon("src/img/deportista.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
-                    if (t.getTableroPos(j, i) instanceof Caracubo ){
+                    else if (t.getTableroPos(j+1, i+1) instanceof Caracubo ){
                         ImageIcon f = new ImageIcon("src/img/caracubo.png");
                         ImageIcon h = new ImageIcon(f.getImage().getScaledInstance(tableroI[i][j].getWidth(), tableroI[i][j].getHeight(), Image.SCALE_DEFAULT));
                         tableroI[i][j].setIcon(h);
                     }
                 }
+                else tableroI[i][j].setIcon(null);
             }
         }
     }
@@ -637,7 +700,11 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel c93;
     private javax.swing.JLabel c94;
     private javax.swing.JLabel c95;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

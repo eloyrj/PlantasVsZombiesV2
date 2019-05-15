@@ -23,12 +23,12 @@ public class main {
         System.out.println("Bienvenido a Plantas Vs Zombies: ");
         
         while(!fin){
-            j.actualizar(j);
+            
             
             System.out.println("Teclea ayuda para lista de comandos. <enter> para terminar el turno.");
             String entrada = scan.nextLine();
             comandos.lecturaComando(entrada,j);
-            
+            j.actualizar(j);
             if (j.getPartida() !=null) {
                 
                 if (j.getTurnosTotales() == j.getPartida().getTurno()) fin =true;

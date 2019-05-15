@@ -181,19 +181,19 @@ public class Comandos {
         Tablero t = new Tablero(x,y);
 
         if (Dificultad.equals("BAJA")){
-            Partida p = new Partida(50,1,Dificultad,t,5,10);  
+            Partida p = new Partida(50,0,Dificultad,t,5,10);  
             j.setPartida(p);
         }
         else if (Dificultad.equals("MEDIA")){
-            Partida p = new Partida(50,1,Dificultad,t,15,7);
+            Partida p = new Partida(50,0,Dificultad,t,15,7);
             j.setPartida(p);
         }
         else if (todoMayus(Dificultad).equals("ALTA")){
-            Partida p = new Partida(50,1,Dificultad,t,25,5);  
+            Partida p = new Partida(50,0,Dificultad,t,25,5);  
             j.setPartida(p);
         }
         else if (todoMayus(Dificultad).equals("IMPOSIBLE")){
-            Partida p = new Partida(50,1,Dificultad,t,50,5);
+            Partida p = new Partida(50,0,Dificultad,t,50,5);
             j.setPartida(p);
         }
             
