@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 /**
  *
  * @author eloy
@@ -28,6 +29,7 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this.inicio);
         this.setVisible(true);
+        this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         lecEscr.leerDatos();
     }
 

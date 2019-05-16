@@ -13,9 +13,6 @@
     <Container class="javax.swing.JDialog" name="jDialog1">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[571, 180]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[571, 180]"/>
         </Property>

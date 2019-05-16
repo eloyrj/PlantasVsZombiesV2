@@ -9,6 +9,7 @@ import Juego.LecturaEscritura;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 
 
@@ -26,7 +27,7 @@ public class MenuInicio extends javax.swing.JFrame {
     public MenuInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         
     }
 

@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author eloy
@@ -21,6 +23,10 @@ public class Excepciones extends javax.swing.JDialog {
         jDialog2.setLocationRelativeTo(parent);
         jDialog3.setLocationRelativeTo(parent);
         jDialog4.setLocationRelativeTo(parent);
+        jDialog1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jDialog2.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jDialog3.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jDialog4.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         if (t==1)jDialog1.setVisible(true);
         if (t==2)jDialog2.setVisible(true);
         if (t==3)jDialog3.setVisible(true);

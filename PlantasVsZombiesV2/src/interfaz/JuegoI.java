@@ -38,6 +38,7 @@ public class JuegoI extends javax.swing.JFrame {
         rellenar();
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         this.setVisible(true);
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
@@ -896,6 +897,7 @@ public class JuegoI extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         ayuda.setLocationRelativeTo(this);
+        ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ayuda.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -905,6 +907,7 @@ public class JuegoI extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         normas.setLocationRelativeTo(this);
+        normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         normas.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -916,12 +919,14 @@ public class JuegoI extends javax.swing.JFrame {
         juego.getPartida().ganada();
         juego.getPartida().calcularPuntos();
         gano.setLocationRelativeTo(this);
+        gano.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         gano.setVisible(true);
         
     }
     
     public void finLose(){
         perdio.setLocationRelativeTo(this);
+        perdio.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         perdio.setVisible(true);
 
     }
