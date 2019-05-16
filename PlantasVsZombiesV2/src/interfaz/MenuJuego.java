@@ -197,7 +197,7 @@ public class MenuJuego extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
+        this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
