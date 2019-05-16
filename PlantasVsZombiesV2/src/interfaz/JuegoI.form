@@ -24,7 +24,7 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="114" max="32767" attributes="0"/>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -51,7 +51,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ENORABUENA, LO HAS CONSEGUIDO , O NO ;)"/>
+            <Property name="text" type="java.lang.String" value="ENHORABUENA, LO HAS CONSEGUIDO , O NO ;)"/>
           </Properties>
         </Component>
       </SubComponents>

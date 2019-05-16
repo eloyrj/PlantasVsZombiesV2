@@ -199,7 +199,7 @@ public class JuegoI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("ENORABUENA, LO HAS CONSEGUIDO , O NO ;)");
+        jLabel4.setText("ENHORABUENA, LO HAS CONSEGUIDO , O NO ;)");
 
         javax.swing.GroupLayout ganoLayout = new javax.swing.GroupLayout(gano.getContentPane());
         gano.getContentPane().setLayout(ganoLayout);
@@ -213,7 +213,7 @@ public class JuegoI extends javax.swing.JFrame {
                     .addGroup(ganoLayout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(jLabel4)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         ganoLayout.setVerticalGroup(
             ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -914,6 +914,7 @@ public class JuegoI extends javax.swing.JFrame {
     
     public void finWin(){
         juego.getPartida().ganada();
+        juego.getPartida().calcularPuntos();
         gano.setLocationRelativeTo(this);
         gano.setVisible(true);
         

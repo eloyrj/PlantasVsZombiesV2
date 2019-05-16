@@ -1,6 +1,8 @@
 
 package Juego;
 
+import Personajes.Planta;
+
 
 
 /**
@@ -114,7 +116,18 @@ public class Partida {
         this.puntos = puntos;
     }
     
-    
+    public void calcularPuntos(){
+        int puntos = 0;
+        for (int i =0; i<tablero.lonY(); i++){
+            for (int j=0;i < tablero.lonX();j++ ){
+                if(tablero.getTableroPos(j+1, i+1) instanceof Planta){
+                    Planta p = (Planta)tablero.getTableroPos(j+1, i+1);
+                    puntos += p.getCoste();
+                }
+            }
+        }
+        this.puntos = puntos + soles;
+    }
  
     /** Imprime todos los elementos a tener en cuenta dentro de una partida
      * @return los datos de todos estos elementos

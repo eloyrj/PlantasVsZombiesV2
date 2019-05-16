@@ -1,13 +1,11 @@
 
 package interfaz;
 
-import Personajes.Girasol;
+
 import Juego.Juego;
-import Personajes.LanzaGuisantes;
 import Juego.Partida;
 import Juego.Tablero;
-import Personajes.Nuez;
-import Personajes.Petacereza;
+import Personajes.*;
 
 /**
  *
@@ -125,24 +123,6 @@ public class Comandos {
             
         }
         
-        /** El comando "S" servirá para salir de la partida
-         */
-        else if ("S".equals(modo)){
-            salir();
-        }
-        
-        /**El comando "AYUDA" mostrará una lista de los comandos a seguir para poder jugar la partida
-         */
-        else if (entrada.equals("AYUDA")){
-            ayuda();
-        }
-        
-        /** El comando "NORMAS" mostrará una lista con las normas del juego
-         */
-        else if (entrada.equals("NORMAS")){
-            normas();
-        }
-        
         /**El comando servirá para pasar el turno cada vez que el usuario pulse "enter"
          */
         else if ("".equals(modo)){
@@ -182,41 +162,5 @@ public class Comandos {
             
     }
     
-   
-   
-    /** Método para salir de la partida
-    */
-    public void salir(){
-        System.out.println("Hasta Luego. Esperamos que te haya gustado");
-        System.exit(0);
-    }
     
-    /** Método para mostrar la lista de comandos a seguir para poder jugar la partida
-    */
-    public void ayuda(){
-        System.out.println(" ");        
-        System.out.println("N <filas> <columnas> <Dificultad>: Nueva partida (Dificultad: BAJA, MEDIA, ALTA, IMPOSIBLE).");
-        System.out.println("G <fila> <columna>: colocar girasol.");
-        System.out.println("L <fila> <columna>: colocar LanzaGuisantes.");
-        System.out.println("S: Salir de la aplicación");
-        System.out.println("<Enter>: Pasar Turno");
-        System.out.println("ayuda: este comando solicita a la aplicación que muestre la ayuda sobre cómo utilizar los comandos");
-        System.out.println("normas: este comando te permite leer las instrucciones del juego.");
-        System.out.println(" ");
-    }
-    
-    /** Método para mostrar la lista de normas del juego
-    */
-    public void normas() {
-        System.out.println(" ");
-        System.out.println("Normas para jugar a Plantas vs Zombies: ");
-        System.out.println(" ");
-        System.out.println("El objetivo del juego es eliminar a los Zombies que aparecen por la derecha mediante el uso de plantas como armas.");
-        System.out.println("Los soles se usan como unidad de dinero. Necesitas soles para comprar Girasoles y LanzaGuisantes.");
-        System.out.println("Los Girasoles cuestan 20 soles y, a su vez, producen 20 soles más cada 2 turnos de la partida.");
-        System.out.println("Por su parte, los LanzaGuisantes cuestan 50 soles y son los capaces de matar a los zombies.");
-        System.out.println("Para plantarlas, tienes que seleccionar la casilla en la que quieres plantarlo. ¿Cómo? Mediante coordenadas.");
-        System.out.println("Visualiza la casilla en la que quieres plantar y teclea el número de columna y luego de fila. Al pulsar enter aparecerá.");
-        System.out.println(" ");
-    }
 }
