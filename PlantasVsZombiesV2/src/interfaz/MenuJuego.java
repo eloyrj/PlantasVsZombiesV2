@@ -178,7 +178,7 @@ public class MenuJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        juego.getComandos().nuevaPartida(juego, "FACIL", 9, 5);
+        juego.getComandos().nuevaPartida(juego, "BAJA", 9, 5);
         try {
             JuegoI ij = new JuegoI(juego);
         } catch (IOException ex) {

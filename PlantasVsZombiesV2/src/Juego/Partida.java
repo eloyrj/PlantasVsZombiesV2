@@ -118,11 +118,13 @@ public class Partida {
     
     public void calcularPuntos(){
         int puntos = 0;
-        for (int i =0; i<tablero.lonY(); i++){
-            for (int j=0;i < tablero.lonX();j++ ){
-                if(tablero.getTableroPos(j+1, i+1) instanceof Planta){
-                    Planta p = (Planta)tablero.getTableroPos(j+1, i+1);
-                    puntos += p.getCoste();
+        for (int i =1; i<tablero.lonY(); i++){
+            for (int j=1;i == tablero.lonX();j++ ){
+                if (tablero.getTableroPos(j, i)!= null){
+                    if(tablero.getTableroPos(j, i) instanceof Planta){
+                        Planta p = (Planta)tablero.getTableroPos(j, i);
+                        puntos += p.getCoste();
+                    }
                 }
             }
         }
