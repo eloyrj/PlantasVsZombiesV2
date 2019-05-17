@@ -181,9 +181,7 @@ public class MenuJuego extends javax.swing.JFrame {
         juego.getComandos().nuevaPartida(juego, "BAJA", 9, 5);
         try {
             JuegoI ij = new JuegoI(juego);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
@@ -194,9 +192,7 @@ public class MenuJuego extends javax.swing.JFrame {
         juego.getComandos().nuevaPartida(juego, "MEDIA", 9, 5);
         try {
             JuegoI ij = new JuegoI(juego);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.dispose();
@@ -207,9 +203,7 @@ public class MenuJuego extends javax.swing.JFrame {
         juego.getComandos().nuevaPartida(juego, "ALTA", 9, 5);
         try {
             JuegoI ij = new JuegoI(juego);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
@@ -220,9 +214,7 @@ public class MenuJuego extends javax.swing.JFrame {
         juego.getComandos().nuevaPartida(juego, "IMPOSIBLE", 9, 5);
         try {
             JuegoI ij = new JuegoI(juego);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
@@ -258,6 +250,7 @@ public class MenuJuego extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MenuJuego(new Jugador("nombre","dni")).setVisible(true);
             }
