@@ -29,6 +29,7 @@ public class MenuInicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         
+        
     }
 
     /**

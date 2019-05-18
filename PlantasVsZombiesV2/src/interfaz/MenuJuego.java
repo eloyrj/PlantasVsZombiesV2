@@ -9,6 +9,9 @@ import Excepciones.ExcepcionJuego;
 import Juego.Juego;
 import Juego.Jugador;
 import Juego.Partida;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,6 +56,8 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         jDialog1.setMinimumSize(new java.awt.Dimension(601, 193));
 
@@ -126,7 +131,7 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(14, 113, 236));
         jButton1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(254, 254, 254));
-        jButton1.setText("NUEVO JUEGO");
+        jButton1.setText("CAMBIAR DE USUARIO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -143,34 +148,62 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setBackground(new java.awt.Color(14, 113, 236));
+        jButton7.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(254, 254, 254));
+        jButton7.setText("NUEVO JUEGO");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setBackground(new java.awt.Color(14, 113, 236));
+        jButton8.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(254, 254, 254));
+        jButton8.setText("CREAR NUEVO DOC CON TUS DATOS");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(295, 295, 295)
+                .addGap(306, 306, 306)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(331, Short.MAX_VALUE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
+                .addContainerGap(320, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(212, 212, 212))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
+                .addGap(203, 203, 203)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        jDialog1.setLocationRelativeTo(this);
-        jDialog1.setVisible(true);
+        new MenuInicio().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -221,6 +254,47 @@ public class MenuJuego extends javax.swing.JFrame {
         jDialog1.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Jugador j = juego.getJugador();
+        String ruta = "/home/eloy/Documentos/datos_jugador.txt";
+        File datosJugador = new File(ruta);
+        BufferedWriter bw;
+        j.actualizarPartidasGanadas();
+        j.actualizarPartidasJugadas();
+        j.actualizarPartidasPerdidas();
+        j.actualizarPuntosTotales();
+        try {
+            bw = new BufferedWriter(new FileWriter(datosJugador));
+            bw.write("Nombre: "+ j.getNombre());
+            bw.newLine();
+            bw.write("DNI: "+ j.getDNI());
+            bw.newLine();
+            bw.write("Partidas jugadas: "+ j.getPartidasJugadas());
+            bw.newLine();
+            bw.write("Partidas ganadas: "+ j.getPartidasGanadas());
+            bw.newLine();
+            bw.write("Partidas perdidas: "+ j.getPartidasPerdidas());
+            bw.newLine();
+            bw.write("Puntos totales en dificultad baja: "+ j.getPuntosTotales()[0]);
+            bw.newLine();
+            bw.write("Puntos totales en dificultad media: "+ j.getPuntosTotales()[1]);
+            bw.newLine();
+            bw.write("Puntos totales en dificultad dificil: "+ j.getPuntosTotales()[2]);
+            bw.newLine();
+            bw.write("Puntos totales en dificultad imposible: "+ j.getPuntosTotales()[3]);
+            bw.newLine();
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +338,8 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
