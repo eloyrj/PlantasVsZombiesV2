@@ -2,6 +2,7 @@
 package Personajes;
 
 import Juego.Juego;
+import java.io.Serializable;
 
 /**
  *
@@ -9,7 +10,7 @@ import Juego.Juego;
  */
 
 /** Esta clase controlará el ataque de los zombies durante la partida*/
-public class ZombieComun extends Zombie {
+public class ZombieComun extends Zombie implements Serializable{
 
     /** Constructor de ZombieComun
      */

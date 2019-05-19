@@ -8,27 +8,21 @@ package interfaz;
 import Excepciones.ExcepcionJuego;
 import Juego.Juego;
 import Juego.Jugador;
-import Juego.Partida;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 /**
  *
  * @author eloy
  */
-public class MenuJuego extends javax.swing.JFrame {
+public class MenuJuego extends javax.swing.JFrame implements Serializable{
 
     private Jugador j;
     private Juego juego;
@@ -275,10 +269,9 @@ public class MenuJuego extends javax.swing.JFrame {
         String ruta = "/home/eloy/Documentos/datos_jugador.txt";
         File datosJugador = new File(ruta);
         BufferedWriter bw;
-        j.actualizarPartidasGanadas();
-        j.actualizarPartidasJugadas();
-        j.actualizarPartidasPerdidas();
-        j.actualizarPuntosTotales();
+        
+        
+        
         try {
             bw = new BufferedWriter(new FileWriter(datosJugador));
             bw.write("Nombre: "+ j.getNombre());

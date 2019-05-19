@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Jugador implements Serializable{
     private String Nombre;
     private String DNI;
-    private ArrayList<Partida> partidas ;
+    
     private int[] puntosTotales; 
     private int partidasJugadas ;
     private int partidasGanadas;
@@ -21,8 +21,14 @@ public class Jugador implements Serializable{
         this.Nombre = Nombre;
         this.DNI = DNI;
         puntosTotales = new int[4] ;
-        partidas = new ArrayList<Partida>();
         
+        
+    }
+    public void actualizar(Partida p){
+        actualizarPartidasGanadas(p);
+        actualizarPartidasJugadas();
+        actualizarPartidasPerdidas(p);
+        actualizarPuntosTotales(p);
     }
 
     public String getNombre() {
@@ -49,27 +55,27 @@ public class Jugador implements Serializable{
         this.puntosTotales = puntosTotales;
     }
     
-    public void actualizarPuntosTotales(){
-        for (int i = 0;i < partidas.size(); i++){
-            switch(partidas.get(i).getDificultad()){
+    public void actualizarPuntosTotales(Partida p){
+        
+            switch(p.getDificultad()){
                 case("BAJA"):
-                    puntosTotales[0]+=partidas.get(i).getPuntos();
+                    puntosTotales[0]+=p.getPuntos();
                     break;
                     
                 case("MEDIA"):
-                    puntosTotales[1]+=partidas.get(i).getPuntos();
+                    puntosTotales[1]+=p.getPuntos();
                     break;
                     
                 case("ALTA"):
-                    puntosTotales[2]+=partidas.get(i).getPuntos();
+                    puntosTotales[2]+=p.getPuntos();
                     break;
                     
                 case("IMPOSIBLE"):
-                    puntosTotales[3]+=partidas.get(i).getPuntos();
+                    puntosTotales[3]+=p.getPuntos();
                     break;
                 
             }
-        }
+        
     }
 
     public int getPartidasGanadas() {
@@ -80,13 +86,11 @@ public class Jugador implements Serializable{
         this.partidasGanadas = partidasGanadas;
     }
     
-    public void actualizarPartidasGanadas(){
-        int ganadas = 0;
-        for (int i = 0; i<partidas.size(); i++ ){
-            if (partidas.get(i).isGanada())
-                ganadas++;
-        }
-        partidasGanadas = ganadas;
+    public void actualizarPartidasGanadas(Partida p){
+        
+        
+            if (p.isGanada())
+                partidasGanadas += 1;
     }
 
     public int getPartidasPerdidas() {
@@ -97,27 +101,14 @@ public class Jugador implements Serializable{
         this.partidasPerdidas = partidasPerdidas;
     }
     
-    public void actualizarPartidasPerdidas(){
-        int perdidas = 0;
-        for (int i = 0; i<partidas.size(); i++ ){
-            if (!partidas.get(i).isGanada())
-                perdidas++;
-        }
-        partidasPerdidas = perdidas;
+    public void actualizarPartidasPerdidas(Partida p){
+        
+            if (!p.isGanada())
+                partidasPerdidas += 1;
     }
-    public ArrayList<Partida> getPartidas() {
-        return partidas;
-    }
-
-    public void setPartidas(ArrayList<Partida> partidas) {
-        this.partidas = partidas;
-    }
-    public void addPartida(Partida p){
-        partidas.add(p);
-    }
+    
 
     public int getPartidasJugadas() {
-        actualizarPartidasJugadas();
         return partidasJugadas;
     }
 
@@ -126,7 +117,7 @@ public class Jugador implements Serializable{
     }
     
     public void actualizarPartidasJugadas(){
-        partidasJugadas = partidas.size();
+        partidasJugadas ++;
     }
 
     

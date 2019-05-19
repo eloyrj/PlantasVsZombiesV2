@@ -8,6 +8,7 @@ package interfaz;
 import Juego.LecturaEscritura;
 import java.awt.Image;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -18,7 +19,7 @@ import javax.swing.ImageIcon;
  *
  * @author Usuario
  */
-public class MenuInicio extends javax.swing.JFrame {
+public class MenuInicio extends javax.swing.JFrame implements Serializable{
 
     private LecturaEscritura lecEscr;
     

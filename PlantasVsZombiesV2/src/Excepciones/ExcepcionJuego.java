@@ -3,6 +3,7 @@ package Excepciones;
 
 import Juego.Juego;
 import interfaz.Excepciones;
+import java.io.Serializable;
 
 /**
  *
@@ -11,7 +12,7 @@ import interfaz.Excepciones;
 
 /** Controla las posibles excepciones que podemos encontrar en el juego 
 */
-public class ExcepcionJuego extends Exception {
+public class ExcepcionJuego implements Serializable {
     
     
     

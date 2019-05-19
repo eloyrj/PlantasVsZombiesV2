@@ -6,6 +6,7 @@ import Juego.Juego;
 import Juego.Partida;
 import Juego.Tablero;
 import Personajes.*;
+import java.io.Serializable;
 
 /**
  *
@@ -14,7 +15,7 @@ import Personajes.*;
 
 /** La clase Comandos controlará todos los comandos introducidos por teclado
  */
-public class Comandos {
+public class Comandos implements Serializable{
     
 
     /** Constructor de Comandos*/

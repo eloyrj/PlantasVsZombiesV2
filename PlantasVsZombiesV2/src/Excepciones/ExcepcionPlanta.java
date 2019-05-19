@@ -3,6 +3,7 @@ package Excepciones;
 
 import Personajes.Personaje;
 import interfaz.Excepciones;
+import java.io.Serializable;
 
 /**
  *
@@ -11,7 +12,7 @@ import interfaz.Excepciones;
 
 /** Controla las posibles excepciones que podemos encontrar a la hora de plantar las distintas plantas del juego
 */
-public class ExcepcionPlanta {
+public class ExcepcionPlanta implements Serializable{
 
     /** Constructor de ExcepcionPlanta
      */

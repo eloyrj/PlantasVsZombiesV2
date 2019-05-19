@@ -11,15 +11,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  *
  * @author eloy
  */
-public class LecturaEscritura {
+public class LecturaEscritura implements Serializable{
     /** Atributo que controla los jugadores registrados en el juego*/
     private HashMap<String, Jugador> jugadores ;
+    
 
     public LecturaEscritura() {
         jugadores = new HashMap<>();
@@ -46,12 +49,16 @@ public class LecturaEscritura {
     public void borrarJugador(String dni){
         jugadores.remove(dni);
     }
+
+    
+    
     
     public void guardarDatos() throws FileNotFoundException, IOException{
         FileOutputStream fos = new FileOutputStream("jugadores.dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(jugadores);
         fos.close();
+        
     }
     
     public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
@@ -59,5 +66,6 @@ public class LecturaEscritura {
         ObjectInputStream ois = new ObjectInputStream(fis);
         jugadores = (HashMap<String, Jugador>) ois.readObject();
         fis.close();
+        
     }
 }

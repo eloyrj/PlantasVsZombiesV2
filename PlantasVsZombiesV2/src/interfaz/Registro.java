@@ -8,6 +8,7 @@ import Juego.Jugador;
 import Juego.LecturaEscritura;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -15,7 +16,7 @@ import javax.swing.ImageIcon;
  *
  * @author eloy
  */
-public class Registro extends javax.swing.JFrame {
+public class Registro extends javax.swing.JFrame implements Serializable{
 
     private LecturaEscritura lecEscr ;
     private MenuInicio inicio;
@@ -211,12 +212,14 @@ public class Registro extends javax.swing.JFrame {
         String dni = jTextField3.getText().toUpperCase();
         String nombre = jTextField4.getText().toUpperCase();
         lecEscr.añadirJugador(new Jugador(nombre,dni));
+        Jugador j = lecEscr.buscarJugador(dni);
+        /*lecEscr.añadirPartida(j)*/;
         try {
             lecEscr.guardarDatos();
         } catch (IOException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Jugador j = lecEscr.buscarJugador(dni);
+        
         jLabel6.setText("Estas apunto de registrarte como: "+ j.getNombre()+" con DNI: "+j.getDNI());
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);

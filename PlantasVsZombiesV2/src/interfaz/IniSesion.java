@@ -9,6 +9,7 @@ import Juego.Jugador;
 import Juego.LecturaEscritura;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -17,7 +18,7 @@ import javax.swing.ImageIcon;
  *
  * @author eloy
  */
-public class IniSesion extends javax.swing.JFrame {
+public class IniSesion extends javax.swing.JFrame implements Serializable{
     
     private MenuInicio inicio;
     private LecturaEscritura lecEscr;
@@ -193,13 +194,17 @@ public class IniSesion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String dni = jTextField1.getText().toUpperCase();
         Jugador j = lecEscr.buscarJugador(dni);
+        /*j.setPartidas(lecEscr.buscarPartida(dni));*/
         jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField1.getText()));
+        String dni = jTextField1.getText().toUpperCase();
+        Jugador j = lecEscr.buscarJugador(dni);
+        /*j.setPartidas(lecEscr.buscarPartida(dni));*/
+        MenuJuego mj = new MenuJuego(j);
         inicio.setVisible(false);
         this.dispose();
         jDialog1.dispose();

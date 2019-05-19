@@ -13,6 +13,7 @@ import Personajes.*;
 import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -22,7 +23,7 @@ import javax.swing.JLabel;
  *
  * @author eloy
  */
-public class JuegoI extends javax.swing.JFrame {
+public class JuegoI extends javax.swing.JFrame implements Serializable{
 
     private Juego juego;
     private JLabel[][] tableroI;
@@ -814,7 +815,9 @@ public class JuegoI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        juego.getJugador().addPartida(juego.getPartida());
+        juego.getJugador().actualizar(juego.getPartida());
+        le.borrarJugador(juego.getJugador().getDNI());
+        le.añadirJugador(juego.getJugador());
         
         try {
             le.guardarDatos();
@@ -828,7 +831,9 @@ public class JuegoI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        if (juego.getPartida()!= null) juego.getJugador().addPartida(juego.getPartida());
+        juego.getJugador().actualizar(juego.getPartida());
+        le.borrarJugador(juego.getJugador().getDNI());
+        le.añadirJugador(juego.getJugador());
         
         try {
             le.guardarDatos();

@@ -5,13 +5,14 @@
  */
 package interfaz;
 
+import java.io.Serializable;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author eloy
  */
-public class Excepciones extends javax.swing.JDialog {
+public class Excepciones extends javax.swing.JDialog implements Serializable{
 
     /**
      * Creates new form Excepciones

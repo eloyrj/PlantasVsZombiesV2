@@ -2,12 +2,13 @@
 package Personajes;
 
 import Juego.Juego;
+import java.io.Serializable;
 
 /**
  *
  * @author Eloy Rodríguez y María Chantal
  */
-public class Deportista extends Zombie{
+public class Deportista extends Zombie implements Serializable{
     
         /** Constructor de Zombie Deportista
          */

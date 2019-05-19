@@ -4,6 +4,7 @@ package Personajes;
 import Juego.Juego;
 import Excepciones.ExcepcionPlanta;
 import interfaz.Excepciones;
+import java.io.Serializable;
 
 /**
  *
@@ -12,7 +13,7 @@ import interfaz.Excepciones;
 
 /** Esta clase controlará a los LanzaGuisantes dentro de la partida
 */
-public class LanzaGuisantes extends Planta {
+public class LanzaGuisantes extends Planta implements Serializable{
     
     /** Constructor de LanzaGuisantes
      */
