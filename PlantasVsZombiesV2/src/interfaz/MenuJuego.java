@@ -290,8 +290,10 @@ public class MenuJuego extends javax.swing.JFrame {
 
     private void NuevoDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoDocActionPerformed
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.TXT", "txt");
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.txt", "txt");
         fc.setFileFilter(filtro);
+        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("*.doc", "doc");
+        fc.setFileFilter(filtro2);
         fc.setSelectedFile(new File("Datos_Jugador"));
         int seleccion=fc.showOpenDialog(jFrame1);
         
