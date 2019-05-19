@@ -2,13 +2,12 @@
 package Personajes;
 
 import Juego.Juego;
-import java.io.Serializable;
 
 /**
  *
  * @author Eloy Rodríguez y María Chantal
  */
-public class Caracubo extends Zombie implements Serializable{
+public class Caracubo extends Zombie {
     
     /** Constructor de zombie Caracubo
      */

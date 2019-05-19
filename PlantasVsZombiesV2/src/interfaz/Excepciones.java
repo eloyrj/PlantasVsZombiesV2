@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
  *
  * @author eloy
  */
-public class Excepciones extends javax.swing.JDialog implements Serializable{
+public class Excepciones extends javax.swing.JDialog {
 
     /**
      * Creates new form Excepciones

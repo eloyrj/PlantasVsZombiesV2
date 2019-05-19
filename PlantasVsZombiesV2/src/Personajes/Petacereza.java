@@ -7,13 +7,12 @@ package Personajes;
 
 import Excepciones.ExcepcionPlanta;
 import Juego.Juego;
-import java.io.Serializable;
 
 /**
  *
  * @author corte
  */
-public class Petacereza extends Planta implements Serializable{
+public class Petacereza extends Planta {
 
     public Petacereza() {
         super();

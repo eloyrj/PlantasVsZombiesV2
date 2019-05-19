@@ -9,7 +9,6 @@ import Juego.Jugador;
 import Juego.LecturaEscritura;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -18,7 +17,7 @@ import javax.swing.ImageIcon;
  *
  * @author eloy
  */
-public class IniSesion extends javax.swing.JFrame implements Serializable{
+public class IniSesion extends javax.swing.JFrame {
     
     private MenuInicio inicio;
     private LecturaEscritura lecEscr;

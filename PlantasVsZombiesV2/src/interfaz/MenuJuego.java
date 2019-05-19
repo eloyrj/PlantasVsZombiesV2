@@ -13,7 +13,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -22,7 +21,7 @@ import javax.swing.ImageIcon;
  *
  * @author eloy
  */
-public class MenuJuego extends javax.swing.JFrame implements Serializable{
+public class MenuJuego extends javax.swing.JFrame {
 
     private Jugador j;
     private Juego juego;

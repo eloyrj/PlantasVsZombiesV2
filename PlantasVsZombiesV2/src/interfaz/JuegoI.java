@@ -13,7 +13,6 @@ import Personajes.*;
 import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -23,7 +22,7 @@ import javax.swing.JLabel;
  *
  * @author eloy
  */
-public class JuegoI extends javax.swing.JFrame implements Serializable{
+public class JuegoI extends javax.swing.JFrame {
 
     private Juego juego;
     private JLabel[][] tableroI;

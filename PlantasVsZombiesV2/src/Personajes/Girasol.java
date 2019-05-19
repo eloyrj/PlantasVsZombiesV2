@@ -2,7 +2,6 @@
 package Personajes;
 
 import Juego.Juego;
-import java.io.Serializable;
 
 /**
  *
@@ -11,7 +10,7 @@ import java.io.Serializable;
 
 /** Esta clase controlará el efecto de los Girasoles dentro de la partida
 */
-public class Girasol extends Planta implements Serializable{
+public class Girasol extends Planta {
 
     /** Constructor de Girasol
      */

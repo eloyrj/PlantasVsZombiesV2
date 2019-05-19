@@ -2,7 +2,6 @@
 package Juego;
 
 import Personajes.Personaje;
-import java.io.Serializable;
 
 /**
  *
@@ -11,7 +10,7 @@ import java.io.Serializable;
 
 /** La clase Tablero creará un tablero (array) a partir de las preferencias del usuario 
  */
-public class Tablero implements Serializable{
+public class Tablero {
     
     /** Atributo que introduce un personaje en el tablero
      */

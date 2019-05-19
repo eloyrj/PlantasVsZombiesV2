@@ -3,7 +3,6 @@ package Personajes;
 
 import Juego.Juego;
 import Excepciones.ExcepcionPlanta;
-import java.io.Serializable;
 
 /**
  *
