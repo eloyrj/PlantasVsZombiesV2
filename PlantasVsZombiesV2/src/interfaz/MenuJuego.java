@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -77,6 +79,8 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jFrame1 = new javax.swing.JFrame();
+        fc = new javax.swing.JFileChooser();
         CambiarUsuario = new javax.swing.JButton();
         Clasificacion = new javax.swing.JButton();
         NuevoJ = new javax.swing.JButton();
@@ -150,8 +154,29 @@ public class MenuJuego extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
         );
 
+        fc.setMaximumSize(new java.awt.Dimension(513, 424));
+        fc.setMinimumSize(new java.awt.Dimension(513, 424));
+        fc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fcActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addComponent(fc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1080, 720));
+        setMinimumSize(new java.awt.Dimension(1078, 744));
         getContentPane().setLayout(null);
 
         CambiarUsuario.setBackground(new java.awt.Color(14, 113, 236));
@@ -197,7 +222,7 @@ public class MenuJuego extends javax.swing.JFrame {
         getContentPane().add(NuevoDoc);
         NuevoDoc.setBounds(550, 440, 340, 82);
         getContentPane().add(menuJ);
-        menuJ.setBounds(-30, 10, 1090, 730);
+        menuJ.setBounds(0, 10, 1080, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,39 +289,53 @@ public class MenuJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_NuevoJActionPerformed
 
     private void NuevoDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoDocActionPerformed
-        Jugador j = juego.getJugador();
-        String ruta = "/home/eloy/Documentos/datos_jugador.txt";
-        File datosJugador = new File(ruta);
-        BufferedWriter bw;
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.TXT", "txt");
+        fc.setFileFilter(filtro);
+        fc.setSelectedFile(new File("Datos_Jugador"));
+        int seleccion=fc.showOpenDialog(jFrame1);
         
-        
-        
-        try {
-            bw = new BufferedWriter(new FileWriter(datosJugador));
-            bw.write("Nombre: "+ j.getNombre());
-            bw.newLine();
-            bw.write("DNI: "+ j.getDNI());
-            bw.newLine();
-            bw.write("Partidas jugadas: "+ j.getPartidasJugadas());
-            bw.newLine();
-            bw.write("Partidas ganadas: "+ j.getPartidasGanadas());
-            bw.newLine();
-            bw.write("Partidas perdidas: "+ j.getPartidasPerdidas());
-            bw.newLine();
-            bw.write("Puntos totales en dificultad baja: "+ j.getPuntosTotales()[0]);
-            bw.newLine();
-            bw.write("Puntos totales en dificultad media: "+ j.getPuntosTotales()[1]);
-            bw.newLine();
-            bw.write("Puntos totales en dificultad dificil: "+ j.getPuntosTotales()[2]);
-            bw.newLine();
-            bw.write("Puntos totales en dificultad imposible: "+ j.getPuntosTotales()[3]);
-            bw.newLine();
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        if(seleccion==JFileChooser.APPROVE_OPTION){
+            File fichero=fc.getSelectedFile();
+            
+            Jugador j = juego.getJugador();
+            String ruta = fichero.getAbsolutePath();
+            File datosJugador = new File(ruta);
+            BufferedWriter bw;
+
+
+
+            try {
+                bw = new BufferedWriter(new FileWriter(datosJugador));
+                bw.write("Nombre: "+ j.getNombre());
+                bw.newLine();
+                bw.write("DNI: "+ j.getDNI());
+                bw.newLine();
+                bw.write("Partidas jugadas: "+ j.getPartidasJugadas());
+                bw.newLine();
+                bw.write("Partidas ganadas: "+ j.getPartidasGanadas());
+                bw.newLine();
+                bw.write("Partidas perdidas: "+ j.getPartidasPerdidas());
+                bw.newLine();
+                bw.write("Puntos totales en dificultad baja: "+ j.getPuntosTotales()[0]);
+                bw.newLine();
+                bw.write("Puntos totales en dificultad media: "+ j.getPuntosTotales()[1]);
+                bw.newLine();
+                bw.write("Puntos totales en dificultad dificil: "+ j.getPuntosTotales()[2]);
+                bw.newLine();
+                bw.write("Puntos totales en dificultad imposible: "+ j.getPuntosTotales()[3]);
+                bw.newLine();
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_NuevoDocActionPerformed
+
+    private void fcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcActionPerformed
+        
+    }//GEN-LAST:event_fcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,11 +378,13 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton Clasificacion;
     private javax.swing.JButton NuevoDoc;
     private javax.swing.JButton NuevoJ;
+    private javax.swing.JFileChooser fc;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel menuJ;
     // End of variables declaration//GEN-END:variables
