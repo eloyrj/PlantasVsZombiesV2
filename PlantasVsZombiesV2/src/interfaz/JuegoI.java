@@ -47,8 +47,8 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
         juego.setTurnosTotales(juego.getPartida().getTurnoInicial()+30);
         ImageIcon tablero = new ImageIcon("src/img/tablero.jpg");
-        ImageIcon cesped = new ImageIcon(tablero.getImage().getScaledInstance(jLabel21.getWidth(), jLabel21.getHeight(),Image.SCALE_DEFAULT));
-        jLabel21.setIcon(cesped);
+        ImageIcon cesped = new ImageIcon(tablero.getImage().getScaledInstance(tableroJ.getWidth(), tableroJ.getHeight(),Image.SCALE_DEFAULT));
+        tableroJ.setIcon(cesped);
         
         
     }
@@ -183,7 +183,7 @@ public class JuegoI extends javax.swing.JFrame {
         c93 = new javax.swing.JLabel();
         c94 = new javax.swing.JLabel();
         c95 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        tableroJ = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -700,8 +700,14 @@ public class JuegoI extends javax.swing.JFrame {
         c95.setRequestFocusEnabled(false);
         jPanel1.add(c95);
         c95.setBounds(820, 418, 94, 93);
-        jPanel1.add(jLabel21);
-        jLabel21.setBounds(0, 0, 940, 540);
+        jPanel1.add(tableroJ);
+        tableroJ.setBounds(0, 0, 940, 540);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -853,6 +859,10 @@ public class JuegoI extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         ayuda.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
     
     public void finWin(){
         juego.getPartida().ganada();
@@ -1028,7 +1038,6 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1042,5 +1051,6 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog normas;
     private javax.swing.JDialog perdio;
+    private javax.swing.JLabel tableroJ;
     // End of variables declaration//GEN-END:variables
 }

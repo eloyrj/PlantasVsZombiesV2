@@ -30,8 +30,8 @@ public class MenuInicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ImageIcon portada = new ImageIcon("src/img/portada.jpg");
-        ImageIcon imagen = new ImageIcon(portada.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(),Image.SCALE_DEFAULT));
-        jLabel2.setIcon(imagen);
+        ImageIcon imagen = new ImageIcon(portada.getImage().getScaledInstance(portadaI.getWidth(), portadaI.getHeight(),Image.SCALE_DEFAULT));
+        portadaI.setIcon(imagen);
         
         
     }
@@ -47,7 +47,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        portadaI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Plantas Vs Zombies ");
@@ -73,8 +73,8 @@ public class MenuInicio extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2);
         jButton2.setBounds(570, 460, 190, 85);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 1090, 730);
+        getContentPane().add(portadaI);
+        portadaI.setBounds(0, 0, 1090, 730);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -137,6 +137,6 @@ public class MenuInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel portadaI;
     // End of variables declaration//GEN-END:variables
 }
