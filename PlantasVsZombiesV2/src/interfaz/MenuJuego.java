@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -43,6 +44,7 @@ public class MenuJuego extends javax.swing.JFrame {
         ImageIcon indice = new ImageIcon("src/img/indice.jpg");
         ImageIcon inicio = new ImageIcon(indice.getImage().getScaledInstance(menuJ.getWidth(), menuJ.getHeight(),Image.SCALE_DEFAULT));
         menuJ.setIcon(inicio);
+        
 
     }
     public void botonesTransparentes(){
@@ -81,6 +83,9 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jFrame1 = new javax.swing.JFrame();
         fc = new javax.swing.JFileChooser();
+        jFrame2 = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        clasificacion = new javax.swing.JTable();
         CambiarUsuario = new javax.swing.JButton();
         Clasificacion = new javax.swing.JButton();
         NuevoJ = new javax.swing.JButton();
@@ -175,6 +180,65 @@ public class MenuJuego extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame2.setMinimumSize(new java.awt.Dimension(911, 616));
+
+        clasificacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        clasificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clasificacionMouseClicked(evt);
+            }
+        });
+        clasificacion.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                clasificacionInputMethodTextChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(clasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(clasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 32, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame2Layout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1078, 744));
         getContentPane().setLayout(null);
@@ -233,7 +297,18 @@ public class MenuJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_CambiarUsuarioActionPerformed
 
     private void ClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClasificacionActionPerformed
-        // TODO add your handling code here:
+        Clasificacion tblC;
+        try {
+            tblC = new Clasificacion();
+            tblC.setLocationRelativeTo(this);
+            tblC.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_ClasificacionActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -334,10 +409,19 @@ public class MenuJuego extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_NuevoDocActionPerformed
-
+    
+    
     private void fcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fcActionPerformed
         
     }//GEN-LAST:event_fcActionPerformed
+
+    private void clasificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clasificacionMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clasificacionMouseClicked
+
+    private void clasificacionInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_clasificacionInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clasificacionInputMethodTextChanged
 
     
 
@@ -346,6 +430,7 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton Clasificacion;
     private javax.swing.JButton NuevoDoc;
     private javax.swing.JButton NuevoJ;
+    private javax.swing.JTable clasificacion;
     private javax.swing.JFileChooser fc;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -353,7 +438,9 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel menuJ;
     // End of variables declaration//GEN-END:variables
 }

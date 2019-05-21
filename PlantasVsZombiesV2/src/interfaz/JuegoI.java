@@ -5,7 +5,6 @@
  */
 package interfaz;
 
-import Excepciones.ExcepcionJuego;
 import Juego.Juego;
 import Juego.LecturaEscritura;
 import Juego.Tablero;
