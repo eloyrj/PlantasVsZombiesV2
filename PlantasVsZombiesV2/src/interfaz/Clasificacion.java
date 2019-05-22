@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -30,6 +31,7 @@ public class Clasificacion extends javax.swing.JFrame {
         le = new LecturaEscritura();
         le.leerDatos();
         initComponents();
+        this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         setModelo();
         setDatos();
     }

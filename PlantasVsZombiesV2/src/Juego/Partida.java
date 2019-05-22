@@ -1,6 +1,10 @@
 
 package Juego;
 
+import Personajes.Girasol;
+import Personajes.LanzaGuisantes;
+import Personajes.Nuez;
+import Personajes.Petacereza;
 import Personajes.Planta;
 import java.io.Serializable;
 
@@ -118,18 +122,30 @@ public class Partida implements Serializable {
     }
     
     public void calcularPuntos(){
-        int puntos = 0;
-        for (int i =1; i<tablero.lonY(); i++){
-            for (int j=1;i == tablero.lonX();j++ ){
-                if (tablero.getTableroPos(j, i)!= null){
-                    if(tablero.getTableroPos(j, i) instanceof Planta){
-                        Planta p = (Planta)tablero.getTableroPos(j, i);
-                        puntos += p.getCoste();
+        int puntosPlantados = 0;
+        for (int i=0; i < tablero.getTablero().length; i++) {
+            for (int j=0; j < tablero.getTablero()[i].length; j++) {
+                if (tablero.getTableroPos(j+1, i+1)!= null){
+                    if(tablero.getTableroPos(j+1, i+1) instanceof LanzaGuisantes){
+                        LanzaGuisantes p = (LanzaGuisantes) tablero.getTableroPos(j+1, i+1);
+                        puntosPlantados += p.getCoste();
+                    }
+                    else if(tablero.getTableroPos(j+1, i+1) instanceof Girasol){
+                        Girasol p = (Girasol) tablero.getTableroPos(j+1, i+1);
+                        puntosPlantados += p.getCoste();
+                    }
+                    else if(tablero.getTableroPos(j+1, i+1) instanceof Nuez){
+                        Nuez p = (Nuez) tablero.getTableroPos(j+1, i+1);
+                        puntosPlantados += p.getCoste();
+                    }
+                    else if(tablero.getTableroPos(j+1, i+1) instanceof Petacereza){
+                        Petacereza p = (Petacereza) tablero.getTableroPos(j+1, i+1);
+                        puntosPlantados += p.getCoste();
                     }
                 }
             }
         }
-        this.puntos = puntos + soles;
+        puntos = puntosPlantados + soles;
     }
  
     /** Imprime todos los elementos a tener en cuenta dentro de una partida

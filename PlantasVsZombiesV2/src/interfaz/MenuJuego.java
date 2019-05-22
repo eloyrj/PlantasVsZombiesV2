@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,6 +39,9 @@ public class MenuJuego extends javax.swing.JFrame {
         juego.setJugador(J);
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jDialog1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jFrame1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        jFrame2.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         this.setVisible(true);
         ImageIcon indice = new ImageIcon("src/img/indice.jpg");
         ImageIcon inicio = new ImageIcon(indice.getImage().getScaledInstance(menuJ.getWidth(), menuJ.getHeight(),Image.SCALE_DEFAULT));

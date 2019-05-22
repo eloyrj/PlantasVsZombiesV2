@@ -39,6 +39,12 @@ public class JuegoI extends javax.swing.JFrame {
         actualizarCasillas();
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        perdio.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        gano.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        salir.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        salirGuardar.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         this.setVisible(true);
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));

@@ -31,6 +31,7 @@ public class Registro extends javax.swing.JFrame {
         this.setVisible(true);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         lecEscr.leerDatos();
+        jDialog1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
     }
 
     /**

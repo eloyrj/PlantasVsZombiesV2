@@ -29,6 +29,8 @@ public class IniSesion extends javax.swing.JFrame {
         this.setLocationRelativeTo(this.inicio);
         this.setVisible(true);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        fallo.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        iniS.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         lecEscr.leerDatos();
         fallo.setLocationRelativeTo(this);
     }
