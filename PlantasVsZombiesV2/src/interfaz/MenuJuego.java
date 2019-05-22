@@ -44,7 +44,8 @@ public class MenuJuego extends javax.swing.JFrame {
         ImageIcon indice = new ImageIcon("src/img/indice.jpg");
         ImageIcon inicio = new ImageIcon(indice.getImage().getScaledInstance(menuJ.getWidth(), menuJ.getHeight(),Image.SCALE_DEFAULT));
         menuJ.setIcon(inicio);
-        
+        if(J.getPartidaNoFin()!= null)continuar.setVisible(true);
+        else continuar.setVisible(false);
 
     }
     public void botonesTransparentes(){
@@ -90,6 +91,7 @@ public class MenuJuego extends javax.swing.JFrame {
         Clasificacion = new javax.swing.JButton();
         NuevoJ = new javax.swing.JButton();
         NuevoDoc = new javax.swing.JButton();
+        continuar = new javax.swing.JButton();
         menuJ = new javax.swing.JLabel();
 
         jDialog1.setMinimumSize(new java.awt.Dimension(601, 193));
@@ -285,8 +287,17 @@ public class MenuJuego extends javax.swing.JFrame {
         });
         getContentPane().add(NuevoDoc);
         NuevoDoc.setBounds(550, 440, 340, 82);
+
+        continuar.setText("continuar");
+        continuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(continuar);
+        continuar.setBounds(880, 50, 150, 23);
         getContentPane().add(menuJ);
-        menuJ.setBounds(0, 10, 1080, 720);
+        menuJ.setBounds(0, 0, 1080, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -423,6 +434,16 @@ public class MenuJuego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_clasificacionInputMethodTextChanged
 
+    private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
+        juego.setPartida(juego.getJugador().getPartidaNoFin());
+        try {
+            JuegoI ij = new JuegoI(juego);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_continuarActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -431,6 +452,7 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton NuevoDoc;
     private javax.swing.JButton NuevoJ;
     private javax.swing.JTable clasificacion;
+    private javax.swing.JButton continuar;
     private javax.swing.JFileChooser fc;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

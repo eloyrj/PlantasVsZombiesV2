@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
@@ -34,8 +35,8 @@ public class JuegoI extends javax.swing.JFrame {
         tableroI = new JLabel[5][9];
         le= new LecturaEscritura();
         le.leerDatos();
-        rellenar();
         initComponents();
+        actualizarCasillas();
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         this.setVisible(true);
@@ -140,6 +141,10 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        salirGuardar = new javax.swing.JDialog();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         c11 = new javax.swing.JLabel();
@@ -427,10 +432,64 @@ public class JuegoI extends javax.swing.JFrame {
                 .addGap(116, 116, 116))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        salirGuardar.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        salirGuardar.setMaximumSize(new java.awt.Dimension(860, 252));
+        salirGuardar.setMinimumSize(new java.awt.Dimension(860, 252));
+
+        jButton8.setText("Aceptar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Cancelar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("NSimSun", 1, 24)); // NOI18N
+        jLabel21.setText("¿Seguro que deseas salir y guardar la partida?");
+
+        javax.swing.GroupLayout salirGuardarLayout = new javax.swing.GroupLayout(salirGuardar.getContentPane());
+        salirGuardar.getContentPane().setLayout(salirGuardarLayout);
+        salirGuardarLayout.setHorizontalGroup(
+            salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salirGuardarLayout.createSequentialGroup()
+                .addGroup(salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(salirGuardarLayout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(salirGuardarLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jLabel21)))
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+        salirGuardarLayout.setVerticalGroup(
+            salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirGuardarLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67))
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
         setMinimumSize(new java.awt.Dimension(1150, 720));
         setPreferredSize(new java.awt.Dimension(1150, 720));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(950, 520));
@@ -758,7 +817,7 @@ public class JuegoI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -800,7 +859,7 @@ public class JuegoI extends javax.swing.JFrame {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap(66, Short.MAX_VALUE))
+                        .addContainerGap(46, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -830,7 +889,7 @@ public class JuegoI extends javax.swing.JFrame {
         juego.getJugador().actualizar(juego.getPartida());
         le.borrarJugador(juego.getJugador().getDNI());
         le.añadirJugador(juego.getJugador());
-        
+        juego.getJugador().seTermino();
         try {
             le.guardarDatos();
         } catch (IOException ex) {
@@ -844,6 +903,7 @@ public class JuegoI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         juego.getJugador().actualizar(juego.getPartida());
+        juego.getJugador().seTermino();
         le.borrarJugador(juego.getJugador().getDNI());
         le.añadirJugador(juego.getJugador());
         
@@ -880,6 +940,31 @@ public class JuegoI extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        juego.getJugador().setPartidaNoFin(juego.getPartida());
+        le.borrarJugador(juego.getJugador().getDNI());
+        le.añadirJugador(juego.getJugador());
+        try {
+            le.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(JuegoI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MenuJuego mj = new MenuJuego(juego.getJugador());
+        this.dispose();
+        salirGuardar.dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        salirGuardar.dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        
+        
+        salirGuardar.setLocationRelativeTo(this);
+        salirGuardar.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
     
     public void finWin(){
         juego.getPartida().ganada();
@@ -901,6 +986,7 @@ public class JuegoI extends javax.swing.JFrame {
    
     
     public void actualizarCasillas(){
+        rellenar();
         Tablero t = juego.getPartida().getTablero();
         for (int i = 0; i<t.lonY();i++){
             for (int j = 0 ;j<t.lonX();j++){
@@ -1003,6 +1089,8 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1016,6 +1104,7 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1030,6 +1119,7 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog normas;
     private javax.swing.JDialog perdio;
+    private javax.swing.JDialog salirGuardar;
     private javax.swing.JLabel tableroJ;
     // End of variables declaration//GEN-END:variables
 }

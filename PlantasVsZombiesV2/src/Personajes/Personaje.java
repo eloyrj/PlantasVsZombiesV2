@@ -2,6 +2,7 @@
 package Personajes;
 
 import Juego.Juego;
+import java.io.Serializable;
 
 /**
  *
@@ -12,7 +13,7 @@ import Juego.Juego;
 /** La clase Personaje nos permitirá tener acceso a las cualidades propias de los personajes
   * que nos vamos a ir encontrando a lo largo del juego
   */
-public abstract class Personaje {
+public abstract class Personaje implements Serializable{
     
     /** Atributo que fija la vida que tiene un personaje*/
     private int vida;

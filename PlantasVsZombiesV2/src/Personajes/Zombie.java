@@ -1,8 +1,6 @@
 
 package Personajes;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Eloy Rodríguez y María Chantal

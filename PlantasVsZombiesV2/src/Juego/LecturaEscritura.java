@@ -56,7 +56,6 @@ public class LecturaEscritura {
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(jugadores);
         fos.close();
-        
     }
     
     public void leerDatos() throws FileNotFoundException, IOException, ClassNotFoundException{

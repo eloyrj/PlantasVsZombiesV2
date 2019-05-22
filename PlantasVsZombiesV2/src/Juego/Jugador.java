@@ -2,7 +2,6 @@
 package Juego;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class Jugador implements Serializable{
     private String Nombre;
     private String DNI;
-    
+    private Partida partidaNoFin;
     private int[] puntosTotales; 
     private int partidasJugadas ;
     private int partidasGanadas;
@@ -53,6 +52,18 @@ public class Jugador implements Serializable{
 
     public void setPuntosTotales(int[] puntosTotales) {
         this.puntosTotales = puntosTotales;
+    }
+
+    public Partida getPartidaNoFin() {
+        return partidaNoFin;
+    }
+
+    public void setPartidaNoFin(Partida partidaNoFin) {
+        this.partidaNoFin = partidaNoFin;
+    }
+    
+    public void seTermino(){
+        partidaNoFin = null;
     }
     
     public void actualizarPuntosTotales(Partida p){

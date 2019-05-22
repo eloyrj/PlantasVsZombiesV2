@@ -2,6 +2,7 @@
 package Juego;
 
 import Personajes.Planta;
+import java.io.Serializable;
 
 
 
@@ -11,7 +12,7 @@ import Personajes.Planta;
  */
 
 /** Esta clase controlará los elementos necesarios para poder llevar a cabo una partida*/
-public class Partida {
+public class Partida implements Serializable {
     /** Atributo que guarda la cantidad de soles*/
     private int soles;
     /** Atributo que almacena los turnos (ciclos) de la partida*/
