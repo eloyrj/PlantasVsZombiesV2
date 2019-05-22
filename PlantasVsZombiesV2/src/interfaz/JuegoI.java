@@ -145,6 +145,11 @@ public class JuegoI extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
+        salir = new javax.swing.JDialog();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         c11 = new javax.swing.JLabel();
@@ -198,6 +203,8 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
+        gSBtn = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         jButton4 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButton5 = new javax.swing.JButton();
@@ -478,6 +485,64 @@ public class JuegoI extends javax.swing.JFrame {
                 .addGroup(salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67))
+        );
+
+        salir.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        salir.setMaximumSize(new java.awt.Dimension(860, 252));
+        salir.setMinimumSize(new java.awt.Dimension(860, 252));
+
+        jButton10.setText("Guardar y Salir");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Cancelar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("NSimSun", 1, 24)); // NOI18N
+        jLabel22.setText("¿Seguro que deseas salir?");
+
+        jButton12.setText("Salir");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout salirLayout = new javax.swing.GroupLayout(salir.getContentPane());
+        salir.getContentPane().setLayout(salirLayout);
+        salirLayout.setHorizontalGroup(
+            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(salirLayout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(jButton10)
+                .addGap(77, 77, 77)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(257, 257, 257))
+        );
+        salirLayout.setVerticalGroup(
+            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirLayout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addGap(53, 53, 53)
+                .addGroup(salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67))
         );
 
@@ -788,6 +853,18 @@ public class JuegoI extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
+        gSBtn.setText("Guardar y salir");
+        gSBtn.setFocusable(false);
+        gSBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gSBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        gSBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gSBtnActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(gSBtn);
+        jToolBar1.add(jSeparator2);
+
         jButton4.setText("Ayuda");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -960,11 +1037,38 @@ public class JuegoI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
-        
+        salir.setLocationRelativeTo(this);
+        salir.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
+
+    private void gSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gSBtnActionPerformed
         salirGuardar.setLocationRelativeTo(this);
         salirGuardar.setVisible(true);
-    }//GEN-LAST:event_formWindowClosing
+    }//GEN-LAST:event_gSBtnActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        juego.getJugador().setPartidaNoFin(juego.getPartida());
+        le.borrarJugador(juego.getJugador().getDNI());
+        le.añadirJugador(juego.getJugador());
+        try {
+            le.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(JuegoI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MenuJuego mj = new MenuJuego(juego.getJugador());
+        this.dispose();
+        salir.dispose();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        salir.dispose();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        MenuJuego mj = new MenuJuego(juego.getJugador());
+        this.dispose();
+        salir.dispose();
+    }//GEN-LAST:event_jButton12ActionPerformed
     
     public void finWin(){
         juego.getPartida().ganada();
@@ -1081,8 +1185,12 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel c93;
     private javax.swing.JLabel c94;
     private javax.swing.JLabel c95;
+    private javax.swing.JButton gSBtn;
     private javax.swing.JDialog gano;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1105,6 +1213,7 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1115,10 +1224,12 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog normas;
     private javax.swing.JDialog perdio;
+    private javax.swing.JDialog salir;
     private javax.swing.JDialog salirGuardar;
     private javax.swing.JLabel tableroJ;
     // End of variables declaration//GEN-END:variables

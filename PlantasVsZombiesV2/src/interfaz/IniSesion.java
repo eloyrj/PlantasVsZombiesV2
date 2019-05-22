@@ -25,12 +25,12 @@ public class IniSesion extends javax.swing.JFrame {
     public IniSesion( MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
         this.inicio = inicio;
         lecEscr = new LecturaEscritura();
-        
         initComponents();
         this.setLocationRelativeTo(this.inicio);
         this.setVisible(true);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         lecEscr.leerDatos();
+        fallo.setLocationRelativeTo(this);
     }
 
     
@@ -44,19 +44,22 @@ public class IniSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        iniS = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        fallo = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jDialog1.setMinimumSize(new java.awt.Dimension(571, 180));
+        iniS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        iniS.setMinimumSize(new java.awt.Dimension(571, 180));
 
         jLabel4.setText("¿ESTAS SEGURO?");
 
@@ -74,40 +77,77 @@ public class IniSesion extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout iniSLayout = new javax.swing.GroupLayout(iniS.getContentPane());
+        iniS.getContentPane().setLayout(iniSLayout);
+        iniSLayout.setHorizontalGroup(
+            iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniSLayout.createSequentialGroup()
+                .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(iniSLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(iniSLayout.createSequentialGroup()
                         .addGap(212, 212, 212)
                         .addComponent(jLabel4)))
                 .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(jDialog1Layout.createSequentialGroup()
+            .addGroup(iniSLayout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(139, 139, 139))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        iniSLayout.setVerticalGroup(
+            iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(iniSLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(iniSLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(50, 50, 50))
-                    .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        fallo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        fallo.setMaximumSize(new java.awt.Dimension(763, 170));
+        fallo.setMinimumSize(new java.awt.Dimension(763, 170));
+
+        jLabel5.setFont(new java.awt.Font("Arial Unicode MS", 0, 18)); // NOI18N
+        jLabel5.setText("El DNI que ha dado no es valido pruebe con otro, o si no lo ha hecho Registrese");
+
+        jButton4.setText("Aceptar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout falloLayout = new javax.swing.GroupLayout(fallo.getContentPane());
+        fallo.getContentPane().setLayout(falloLayout);
+        falloLayout.setHorizontalGroup(
+            falloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, falloLayout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(55, 55, 55))
+            .addGroup(falloLayout.createSequentialGroup()
+                .addGap(333, 333, 333)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        falloLayout.setVerticalGroup(
+            falloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(falloLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addGap(44, 44, 44)
+                .addComponent(jButton4)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -190,11 +230,14 @@ public class IniSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String dni = jTextField1.getText().toUpperCase();
-        Jugador j = lecEscr.buscarJugador(dni);
-        /*j.setPartidas(lecEscr.buscarPartida(dni));*/
-        jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
-        jDialog1.setLocationRelativeTo(this);
-        jDialog1.setVisible(true);
+        if (lecEscr.buscarJugador(dni)!= null){
+            Jugador j = lecEscr.buscarJugador(dni);
+            jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
+            iniS.setLocationRelativeTo(this);
+            iniS.setVisible(true);
+        }
+        else fallo.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -204,27 +247,34 @@ public class IniSesion extends javax.swing.JFrame {
         MenuJuego mj = new MenuJuego(j);
         inicio.setVisible(false);
         this.dispose();
-        jDialog1.dispose();
+        iniS.dispose();
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jDialog1.dispose();
+        iniS.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        fallo.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog fallo;
+    private javax.swing.JDialog iniS;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
