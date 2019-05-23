@@ -52,36 +52,7 @@ public class Tablero implements Serializable{
         tablero[y-1][x-1] = (Personaje) p;
     }
     
-    /** Método para sacar el tablero por pantalla
-     */
-    public void pintarTablero(){
-        
-        String lineaFinal = "";
-        for (int i=0; i < tablero.length; i++) {
-            String lineaArriba = "|";
-            for (int j=0; j < tablero[i].length; j++) {
-                if(j == tablero[i].length-1)lineaArriba+=("-------|");
-                else lineaArriba+=("--------");
-            }
-            lineaFinal= lineaArriba;
-            System.out.println(lineaArriba);
-            
-            String lineaAbajo = "|";
-            for (int j=0; j < tablero[i].length; j++) {
-                if (tablero[i][j]==null){
-                    lineaAbajo+=("       ");
-                    lineaAbajo+=("|");
-                }
-                else{
-                    lineaAbajo += tablero[i][j].localizador()+"   ";
-                    lineaAbajo+=("|");
-                }
-            }
-            
-            System.out.println(lineaAbajo);
-        }
-        System.out.println(lineaFinal);
-    }
+    
     
     /** Método que mide la longitud de la variable x
      * @return la longitud de la variable x

@@ -5,7 +5,6 @@ import Personajes.Girasol;
 import Personajes.LanzaGuisantes;
 import Personajes.Nuez;
 import Personajes.Petacereza;
-import Personajes.Planta;
 import java.io.Serializable;
 
 
@@ -160,14 +159,7 @@ public class Partida implements Serializable {
         puntos = puntosPlantados + soles;
     }
  
-    /** Imprime todos los elementos a tener en cuenta dentro de una partida
-     * @return los datos de todos estos elementos
-     */
-    @Override
-    public String toString() {
-        return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + enemigos + ", turnoInicial=" + turnoInicial + '}';
-    }
-    
+   
     
 
 }

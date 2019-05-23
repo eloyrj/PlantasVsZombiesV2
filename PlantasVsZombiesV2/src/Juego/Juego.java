@@ -97,11 +97,6 @@ public class Juego implements Serializable{
     }
 
     
-    /**Método que imprimirá un mensaje en caso de que se pierda la partida
-     */
-    public void fin(){
-        finMalo=true;
-    }
 
     public boolean isFinMalo() {
         return finMalo;
@@ -188,8 +183,8 @@ public class Juego implements Serializable{
                         totalEnemigos += zombiesGenerados;
                     }                      
                 }
-                for(int i = 0; i<j.getPartida().getTablero().lonY();i++){
-                    if (j.getPartida().getTablero().getTableroPos(1, i+1) != null && j.getPartida().getTablero().getTableroPos(1, i+1) instanceof Zombie){
+                for(int i = 1; i<=j.getPartida().getTablero().lonY();i++){
+                    if (j.getPartida().getTablero().getTableroPos(1, i) != null && j.getPartida().getTablero().getTableroPos(1, i) instanceof Zombie){
                         j.setFinMalo(true);
                     }
                 }

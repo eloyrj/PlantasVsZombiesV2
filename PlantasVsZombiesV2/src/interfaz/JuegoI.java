@@ -36,11 +36,16 @@ public class JuegoI extends javax.swing.JFrame {
         le= new LecturaEscritura();
         le.leerDatos();
         juego.setTotalEnemigos(juego.getPartida().getEnemigosAparecidos());
+        
         initComponents();
         actualizarCasillas();
         progreso();
+        
         progres.setMaximum(juego.getPartida().getEnemigos());
+        
         this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
@@ -48,7 +53,7 @@ public class JuegoI extends javax.swing.JFrame {
         gano.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         salir.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         salirGuardar.setIconImage(new ImageIcon("src/img/icono.png").getImage());
-        this.setVisible(true);
+        
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
         jLabel1.setIcon(imagen);
@@ -836,7 +841,7 @@ public class JuegoI extends javax.swing.JFrame {
         jPanel1.add(c95);
         c95.setBounds(820, 418, 94, 93);
         jPanel1.add(tableroJ);
-        tableroJ.setBounds(0, 0, 940, 550);
+        tableroJ.setBounds(0, 0, 930, 530);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -956,7 +961,6 @@ public class JuegoI extends javax.swing.JFrame {
 
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         if (juego.isFinMalo()) finLose();
-        rellenar();
         juego.getComandos().lecturaComando(jTextField1.getText(), juego);
         juego.actualizar(juego);
         actualizarCasillas();
@@ -1055,7 +1059,6 @@ public class JuegoI extends javax.swing.JFrame {
         salirGuardar.setVisible(true);
     }//GEN-LAST:event_gSBtnActionPerformed
 
-    
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
@@ -1098,9 +1101,6 @@ public class JuegoI extends javax.swing.JFrame {
         perdio.setVisible(true);
 
     }
-    
-    
-   
     
     public void actualizarCasillas(){
         rellenar();
