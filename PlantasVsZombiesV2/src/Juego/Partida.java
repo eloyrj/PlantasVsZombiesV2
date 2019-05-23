@@ -33,6 +33,8 @@ public class Partida implements Serializable {
     private boolean ganada;
     /** Atributo que indica los puntos obtenidos en la partida*/
     private int puntos;
+    
+    private int enemigosAparecidos;
                               
     /** Constructor de Partida
      * @param soles que hay en la partida
@@ -50,8 +52,18 @@ public class Partida implements Serializable {
         this.turnoInicial = turnoInicial;
         this.enemigos=enemigos;
         ganada = false;
+        enemigosAparecidos=0;
     
     }
+
+    public int getEnemigosAparecidos() {
+        return enemigosAparecidos;
+    }
+
+    public void setEnemigosAparecidos(int enemigosAparecidos) {
+        this.enemigosAparecidos = enemigosAparecidos;
+    }
+    
 
     public int getSoles() {
         return soles;
