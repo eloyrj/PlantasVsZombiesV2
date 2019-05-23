@@ -297,7 +297,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(continuar);
-        continuar.setBounds(880, 50, 150, 23);
+        continuar.setBounds(880, 50, 150, 32);
         getContentPane().add(menuJ);
         menuJ.setBounds(0, 0, 1080, 720);
 
