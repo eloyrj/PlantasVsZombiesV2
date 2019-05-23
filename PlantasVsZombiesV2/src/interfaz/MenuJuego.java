@@ -67,6 +67,9 @@ public class MenuJuego extends javax.swing.JFrame {
         NuevoDoc.setContentAreaFilled(false);
         NuevoDoc.setBorderPainted(false);
         
+        continuar.setOpaque(false);
+        continuar.setContentAreaFilled(false);
+        continuar.setBorderPainted(false);
         
     }
     /**
@@ -256,7 +259,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CambiarUsuario);
-        CambiarUsuario.setBounds(530, 350, 370, 82);
+        CambiarUsuario.setBounds(550, 350, 370, 82);
 
         Clasificacion.setBackground(new java.awt.Color(14, 113, 236));
         Clasificacion.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
@@ -288,8 +291,9 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NuevoDoc);
-        NuevoDoc.setBounds(550, 440, 340, 82);
+        NuevoDoc.setBounds(550, 440, 340, 70);
 
+        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continuar.png"))); // NOI18N
         continuar.setText("continuar");
         continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,9 +301,9 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(continuar);
-        continuar.setBounds(880, 50, 150, 23);
+        continuar.setBounds(770, 590, 110, 40);
         getContentPane().add(menuJ);
-        menuJ.setBounds(0, 0, 1080, 720);
+        menuJ.setBounds(0, 10, 1080, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
