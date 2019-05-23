@@ -36,8 +36,9 @@ public class LecturaEscritura {
     }
     
     public void añadirJugador(Jugador j){
-        String dni = j.getDNI();
-        jugadores.put(dni, j);
+        
+        jugadores.put(j.getDNI(), j);
+        
     }
     
     public Jugador buscarJugador(String dni){

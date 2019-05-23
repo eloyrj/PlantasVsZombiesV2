@@ -5,7 +5,6 @@ import Personajes.Girasol;
 import Personajes.LanzaGuisantes;
 import Personajes.Nuez;
 import Personajes.Petacereza;
-import Personajes.Planta;
 import java.io.Serializable;
 
 
@@ -33,6 +32,8 @@ public class Partida implements Serializable {
     private boolean ganada;
     /** Atributo que indica los puntos obtenidos en la partida*/
     private int puntos;
+    
+    private int enemigosAparecidos;
                               
     /** Constructor de Partida
      * @param soles que hay en la partida
@@ -50,8 +51,18 @@ public class Partida implements Serializable {
         this.turnoInicial = turnoInicial;
         this.enemigos=enemigos;
         ganada = false;
+        enemigosAparecidos=0;
     
     }
+
+    public int getEnemigosAparecidos() {
+        return enemigosAparecidos;
+    }
+
+    public void setEnemigosAparecidos(int enemigosAparecidos) {
+        this.enemigosAparecidos = enemigosAparecidos;
+    }
+    
 
     public int getSoles() {
         return soles;
@@ -148,14 +159,7 @@ public class Partida implements Serializable {
         puntos = puntosPlantados + soles;
     }
  
-    /** Imprime todos los elementos a tener en cuenta dentro de una partida
-     * @return los datos de todos estos elementos
-     */
-    @Override
-    public String toString() {
-        return "Partida{" + "soles=" + soles + ", turno=" + turno + ", dificultad=" + dificultad + ", enemigos=" + enemigos + ", turnoInicial=" + turnoInicial + '}';
-    }
-    
+   
     
 
 }

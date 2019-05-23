@@ -25,7 +25,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class MenuJuego extends javax.swing.JFrame {
 
-    private Jugador j;
     private Juego juego;
     
     /**
@@ -67,6 +66,9 @@ public class MenuJuego extends javax.swing.JFrame {
         NuevoDoc.setContentAreaFilled(false);
         NuevoDoc.setBorderPainted(false);
         
+        continuar.setOpaque(false);
+        continuar.setContentAreaFilled(false);
+        continuar.setBorderPainted(false);
         
     }
     /**
@@ -256,7 +258,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CambiarUsuario);
-        CambiarUsuario.setBounds(530, 350, 370, 82);
+        CambiarUsuario.setBounds(550, 350, 370, 82);
 
         Clasificacion.setBackground(new java.awt.Color(14, 113, 236));
         Clasificacion.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
@@ -288,18 +290,19 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NuevoDoc);
-        NuevoDoc.setBounds(550, 440, 340, 82);
+        NuevoDoc.setBounds(550, 440, 340, 70);
 
-        continuar.setText("continuar");
+        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/continuar.png"))); // NOI18N
+        continuar.setFocusable(false);
         continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 continuarActionPerformed(evt);
             }
         });
         getContentPane().add(continuar);
-        continuar.setBounds(880, 50, 150, 23);
+        continuar.setBounds(760, 590, 110, 50);
         getContentPane().add(menuJ);
-        menuJ.setBounds(0, 0, 1080, 720);
+        menuJ.setBounds(0, 10, 1080, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,9 +318,7 @@ public class MenuJuego extends javax.swing.JFrame {
             tblC = new Clasificacion();
             tblC.setLocationRelativeTo(this);
             tblC.setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -331,7 +332,7 @@ public class MenuJuego extends javax.swing.JFrame {
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
+        this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -353,7 +354,7 @@ public class MenuJuego extends javax.swing.JFrame {
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
+        this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -364,7 +365,7 @@ public class MenuJuego extends javax.swing.JFrame {
         } catch (IOException | ClassNotFoundException ex) {
             Logger.getLogger(MenuJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setVisible(false);
+        this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -383,10 +384,10 @@ public class MenuJuego extends javax.swing.JFrame {
         FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("*.doc", "doc");
         fc.setFileFilter(filtro2);
         fc.setSelectedFile(new File("Datos_Jugador"));
-        int seleccion=fc.showOpenDialog(jFrame1);
+        int seleccion = fc.showOpenDialog(jFrame1);
         
         if(seleccion==JFileChooser.APPROVE_OPTION){
-            File fichero=fc.getSelectedFile();
+            File fichero = fc.getSelectedFile();
             
             Jugador j = juego.getJugador();
             String ruta = fichero.getAbsolutePath();

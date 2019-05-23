@@ -35,9 +35,17 @@ public class JuegoI extends javax.swing.JFrame {
         tableroI = new JLabel[5][9];
         le= new LecturaEscritura();
         le.leerDatos();
+        juego.setTotalEnemigos(juego.getPartida().getEnemigosAparecidos());
+        
         initComponents();
         actualizarCasillas();
+        progreso();
+        
+        progres.setMaximum(juego.getPartida().getEnemigos());
+        
         this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
@@ -45,7 +53,7 @@ public class JuegoI extends javax.swing.JFrame {
         gano.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         salir.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         salirGuardar.setIconImage(new ImageIcon("src/img/icono.png").getImage());
-        this.setVisible(true);
+        
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
         jLabel1.setIcon(imagen);
@@ -109,8 +117,8 @@ public class JuegoI extends javax.swing.JFrame {
     }
     
     public void progreso(){
-        int n = ((int) Math.ceil( 105 / juego.getPartida().getEnemigos()))*juego.getTotalEnemigos();
-        jProgressBar1.setValue(n);
+        
+        progres.setValue(juego.getTotalEnemigos());
     }
     
     /**
@@ -205,7 +213,7 @@ public class JuegoI extends javax.swing.JFrame {
         c95 = new javax.swing.JLabel();
         tableroJ = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        enviar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -214,7 +222,7 @@ public class JuegoI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButton5 = new javax.swing.JButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        progres = new javax.swing.JProgressBar();
 
         gano.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         gano.setMinimumSize(new java.awt.Dimension(552, 199));
@@ -446,7 +454,6 @@ public class JuegoI extends javax.swing.JFrame {
         );
 
         salirGuardar.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salirGuardar.setMaximumSize(new java.awt.Dimension(860, 252));
         salirGuardar.setMinimumSize(new java.awt.Dimension(860, 252));
 
         jButton8.setText("Aceptar");
@@ -495,7 +502,6 @@ public class JuegoI extends javax.swing.JFrame {
         );
 
         salir.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salir.setMaximumSize(new java.awt.Dimension(860, 252));
         salir.setMinimumSize(new java.awt.Dimension(860, 252));
 
         jButton10.setText("Guardar y Salir");
@@ -555,7 +561,6 @@ public class JuegoI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
         setMinimumSize(new java.awt.Dimension(1150, 720));
-        setPreferredSize(new java.awt.Dimension(1150, 720));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -836,7 +841,7 @@ public class JuegoI extends javax.swing.JFrame {
         jPanel1.add(c95);
         c95.setBounds(820, 418, 94, 93);
         jPanel1.add(tableroJ);
-        tableroJ.setBounds(0, 0, 940, 550);
+        tableroJ.setBounds(0, 0, 930, 530);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -844,10 +849,10 @@ public class JuegoI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        enviar.setText("Enviar");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                enviarActionPerformed(evt);
             }
         });
 
@@ -894,6 +899,8 @@ public class JuegoI extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton5);
 
+        progres.setForeground(new java.awt.Color(107, 228, 21));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -907,7 +914,7 @@ public class JuegoI extends javax.swing.JFrame {
                 .addGap(165, 165, 165)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(jButton1)
+                .addComponent(enviar)
                 .addGap(202, 202, 202)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96))
@@ -918,7 +925,7 @@ public class JuegoI extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(436, 436, 436)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(progres, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -926,7 +933,7 @@ public class JuegoI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(progres, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -940,7 +947,7 @@ public class JuegoI extends javax.swing.JFrame {
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap(46, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -952,9 +959,8 @@ public class JuegoI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         if (juego.isFinMalo()) finLose();
-        rellenar();
         juego.getComandos().lecturaComando(jTextField1.getText(), juego);
         juego.actualizar(juego);
         actualizarCasillas();
@@ -966,7 +972,7 @@ public class JuegoI extends javax.swing.JFrame {
         if (juego.isFin()) finWin();
         if (juego.isFinMalo()) finLose();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_enviarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         juego.getJugador().actualizar(juego.getPartida());
@@ -1025,6 +1031,7 @@ public class JuegoI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
         le.borrarJugador(juego.getJugador().getDNI());
         le.añadirJugador(juego.getJugador());
@@ -1053,6 +1060,7 @@ public class JuegoI extends javax.swing.JFrame {
     }//GEN-LAST:event_gSBtnActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
         le.borrarJugador(juego.getJugador().getDNI());
         le.añadirJugador(juego.getJugador());
@@ -1077,6 +1085,7 @@ public class JuegoI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
     
     public void finWin(){
+        enviar.setVisible(false);
         juego.getPartida().ganada();
         juego.getPartida().calcularPuntos();
         gano.setLocationRelativeTo(this);
@@ -1086,14 +1095,12 @@ public class JuegoI extends javax.swing.JFrame {
     }
     
     public void finLose(){
+        enviar.setVisible(false);
         perdio.setLocationRelativeTo(this);
         perdio.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         perdio.setVisible(true);
 
     }
-    
-    
-   
     
     public void actualizarCasillas(){
         rellenar();
@@ -1191,9 +1198,9 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel c93;
     private javax.swing.JLabel c94;
     private javax.swing.JLabel c95;
+    private javax.swing.JButton enviar;
     private javax.swing.JButton gSBtn;
     private javax.swing.JDialog gano;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1228,13 +1235,13 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog normas;
     private javax.swing.JDialog perdio;
+    private javax.swing.JProgressBar progres;
     private javax.swing.JDialog salir;
     private javax.swing.JDialog salirGuardar;
     private javax.swing.JLabel tableroJ;

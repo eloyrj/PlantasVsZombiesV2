@@ -58,7 +58,7 @@ public class IniSesion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        aceptar = new javax.swing.JButton();
 
         iniS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         iniS.setMinimumSize(new java.awt.Dimension(571, 180));
@@ -187,10 +187,10 @@ public class IniSesion extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("ACEPTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        aceptar.setText("ACEPTAR");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                aceptarActionPerformed(evt);
             }
         });
 
@@ -207,7 +207,7 @@ public class IniSesion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(284, 284, 284))
         );
         layout.setVerticalGroup(
@@ -219,7 +219,7 @@ public class IniSesion extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1))
                 .addGap(71, 71, 71)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67))
         );
 
@@ -230,7 +230,7 @@ public class IniSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String dni = jTextField1.getText().toUpperCase();
         if (lecEscr.buscarJugador(dni)!= null){
             Jugador j = lecEscr.buscarJugador(dni);
@@ -240,14 +240,13 @@ public class IniSesion extends javax.swing.JFrame {
         }
         else fallo.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_aceptarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String dni = jTextField1.getText().toUpperCase();
         Jugador j = lecEscr.buscarJugador(dni);
-        /*j.setPartidas(lecEscr.buscarPartida(dni));*/
         MenuJuego mj = new MenuJuego(j);
-        inicio.setVisible(false);
+        inicio.dispose();
         this.dispose();
         iniS.dispose();
         
@@ -266,9 +265,9 @@ public class IniSesion extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aceptar;
     private javax.swing.JDialog fallo;
     private javax.swing.JDialog iniS;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

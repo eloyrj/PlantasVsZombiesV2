@@ -99,9 +99,8 @@ public class Jugador implements Serializable{
     
     public void actualizarPartidasGanadas(Partida p){
         
+        if (p.isGanada()) partidasGanadas += 1;
         
-            if (p.isGanada())
-                partidasGanadas += 1;
     }
 
     public int getPartidasPerdidas() {
@@ -114,8 +113,8 @@ public class Jugador implements Serializable{
     
     public void actualizarPartidasPerdidas(Partida p){
         
-            if (!p.isGanada())
-                partidasPerdidas += 1;
+            if (!p.isGanada()) partidasPerdidas += 1;
+            
     }
     
 
