@@ -7,6 +7,9 @@ package interfaz;
 
 import Juego.Jugador;
 import Juego.LecturaEscritura;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.ImageIcon;
@@ -25,16 +28,50 @@ public class IniSesion extends javax.swing.JFrame {
     public IniSesion( MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
         this.inicio = inicio;
         lecEscr = new LecturaEscritura();
+        
         initComponents();
+        botonesTransparentes();
+        
         this.setLocationRelativeTo(this.inicio);
         this.setVisible(true);
+        
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         fallo.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         iniS.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        
+        ImageIcon dSure = new ImageIcon("src/img/dialogo2.jpg");
+        ImageIcon sure = new ImageIcon(dSure.getImage().getScaledInstance(dialogo.getWidth(), dialogo.getHeight(),Image.SCALE_DEFAULT));
+        dialogo.setIcon(sure);
+        
+        ImageIcon is = new ImageIcon("src/img/is.jpg");
+        ImageIcon ise = new ImageIcon(is.getImage().getScaledInstance(inise.getWidth(), inise.getHeight(),Image.SCALE_DEFAULT));
+        inise.setIcon(ise);
+        
+        ImageIcon mal = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon Mal = new ImageIcon(mal.getImage().getScaledInstance(fail.getWidth(), fail.getHeight(),Image.SCALE_DEFAULT));
+        fail.setIcon(Mal);
+        
         lecEscr.leerDatos();
         fallo.setLocationRelativeTo(this);
     }
 
+    public void botonesTransparentes(){
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        
+        jButton3.setOpaque(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setBorderPainted(false);
+        
+        jButton4.setOpaque(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setBorderPainted(false);
+        
+        aceptar.setOpaque(false);
+        aceptar.setContentAreaFilled(false);
+        aceptar.setBorderPainted(false);
+    }
     
 
     /**
@@ -48,180 +85,114 @@ public class IniSesion extends javax.swing.JFrame {
 
         iniS = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        dialogo = new javax.swing.JLabel();
         fallo = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        fail = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         aceptar = new javax.swing.JButton();
+        inise = new javax.swing.JLabel();
 
         iniS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        iniS.setMinimumSize(new java.awt.Dimension(571, 180));
+        iniS.setMaximumSize(new java.awt.Dimension(490, 193));
+        iniS.setMinimumSize(new java.awt.Dimension(490, 193));
+        iniS.setPreferredSize(new java.awt.Dimension(490, 193));
+        iniS.getContentPane().setLayout(null);
+        iniS.getContentPane().add(jLabel3);
+        jLabel3.setBounds(90, 30, 400, 40);
+        iniS.getContentPane().add(jLabel6);
+        jLabel6.setBounds(140, 50, 200, 40);
 
+        jLabel4.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("¿ESTAS SEGURO?");
+        iniS.getContentPane().add(jLabel4);
+        jLabel4.setBounds(160, 80, 190, 30);
 
-        jButton2.setText("SI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        iniS.getContentPane().add(jButton2);
+        jButton2.setBounds(80, 110, 68, 32);
 
-        jButton3.setText("NO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        iniS.getContentPane().add(jButton3);
+        jButton3.setBounds(330, 110, 73, 32);
 
-        javax.swing.GroupLayout iniSLayout = new javax.swing.GroupLayout(iniS.getContentPane());
-        iniS.getContentPane().setLayout(iniSLayout);
-        iniSLayout.setHorizontalGroup(
-            iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(iniSLayout.createSequentialGroup()
-                .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(iniSLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(iniSLayout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel4)))
-                .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(iniSLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
-        );
-        iniSLayout.setVerticalGroup(
-            iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(iniSLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(iniSLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(50, 50, 50))
-                    .addGroup(iniSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        dialogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo2.jpg"))); // NOI18N
+        iniS.getContentPane().add(dialogo);
+        dialogo.setBounds(0, 0, 500, 193);
 
         fallo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        fallo.setMaximumSize(new java.awt.Dimension(763, 170));
-        fallo.setMinimumSize(new java.awt.Dimension(763, 170));
+        fallo.setMaximumSize(new java.awt.Dimension(490, 193));
+        fallo.setMinimumSize(new java.awt.Dimension(490, 193));
+        fallo.setPreferredSize(new java.awt.Dimension(490, 193));
+        fallo.getContentPane().setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Arial Unicode MS", 0, 18)); // NOI18N
-        jLabel5.setText("El DNI que ha dado no es valido pruebe con otro, o si no lo ha hecho Registrese");
+        jLabel5.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("El DNI que ha dado no es valido pruebe con otro");
+        fallo.getContentPane().add(jLabel5);
+        jLabel5.setBounds(50, 60, 400, 28);
 
-        jButton4.setText("Aceptar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+        fallo.getContentPane().add(jButton4);
+        jButton4.setBounds(190, 130, 90, 30);
 
-        javax.swing.GroupLayout falloLayout = new javax.swing.GroupLayout(fallo.getContentPane());
-        fallo.getContentPane().setLayout(falloLayout);
-        falloLayout.setHorizontalGroup(
-            falloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, falloLayout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(55, 55, 55))
-            .addGroup(falloLayout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        falloLayout.setVerticalGroup(
-            falloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(falloLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel5)
-                .addGap(44, 44, 44)
-                .addComponent(jButton4)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("O regístrese si aún no lo ha hecho");
+        fallo.getContentPane().add(jLabel2);
+        jLabel2.setBounds(100, 90, 280, 30);
+
+        fail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
+        fail.setMaximumSize(new java.awt.Dimension(490, 193));
+        fail.setMinimumSize(new java.awt.Dimension(490, 193));
+        fallo.getContentPane().add(fail);
+        fail.setBounds(0, 0, 490, 193);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAutoRequestFocus(false);
-
-        jPanel1.setBackground(new java.awt.Color(28, 134, 230));
-
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("INICIAR SESIÓN");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(177, 177, 177)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
-        jLabel2.setText("DNI");
+        setMaximumSize(new java.awt.Dimension(678, 427));
+        setMinimumSize(new java.awt.Dimension(678, 427));
+        getContentPane().setLayout(null);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(230, 172, 290, 40);
 
-        aceptar.setText("ACEPTAR");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(aceptar);
+        aceptar.setBounds(200, 290, 250, 90);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(284, 284, 284))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
-                .addGap(71, 71, 71)
-                .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
-        );
+        inise.setMaximumSize(new java.awt.Dimension(678, 427));
+        inise.setMinimumSize(new java.awt.Dimension(678, 427));
+        getContentPane().add(inise);
+        inise.setBounds(0, 0, 678, 427);
 
         setBounds(0, 0, 688, 452);
     }// </editor-fold>//GEN-END:initComponents
@@ -234,7 +205,12 @@ public class IniSesion extends javax.swing.JFrame {
         String dni = jTextField1.getText().toUpperCase();
         if (lecEscr.buscarJugador(dni)!= null){
             Jugador j = lecEscr.buscarJugador(dni);
-            jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre()+" con DNI: "+j.getDNI());
+            jLabel3.setForeground(Color.white);
+            jLabel3.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
+            jLabel6.setForeground(Color.white);
+            jLabel6.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
+            jLabel3.setText("Estas apunto de jugar como: "+ j.getNombre());
+            jLabel6.setText("con DNI: "+ j.getDNI());
             iniS.setLocationRelativeTo(this);
             iniS.setVisible(true);
         }
@@ -266,17 +242,19 @@ public class IniSesion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
+    private javax.swing.JLabel dialogo;
+    private javax.swing.JLabel fail;
     private javax.swing.JDialog fallo;
     private javax.swing.JDialog iniS;
+    private javax.swing.JLabel inise;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
