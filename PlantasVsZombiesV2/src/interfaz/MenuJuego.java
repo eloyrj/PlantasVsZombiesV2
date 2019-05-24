@@ -303,7 +303,7 @@ public class MenuJuego extends javax.swing.JFrame {
         getContentPane().add(continuar);
         continuar.setBounds(760, 590, 110, 50);
         getContentPane().add(menuJ);
-        menuJ.setBounds(0, 10, 1080, 720);
+        menuJ.setBounds(0, 0, 1080, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
