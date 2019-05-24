@@ -27,15 +27,26 @@ public class MenuInicio extends javax.swing.JFrame {
      */
     public MenuInicio() {
         initComponents();
+        botonesTransparentes();
+                
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        
         ImageIcon portada = new ImageIcon("src/img/portada.jpg");
         ImageIcon imagen = new ImageIcon(portada.getImage().getScaledInstance(portadaI.getWidth(), portadaI.getHeight(),Image.SCALE_DEFAULT));
         portadaI.setIcon(imagen);
         
         
     }
-
+    public void botonesTransparentes(){
+        jButton1.setOpaque(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setBorderPainted(false);
+        
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,24 +66,24 @@ public class MenuInicio extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Iniciar Sensión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(290, 460, 190, 85);
+        jButton1.setBounds(110, 460, 370, 120);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Registrarse");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(570, 460, 190, 85);
+        jButton2.setBounds(550, 460, 430, 120);
+
+        portadaI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/portada.jpg"))); // NOI18N
         getContentPane().add(portadaI);
         portadaI.setBounds(0, 0, 1090, 730);
 

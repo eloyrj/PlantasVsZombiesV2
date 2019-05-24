@@ -6,6 +6,9 @@
 package interfaz;
 import Juego.Jugador;
 import Juego.LecturaEscritura;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -27,12 +30,37 @@ public class Registro extends javax.swing.JFrame {
         lecEscr = new LecturaEscritura();
         
         initComponents();
+        botonesTransparentes();
+        
         this.setLocationRelativeTo(this.inicio);
         this.setVisible(true);
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         lecEscr.leerDatos();
         jDialog1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
+        
+        ImageIcon dSure = new ImageIcon("src/img/dialogo2.jpg");
+        ImageIcon sure = new ImageIcon(dSure.getImage().getScaledInstance(dialogo.getWidth(), dialogo.getHeight(),Image.SCALE_DEFAULT));
+        dialogo.setIcon(sure);
+        
+        ImageIcon reg = new ImageIcon("src/img/reg.jpg");
+        ImageIcon Reg = new ImageIcon(reg.getImage().getScaledInstance(regi.getWidth(), regi.getHeight(),Image.SCALE_DEFAULT));
+        regi.setIcon(Reg);
     }
+    
+    public void botonesTransparentes(){
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        
+        jButton3.setOpaque(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setBorderPainted(false);
+        
+        aceptar.setOpaque(false);
+        aceptar.setContentAreaFilled(false);
+        aceptar.setBorderPainted(false);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,159 +75,87 @@ public class Registro extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        dialogo = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        aceptar = new javax.swing.JButton();
+        regi = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
         jLabel3.setText("NOMBRE");
 
         jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jDialog1.setMaximumSize(new java.awt.Dimension(571, 180));
-        jDialog1.setMinimumSize(new java.awt.Dimension(571, 180));
+        jDialog1.setMaximumSize(new java.awt.Dimension(490, 193));
+        jDialog1.setMinimumSize(new java.awt.Dimension(490, 193));
+        jDialog1.setPreferredSize(new java.awt.Dimension(500, 220));
+        jDialog1.setResizable(false);
+        jDialog1.getContentPane().setLayout(null);
+        jDialog1.getContentPane().add(jLabel6);
+        jLabel6.setBounds(60, 20, 400, 37);
 
+        jLabel7.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("¿ESTAS SEGURO?");
+        jDialog1.getContentPane().add(jLabel7);
+        jLabel7.setBounds(150, 70, 200, 50);
+        jDialog1.getContentPane().add(jLabel2);
+        jLabel2.setBounds(130, 50, 220, 30);
 
-        jButton2.setText("SI");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton2);
+        jButton2.setBounds(80, 120, 68, 32);
 
-        jButton3.setText("NO");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton3);
+        jButton3.setBounds(330, 120, 73, 32);
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel7)))
-                .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(50, 50, 50))
-                    .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        dialogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo2.jpg"))); // NOI18N
+        dialogo.setMaximumSize(new java.awt.Dimension(500, 200));
+        dialogo.setMinimumSize(new java.awt.Dimension(490, 193));
+        jDialog1.getContentPane().add(dialogo);
+        dialogo.setBounds(0, 0, 500, 220);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(246, 249, 251));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(200, 200));
-
-        jPanel1.setBackground(new java.awt.Color(28, 134, 230));
-
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("REGISTRARSE");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(143, 143, 143))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
-        jLabel4.setText("DNI");
+        setMaximumSize(new java.awt.Dimension(678, 427));
+        setMinimumSize(new java.awt.Dimension(678, 427));
+        getContentPane().setLayout(null);
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(260, 160, 300, 40);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(260, 230, 300, 40);
 
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
-        jLabel5.setText("NOMBRE");
-
-        jButton1.setText("ACEPTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                aceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(aceptar);
+        aceptar.setBounds(210, 310, 240, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addComponent(jButton1)))
-                .addContainerGap(233, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49))
-        );
+        regi.setMaximumSize(new java.awt.Dimension(678, 427));
+        regi.setMinimumSize(new java.awt.Dimension(678, 427));
+        getContentPane().add(regi);
+        regi.setBounds(0, 0, 678, 427);
+        regi.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,7 +164,7 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String dni = jTextField3.getText().toUpperCase();
         String nombre = jTextField4.getText().toUpperCase();
         lecEscr.añadirJugador(new Jugador(nombre,dni));
@@ -218,12 +174,16 @@ public class Registro extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        jLabel6.setText("Estas apunto de registrarte como: "+ j.getNombre()+" con DNI: "+j.getDNI());
+        jLabel6.setForeground(Color.white);
+        jLabel6.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
+        jLabel2.setForeground(Color.white);
+        jLabel2.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
+        jLabel6.setText("Estas apunto de registrarte como: "+ j.getNombre());
+        jLabel2.setText(" con DNI: "+j.getDNI());
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_aceptarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText().toUpperCase()));
@@ -240,18 +200,17 @@ public class Registro extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton aceptar;
+    private javax.swing.JLabel dialogo;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel regi;
     // End of variables declaration//GEN-END:variables
 }

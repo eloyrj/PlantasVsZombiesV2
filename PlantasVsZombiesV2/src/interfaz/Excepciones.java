@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.Image;
 import java.io.Serializable;
 import javax.swing.ImageIcon;
 
@@ -20,6 +21,8 @@ public class Excepciones extends javax.swing.JDialog {
     public Excepciones(java.awt.Frame parent, boolean modal,int t) {
         super(parent, modal);
         initComponents();
+        botonesTransparentes();
+        
         jDialog1.setLocationRelativeTo(parent);
         jDialog2.setLocationRelativeTo(parent);
         jDialog3.setLocationRelativeTo(parent);
@@ -32,8 +35,42 @@ public class Excepciones extends javax.swing.JDialog {
         if (t==2)jDialog2.setVisible(true);
         if (t==3)jDialog3.setVisible(true);
         if (t==4)jDialog4.setVisible(true);
+        
+        ImageIcon dSoles = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon soles = new ImageIcon(dSoles.getImage().getScaledInstance(dialogo1.getWidth(), dialogo1.getHeight(),Image.SCALE_DEFAULT));
+        dialogo1.setIcon(soles);
+        
+        ImageIcon dCas = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon casillas = new ImageIcon(dCas.getImage().getScaledInstance(dialogo3.getWidth(), dialogo3.getHeight(),Image.SCALE_DEFAULT));
+        dialogo3.setIcon(casillas);
+        
+        ImageIcon dOcu = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon ocupada = new ImageIcon(dOcu.getImage().getScaledInstance(dialogo2.getWidth(), dialogo2.getHeight(),Image.SCALE_DEFAULT));
+        dialogo2.setIcon(ocupada);
+        
+        ImageIcon dCom = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon comando = new ImageIcon(dCom.getImage().getScaledInstance(dialogo4.getWidth(), dialogo4.getHeight(),Image.SCALE_DEFAULT));
+        dialogo4.setIcon(comando);
+
     }
 
+        public void botonesTransparentes(){
+        jButton1.setOpaque(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setBorderPainted(false);
+        
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        
+        jButton3.setOpaque(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setBorderPainted(false);
+        
+        jButton4.setOpaque(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setBorderPainted(false);
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,125 +83,84 @@ public class Excepciones extends javax.swing.JDialog {
         jDialog1 = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        dialogo1 = new javax.swing.JLabel();
         jDialog2 = new javax.swing.JDialog();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        dialogo2 = new javax.swing.JLabel();
         jDialog3 = new javax.swing.JDialog();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        dialogo3 = new javax.swing.JLabel();
         jDialog4 = new javax.swing.JDialog();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        dialogo4 = new javax.swing.JLabel();
 
-        jDialog1.setMinimumSize(new java.awt.Dimension(500, 200));
+        jDialog1.setMinimumSize(new java.awt.Dimension(490, 193));
+        jDialog1.getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 18)); // NOI18N
-        jLabel2.setText("NO TIENES SUFICIENTES SOLES PARA ESTO");
+        jLabel2.setFont(new java.awt.Font("Bauhaus 93", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("NO TIENES SUFICIENTES SOLES PARA ESO");
+        jDialog1.getContentPane().add(jLabel2);
+        jLabel2.setBounds(60, 70, 380, 40);
 
-        jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton1);
+        jButton1.setBounds(200, 130, 90, 30);
+        jDialog1.getContentPane().add(dialogo1);
+        dialogo1.setBounds(0, 0, 490, 190);
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jButton1))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel2)))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(47, 47, 47))
-        );
+        jDialog2.setMinimumSize(new java.awt.Dimension(490, 193));
+        jDialog2.setPreferredSize(new java.awt.Dimension(490, 193));
+        jDialog2.getContentPane().setLayout(null);
 
-        jDialog2.setMinimumSize(new java.awt.Dimension(500, 200));
-
-        jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jDialog2.getContentPane().add(jButton2);
+        jButton2.setBounds(190, 120, 110, 40);
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bauhaus 93", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("ESTA CASILLA ESTA OCUPADA PRUEBA CON OTRA ");
+        jDialog2.getContentPane().add(jLabel3);
+        jLabel3.setBounds(-10, 50, 470, 80);
 
-        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
-        jDialog2.getContentPane().setLayout(jDialog2Layout);
-        jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jDialog2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(47, 47, 47))
-        );
+        dialogo2.setPreferredSize(new java.awt.Dimension(490, 193));
+        jDialog2.getContentPane().add(dialogo2);
+        dialogo2.setBounds(0, 0, 490, 193);
 
         jDialog3.setMinimumSize(new java.awt.Dimension(500, 200));
+        jDialog3.getContentPane().setLayout(null);
 
-        jButton3.setText("Aceptar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jDialog3.getContentPane().add(jButton3);
+        jButton3.setBounds(190, 130, 100, 30);
 
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bauhaus 93", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ESA CASILLA NO EXISTE PRUEBA CON OTRA");
-
-        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
-        jDialog3.getContentPane().setLayout(jDialog3Layout);
-        jDialog3Layout.setHorizontalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog3Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(43, 43, 43))
-        );
-        jDialog3Layout.setVerticalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(47, 47, 47))
-        );
+        jDialog3.getContentPane().add(jLabel4);
+        jLabel4.setBounds(50, 70, 403, 24);
+        jDialog3.getContentPane().add(dialogo3);
+        dialogo3.setBounds(0, 0, 490, 193);
 
         jDialog4.setMinimumSize(new java.awt.Dimension(500, 200));
+        jDialog4.getContentPane().setLayout(null);
 
         jButton4.setText("Aceptar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -172,41 +168,24 @@ public class Excepciones extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
+        jDialog4.getContentPane().add(jButton4);
+        jButton4.setBounds(190, 130, 100, 30);
 
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bauhaus 93", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("El comando introducido no es valido ");
+        jDialog4.getContentPane().add(jLabel5);
+        jLabel5.setBounds(70, 70, 326, 28);
 
-        jLabel6.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bauhaus 93", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Puedes consultar la ayuda");
+        jDialog4.getContentPane().add(jLabel6);
+        jLabel6.setBounds(110, 90, 280, 28);
 
-        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
-        jDialog4.getContentPane().setLayout(jDialog4Layout);
-        jDialog4Layout.setHorizontalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog4Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
-                .addGroup(jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog4Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(43, 43, 43))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog4Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog4Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(206, 206, 206))))
-        );
-        jDialog4Layout.setVerticalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog4Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addGap(26, 26, 26)
-                .addComponent(jButton4)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        dialogo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
+        jDialog4.getContentPane().add(dialogo4);
+        dialogo4.setBounds(0, 0, 490, 193);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 200));
@@ -252,6 +231,10 @@ public class Excepciones extends javax.swing.JDialog {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel dialogo1;
+    private javax.swing.JLabel dialogo2;
+    private javax.swing.JLabel dialogo3;
+    private javax.swing.JLabel dialogo4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

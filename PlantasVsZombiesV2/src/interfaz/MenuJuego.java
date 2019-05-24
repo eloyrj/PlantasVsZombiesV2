@@ -37,16 +37,24 @@ public class MenuJuego extends javax.swing.JFrame {
         juego = new Juego(new Comandos(),new ExcepcionJuego()); 
         juego.setJugador(J);
         this.setLocationRelativeTo(null);
+        
         this.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         jDialog1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         jFrame1.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         jFrame2.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         this.setVisible(true);
+        
         ImageIcon indice = new ImageIcon("src/img/indice.jpg");
         ImageIcon inicio = new ImageIcon(indice.getImage().getScaledInstance(menuJ.getWidth(), menuJ.getHeight(),Image.SCALE_DEFAULT));
         menuJ.setIcon(inicio);
+        
+        ImageIcon dDif = new ImageIcon("src/img/dialogo1.jpg");
+        ImageIcon dif = new ImageIcon(dDif.getImage().getScaledInstance(dificultad.getWidth(), dificultad.getHeight(),Image.SCALE_DEFAULT));
+        dificultad.setIcon(dif);
+        
         if(J.getPartidaNoFin()!= null)continuar.setVisible(true);
         else continuar.setVisible(false);
+        
 
     }
     public void botonesTransparentes(){
@@ -70,6 +78,22 @@ public class MenuJuego extends javax.swing.JFrame {
         continuar.setContentAreaFilled(false);
         continuar.setBorderPainted(false);
         
+        jButton3.setOpaque(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setBorderPainted(false);
+        
+        jButton4.setOpaque(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setBorderPainted(false);
+        
+        jButton5.setOpaque(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setBorderPainted(false);
+        
+        jButton6.setOpaque(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setBorderPainted(false);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,6 +110,7 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        dificultad = new javax.swing.JLabel();
         jFrame1 = new javax.swing.JFrame();
         fc = new javax.swing.JFileChooser();
         jFrame2 = new javax.swing.JFrame();
@@ -99,71 +124,47 @@ public class MenuJuego extends javax.swing.JFrame {
         menuJ = new javax.swing.JLabel();
 
         jDialog1.setMinimumSize(new java.awt.Dimension(601, 193));
+        jDialog1.getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ELIGE TU DIFICULDAD");
+        jDialog1.getContentPane().add(jLabel1);
+        jLabel1.setBounds(130, 70, 260, 32);
 
-        jButton3.setText("FACIL");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton3);
+        jButton3.setBounds(50, 130, 70, 9);
 
-        jButton4.setText("MEDIA");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton4);
+        jButton4.setBounds(140, 130, 80, 9);
 
-        jButton5.setText("ALTA");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
+        jDialog1.getContentPane().add(jButton5);
+        jButton5.setBounds(240, 130, 60, 9);
 
-        jButton6.setText("IMPOSIBLE");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5))
-                .addGap(50, 50, 50))
-        );
+        jDialog1.getContentPane().add(jButton6);
+        jButton6.setBounds(330, 130, 90, 9);
+        jDialog1.getContentPane().add(dificultad);
+        dificultad.setBounds(0, 0, 490, 193);
 
         fc.setMaximumSize(new java.awt.Dimension(513, 424));
         fc.setMinimumSize(new java.awt.Dimension(513, 424));
@@ -456,6 +457,7 @@ public class MenuJuego extends javax.swing.JFrame {
     private javax.swing.JButton NuevoJ;
     private javax.swing.JTable clasificacion;
     private javax.swing.JButton continuar;
+    private javax.swing.JLabel dificultad;
     private javax.swing.JFileChooser fc;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
