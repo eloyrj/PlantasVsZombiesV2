@@ -61,7 +61,7 @@ public class JuegoI extends javax.swing.JFrame {
         
         ImageIcon gano = new ImageIcon("src/img/dialogo.jpg");
         ImageIcon Gano = new ImageIcon(gano.getImage().getScaledInstance(jLabel24.getWidth(), jLabel24.getHeight(),Image.SCALE_DEFAULT));
-        jLabel24.setIcon(zombie);
+        jLabel24.setIcon(Gano);
         
         ImageIcon perdio = new ImageIcon("src/img/dialogo.jpg");
         ImageIcon Perdio = new ImageIcon(perdio.getImage().getScaledInstance(jLabel25.getWidth(), jLabel25.getHeight(),Image.SCALE_DEFAULT));
