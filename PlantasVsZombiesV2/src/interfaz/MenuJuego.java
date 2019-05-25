@@ -123,7 +123,9 @@ public class MenuJuego extends javax.swing.JFrame {
         continuar = new javax.swing.JButton();
         menuJ = new javax.swing.JLabel();
 
-        jDialog1.setMinimumSize(new java.awt.Dimension(601, 193));
+        jDialog1.setMaximumSize(new java.awt.Dimension(490, 193));
+        jDialog1.setMinimumSize(new java.awt.Dimension(490, 193));
+        jDialog1.setPreferredSize(new java.awt.Dimension(490, 193));
         jDialog1.getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
@@ -163,6 +165,9 @@ public class MenuJuego extends javax.swing.JFrame {
         });
         jDialog1.getContentPane().add(jButton6);
         jButton6.setBounds(330, 130, 90, 9);
+
+        dificultad.setMaximumSize(new java.awt.Dimension(490, 193));
+        dificultad.setMinimumSize(new java.awt.Dimension(490, 193));
         jDialog1.getContentPane().add(dificultad);
         dificultad.setBounds(0, 0, 490, 193);
 
@@ -302,6 +307,8 @@ public class MenuJuego extends javax.swing.JFrame {
         });
         getContentPane().add(continuar);
         continuar.setBounds(760, 590, 110, 50);
+
+        menuJ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/indice.jpg"))); // NOI18N
         getContentPane().add(menuJ);
         menuJ.setBounds(0, 0, 1080, 720);
 

@@ -162,8 +162,6 @@ public class IniSesion extends javax.swing.JFrame {
         jLabel2.setBounds(100, 90, 280, 30);
 
         fail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
-        fail.setMaximumSize(new java.awt.Dimension(490, 193));
-        fail.setMinimumSize(new java.awt.Dimension(490, 193));
         fallo.getContentPane().add(fail);
         fail.setBounds(0, 0, 490, 193);
 
