@@ -307,8 +307,6 @@ public class MenuJuego extends javax.swing.JFrame {
         });
         getContentPane().add(continuar);
         continuar.setBounds(760, 590, 110, 50);
-
-        menuJ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/indice.jpg"))); // NOI18N
         getContentPane().add(menuJ);
         menuJ.setBounds(0, 0, 1080, 720);
 
