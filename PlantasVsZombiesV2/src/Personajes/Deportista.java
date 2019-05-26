@@ -7,11 +7,14 @@ import Juego.Juego;
  *
  * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase Deportista controlará las acciones del zombie tipo Deportista
+ */
 public class Deportista extends Zombie {
     
-        /** Constructor de Zombie Deportista
-         */
-        public Deportista() {
+    /** Constructor de Zombie Deportista
+     */
+    public Deportista() {
         super();
         /** El zombie Deportista avanza 1 casilla cada turno*/
         super.setVelocidad(1);
@@ -28,8 +31,6 @@ public class Deportista extends Zombie {
      */
     @Override
     public void actua(Juego j) {
-        
-        
         
         if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){
             if (getContador() % getVelocidad() ==0){

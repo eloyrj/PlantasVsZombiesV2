@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
 import Juego.Jugador;
@@ -10,22 +6,30 @@ import Juego.LecturaEscritura;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author corte
+ * @author Eloy Rodríguez y María Chantal
+ */
+
+/** La clase-interfaz Clasificación nos permitirá visualizar el tablero de clasificaciones
+ * de los jugadores registrados en el juego.
  */
 public class Clasificacion extends javax.swing.JFrame {
     
+    /** Atributo que define la tabla de clasificación*/
     DefaultTableModel dtm = new DefaultTableModel();
+    /** Atributo que permite leer los datos del jugador*/
     LecturaEscritura le ;
-    /**
-     * Creates new form Clasificacion
+    
+    /** Constructor de Clasifiación
+      * @throws java.io.FileNotFoundException señala que un intento de abrir el archivo
+        * indicado por un nombre de ruta especificado ha fallado
+     * @throws java.lang.ClassNotFoundException se lanza cuando una aplicación intenta cargar en una clase a través de su 
+         * nombre de cadena usando ciertos métodos de los cuales no se puede encontrar una para la clase con el nombre especificado.
      */
     public Clasificacion() throws IOException, FileNotFoundException, ClassNotFoundException {
         le = new LecturaEscritura();
@@ -36,6 +40,8 @@ public class Clasificacion extends javax.swing.JFrame {
         setDatos();
     }
     
+    /** Método set que define la cabecera de la tabla de clasificación
+     */
     private void setModelo(){
         
         String[]cabezera = {"Nombre","DNI","Jugadas","Ganadas","Perdidas","Facil","Media","Dificil","Imposible"};
@@ -46,6 +52,8 @@ public class Clasificacion extends javax.swing.JFrame {
         tbl.setRowSorter(sorter);
     }
     
+    /** Método set que sitúa los datos del jugador en su columna correspondiente de la tabla
+     */
     private void setDatos(){
         Object[] datos = new Object[dtm.getColumnCount()];
         for (Map.Entry<String, Jugador> entry : le.getJugadores().entrySet()){

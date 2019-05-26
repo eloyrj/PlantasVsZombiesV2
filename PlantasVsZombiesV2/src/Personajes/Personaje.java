@@ -29,7 +29,6 @@ public abstract class Personaje implements Serializable{
     
     /** Constructor de Personaje*/
     public Personaje() {
-        
     
     }
    
@@ -79,8 +78,6 @@ public abstract class Personaje implements Serializable{
     public void setPosY(int posY) {
         this.posY = posY;
     }
-    
-    
     
     public abstract void actua(Juego j);
     

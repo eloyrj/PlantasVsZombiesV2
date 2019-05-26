@@ -34,7 +34,8 @@ public class ExcepcionPlanta implements Serializable{
         
     }
     
-    /** Método para controlar si la casilla seleccionada por el usuario está libre u ocupada
+    /** Método para controlar si la casilla seleccionada por el usuario está libre u ocupada 
+     * Se avisará mediante un cuadro de diálogo
      * @param p personaje (Girasol o LanzaGuisantes) que se quiere plantar
      * @return si la casilla está ocupada
     */
@@ -48,6 +49,7 @@ public class ExcepcionPlanta implements Serializable{
     }
     
     /** Método que controla si se introduce una coordenada fuera del tablero o si es inexistente
+     * Se avisará mediante un cuadro de diálogo
      * @param x filas del tablero
      * @param y columnas del tablero
      * @param lTX filas no existentes en el tablero

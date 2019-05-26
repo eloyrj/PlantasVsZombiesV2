@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Personajes;
 
 import Excepciones.ExcepcionPlanta;
@@ -10,10 +6,15 @@ import Juego.Juego;
 
 /**
  *
- * @author corte
+ * @author Eloy Rodríguez y María Chantal 
  */
+
+/** Esta clase controlará el efecto de la planta tipo Petacereza dentro de la partida
+*/
 public class Petacereza extends Planta {
 
+    /** Constructor de Petacereza
+     */
     public Petacereza() {
         super();
         /** Tiene 3 unidades de vida*/
@@ -24,11 +25,17 @@ public class Petacereza extends Planta {
         super.setFrecuencia(2);
         /** Le resta una vida al enemigo por lanzamiento*/
         super.setDaño(2);
+        /** Atributo que llama a las posibles excepciones que puede tener este personaje */
         super.setExcepcion(new ExcepcionPlanta());
         /** Atributo que cuenta los turnos que lleva el LanzaGuisantes en la partida*/
         super.setContador(0);
     }
 
+    /** Método que permite plantar Petacerezas
+     * @param x coordenada x dentro del tablero donde se quiere situar 
+     * @param y coordenada y dentro del tablero donde se quiere situar
+     * @param j partida en curso
+    */
     @Override
     public void addPlanta(int x, int y, Juego j) {
         if (getExcepcion().dentroTablero(x, y, j.getPartida().getTablero().lonX(), j.getPartida().getTablero().lonY()) && getExcepcion().casillaOcupada( j.getPartida().getTablero().getTableroPos(x, y)) && getExcepcion().costePosible(this.getCoste(), j.getPartida().getSoles())){
@@ -38,6 +45,9 @@ public class Petacereza extends Planta {
         }
     }
 
+    /**Método que controla el ataque explosivo del Petacerezas
+     * @param j partida en curso
+     */
     @Override
     public void actua(Juego j) {
        if (getContador() % getFrecuencia() ==0){
@@ -67,11 +77,15 @@ public class Petacereza extends Planta {
         
     }
 
+    /** Método que permite explotar al Petacereza
+     * @param p personaje, en este caso el LanzaGuisantes
+     */ 
     @Override
     public void Ataque(Personaje p) {
          p.setVida(p.getVida()-super.getDaño());
     }
 
+    
     @Override
     public String localizador() {
         return "P(" + super.getVida()+")";

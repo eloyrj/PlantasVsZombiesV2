@@ -7,22 +7,37 @@ import java.io.Serializable;
  *
  * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase jugador nos permitirá conocer los datos del jugador en una partida*/
 public class Jugador implements Serializable{
+    /** Atributo que nos proporciona el nombre del jugador*/
     private String Nombre;
+    /** Atributo que nos proporciona el DNI del jugador*/
     private String DNI;
+    /** Atributo que nos indica si la partida se ha quedado sin finalizar*/
     private Partida partidaNoFin;
+    /** Atributo que nos proporciona los puntos que posee el jugador*/
     private int[] puntosTotales; 
+    /** Atributo que nos indica el número de partidas que ha jugado el jugador*/
     private int partidasJugadas ;
+    /** Atributo que nos indica el número de partidas ganadas por el jugador*/
     private int partidasGanadas;
+    /** Atributo que nos indica el número de partidas perdidas por el jugadosr*/
     private int partidasPerdidas;
 
+    /** Constructor de Jugador
+     * @param Nombre del jugador
+     * @param DNI del jugador
+     */
     public Jugador(String Nombre, String DNI) {
         this.Nombre = Nombre;
         this.DNI = DNI;
-        puntosTotales = new int[4] ;
-        
-        
+        puntosTotales = new int[4] ;  
     }
+    
+    /** Método que actualizará todas las posibles vertientes que tiene una partida
+     * @param p la partida en curso
+     */
     public void actualizar(Partida p){
         actualizarPartidasGanadas(p);
         actualizarPartidasJugadas();
@@ -62,10 +77,14 @@ public class Jugador implements Serializable{
         this.partidaNoFin = partidaNoFin;
     }
     
+    /** Método que nos indica si se ha terminado una partida*/
     public void seTermino(){
         partidaNoFin = null;
     }
     
+    /** Método que actualizará los puntos obtenidos una partida jugada
+     * @param p la partida de la que se quieren recoger los puntos
+     */
     public void actualizarPuntosTotales(Partida p){
         
             switch(p.getDificultad()){
@@ -97,8 +116,10 @@ public class Jugador implements Serializable{
         this.partidasGanadas = partidasGanadas;
     }
     
+    /** Método que actualizará las partidas ganadas por el jugador
+     * @param p la partida jugada y ganada
+     */
     public void actualizarPartidasGanadas(Partida p){
-        
         if (p.isGanada()) partidasGanadas += 1;
         
     }
@@ -111,10 +132,12 @@ public class Jugador implements Serializable{
         this.partidasPerdidas = partidasPerdidas;
     }
     
+    
+    /** Método que actualizará las partidas perdidas por el jugador
+     * @param p la partida jugada y perdida
+     */
     public void actualizarPartidasPerdidas(Partida p){
-        
-            if (!p.isGanada()) partidasPerdidas += 1;
-            
+        if (!p.isGanada()) partidasPerdidas += 1;  
     }
     
 
@@ -126,6 +149,7 @@ public class Jugador implements Serializable{
         this.partidasJugadas = partidasJugadas;
     }
     
+    /** Método que actualizará todas las partidas jugadas por el jugador*/
     public void actualizarPartidasJugadas(){
         partidasJugadas ++;
     }

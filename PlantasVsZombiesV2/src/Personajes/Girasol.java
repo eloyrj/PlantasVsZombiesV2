@@ -8,7 +8,7 @@ import Juego.Juego;
  * @author Eloy Rodríguez y María Chantal
  */
 
-/** Esta clase controlará el efecto de los Girasoles dentro de la partida
+/** Esta clase controlará el efecto de la planta tipo Girasol dentro de la partida
 */
 public class Girasol extends Planta {
 
@@ -38,10 +38,9 @@ public class Girasol extends Planta {
     
     /** Este método no afecta a esta planta ya que los girasoles no atacan
      * @param p personaje, en este caso el girasol
-    */
+     */
     @Override
     public void Ataque(Personaje p) {
-
     }
     
     /** Método que localiza al Girasol en el tablero

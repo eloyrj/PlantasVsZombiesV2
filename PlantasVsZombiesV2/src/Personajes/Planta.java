@@ -17,15 +17,13 @@ public abstract class Planta extends Personaje {
     private int coste;
     /** Atributo que controla la frecuencia con la que actúa cada planta*/
     private int frecuencia;
-
-
+    /** Atributo que llama a las posibles excepciones que puede tener este personaje */
     private ExcepcionPlanta excepcion = new ExcepcionPlanta();
     
     /** Constructor de Planta
      */
     public Planta() {
         super();
-        
     }
 
     public int getCoste() {

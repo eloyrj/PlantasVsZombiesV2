@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
 import Juego.LecturaEscritura;
@@ -16,14 +12,18 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Usuario
+ * @author Eloy Rodgríguez y María Chantal
+ */
+
+/** La clase-interfaz Menu Inicio nos mostrará el primer contacto visual con el juego, donde se podrá
+ * inciiar sesión o registrar un usuario
  */
 public class MenuInicio extends javax.swing.JFrame {
-
+    
+    /** Atributo que permitirá leer y registrar los datos del jugador*/
     private LecturaEscritura lecEscr;
     
-    /**
-     * Creates new form MenuInicio
+    /** Constructor de Menú Inicio
      */
     public MenuInicio() {
         initComponents();
@@ -35,9 +35,10 @@ public class MenuInicio extends javax.swing.JFrame {
         ImageIcon portada = new ImageIcon("src/img/portada.jpg");
         ImageIcon imagen = new ImageIcon(portada.getImage().getScaledInstance(portadaI.getWidth(), portadaI.getHeight(),Image.SCALE_DEFAULT));
         portadaI.setIcon(imagen);
-        
-        
     }
+    
+    /** Método que permitirá poner los botones de la interfaz transparentes
+     */
     public void botonesTransparentes(){
         jButton1.setOpaque(false);
         jButton1.setContentAreaFilled(false);
@@ -89,7 +90,9 @@ public class MenuInicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** Método que, al pulsar el botón "iniciar sesión" (jButton1) nos llevará directamente
+     * a iniciar una sesión como jugador
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             IniSesion iSesion = new IniSesion(this);
@@ -97,7 +100,9 @@ public class MenuInicio extends javax.swing.JFrame {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /** Método que, al pulsar el botón "registrarse" (jButton2), nos llevará directamente 
+     * a registrar un nuevo usuario
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             Registro registro = new Registro(this);

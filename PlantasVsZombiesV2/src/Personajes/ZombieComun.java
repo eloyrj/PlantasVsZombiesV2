@@ -8,7 +8,8 @@ import Juego.Juego;
  * @author Eloy Rodríguez y María Chantal
  */
 
-/** Esta clase controlará el ataque de los zombies durante la partida*/
+/** La clase ZombieComun controlará las acciones del zombie tipo Común
+ */
 public class ZombieComun extends Zombie {
 
     /** Constructor de ZombieComun
@@ -45,8 +46,6 @@ public class ZombieComun extends Zombie {
      */
     @Override
     public void actua(Juego j) {
-        
-        
         
         if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){
             if (getContador() % getVelocidad() ==0){

@@ -11,20 +11,30 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase-interfaz JuegoI controlará todo lo necesario para jugar una partida.
+*/
 public class JuegoI extends javax.swing.JFrame {
 
+    /** Atributo que pertmite jugar una partida. */
     private Juego juego;
+    /** Atributo que creará un tablero en interfaz.*/
     private JLabel[][] tableroI;
+    /** Atributo que permite leer los datos del jugador.*/
     private LecturaEscritura le;
-    /**
-     * Creates new form Juego
+    
+    /** Constructor de JuegoI
+     * @param j partida en curso
+     * @throws java.io.FileNotFoundException señala que un intento de abrir el archivo
+        * indicado por un nombre de ruta especificado ha fallado.
+     * @throws java.lang.ClassNotFoundException se lanza cuando una aplicación intenta cargar en una clase a través de su 
+         * nombre de cadena usando ciertos métodos de los cuales no se puede encontrar una para la clase con el nombre especificado.
      */
     public JuegoI(Juego j) throws IOException, FileNotFoundException, ClassNotFoundException {
         juego = j;
@@ -94,6 +104,8 @@ public class JuegoI extends javax.swing.JFrame {
         
     }
     
+    /** Método que permitirá poner los botones de la interfaz transparentes.
+     */
     public void botonesTransparentes(){
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
@@ -134,6 +146,8 @@ public class JuegoI extends javax.swing.JFrame {
         
         
     }
+    /** Método que permitirá rellenar las casillas del tablero mediante coordenadas.
+     */
     public void rellenar(){
         tableroI[0][0]= c11;
         tableroI[1][0]= c12;
@@ -184,8 +198,10 @@ public class JuegoI extends javax.swing.JFrame {
         
     }
     
+    
+    /** Método que irá rellenando la progress bar a medida que avancen los zombies.
+     */
     public void progreso(){
-        
         progres.setValue(juego.getTotalEnemigos());
     }
     
@@ -984,7 +1000,9 @@ public class JuegoI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** Método que, al pulsar el botón "enviar", plantará la planta seleccionada en las coordenadas
+     * introducidas por el usuario.
+     */
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         if (juego.isFinMalo()) finLose();
         juego.getComandos().lecturaComando(jTextField1.getText(), juego);
@@ -999,7 +1017,9 @@ public class JuegoI extends javax.swing.JFrame {
         if (juego.isFinMalo()) finLose();
         
     }//GEN-LAST:event_enviarActionPerformed
-
+    /** Método que, al pulsar "aceptar" en el cuadro de diálogo que aparece una vez 
+     * ganas la partida, nos llevará de vuelta al menú del juego guardando los puntos obtenidos.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         juego.getJugador().actualizar(juego.getPartida());
         le.borrarJugador(juego.getJugador().getDNI());
@@ -1014,7 +1034,9 @@ public class JuegoI extends javax.swing.JFrame {
         gano.dispose();
         MenuJuego mj = new MenuJuego(juego.getJugador());
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /** Método que, al pulsar "aceptar" en el cuadro de diálogo que aparece una vez 
+     * pierdes la partida, nos llevará de vuelta al menú del juego.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         juego.getJugador().actualizar(juego.getPartida());
@@ -1031,23 +1053,28 @@ public class JuegoI extends javax.swing.JFrame {
         perdio.dispose();
         MenuJuego mj = new MenuJuego(juego.getJugador());
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /** Método que, al pulsar "ayuda", nos abrirá un cuadro de diálogo con la ayuda necesaria para
+     * poder jugar la partida.
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         ayuda.setLocationRelativeTo(this);
         ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ayuda.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo de Normas, cerrará el cuadro.
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         normas.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    /** Método que, al pulsar "Normas", nos abrirá un cuadro de diálogo con las normas del juego.
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         normas.setLocationRelativeTo(this);
         normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         normas.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo de Ayuda, cerrará el cuadro. 
+     */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         ayuda.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1055,7 +1082,10 @@ public class JuegoI extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo que aprece al pulsar el botón de
+     * guardar y salir, nos guardará los datos recolectados en la partida y nos llevará de vuelta al
+     * menú principal del juego. 
+     */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
@@ -1070,21 +1100,30 @@ public class JuegoI extends javax.swing.JFrame {
         this.dispose();
         salirGuardar.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    /** Método que, al pulsar "cancelar" dentro del cuadro de diálogo que aparece al pulsar el botón de 
+     * guardar y salir, nos cerrará el cuadro y nos llevará de vuelta a la partida
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         salirGuardar.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
-
+    /** Método que, al pulsar la X en la esquina superior derecha de la pantalla, nos mostrará el cuadro
+     * de diálogo de Salir en el centro de la pantalla. 
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         salir.setLocationRelativeTo(this);
         salir.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
-
+    /** Método que, al pulsar Guardar Salir en la esquina superior derecha de la pantalla, nos mostrará 
+     * el cuadro de diálogo de Guardar Salir en el centro de la pantalla. 
+     */
     private void gSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gSBtnActionPerformed
         salirGuardar.setLocationRelativeTo(this);
         salirGuardar.setVisible(true);
     }//GEN-LAST:event_gSBtnActionPerformed
-
+    /** Método que, al pulsar "guardar y salir" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos llevará de vuelta al menú principal del juego guardando la partida sin
+     * finalizar.
+     */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
@@ -1099,17 +1138,23 @@ public class JuegoI extends javax.swing.JFrame {
         this.dispose();
         salir.dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
-
+    /** Método que, al pulsar "canceal" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos cerrará el cuadro para volver a la partida.
+     */
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         salir.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
-
+    /** Método que, al pulsar "salir" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos llevará de vuelta al menú principal del juego. 
+     */
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         MenuJuego mj = new MenuJuego(juego.getJugador());
         this.dispose();
         salir.dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
     
+    /** Método que guardará los datos y puntos del jugador al ganar una partida.
+     */
     public void finWin(){
         enviar.setVisible(false);
         juego.getPartida().ganada();
@@ -1120,6 +1165,8 @@ public class JuegoI extends javax.swing.JFrame {
         
     }
     
+    /** Método que guardará los datos del jugador al perder una partida.
+     */
     public void finLose(){
         enviar.setVisible(false);
         perdio.setLocationRelativeTo(this);
@@ -1128,6 +1175,9 @@ public class JuegoI extends javax.swing.JFrame {
 
     }
     
+    /** Método que actualizará las casillas del tablero a cada turno que pasa
+     * También se incluirán las imágenes relativas al personaje en cada casilla. 
+     */
     public void actualizarCasillas(){
         rellenar();
         Tablero t = juego.getPartida().getTablero();

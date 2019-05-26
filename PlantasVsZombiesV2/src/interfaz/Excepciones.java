@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
 import java.awt.Image;
@@ -11,12 +7,16 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase-interfaz Excepciones nos mostrará cuadros de diálogo cuando se presente una excepción en la partida*/
 public class Excepciones extends javax.swing.JDialog {
 
-    /**
-     * Creates new form Excepciones
+    /** Constructor de Excepciones
+     * @param parent
+     * @param modal
+     * @param t
      */
     public Excepciones(java.awt.Frame parent, boolean modal,int t) {
         super(parent, modal);
@@ -53,8 +53,8 @@ public class Excepciones extends javax.swing.JDialog {
         dialogo4.setIcon(comando);
 
     }
-
-        public void botonesTransparentes(){
+    /** Método que permitirá poner los botones de la interfaz transparentes */
+    public void botonesTransparentes(){
         jButton1.setOpaque(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setBorderPainted(false);
@@ -118,7 +118,6 @@ public class Excepciones extends javax.swing.JDialog {
         dialogo1.setBounds(0, 0, 490, 190);
 
         jDialog2.setMinimumSize(new java.awt.Dimension(490, 193));
-        jDialog2.setPreferredSize(new java.awt.Dimension(490, 193));
         jDialog2.getContentPane().setLayout(null);
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -204,31 +203,31 @@ public class Excepciones extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** Método que cierra el diálogo correspondiente al pulsar jButton1 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /** Método que cierra el diálogo correspondiente al pulsar jButton2
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
         jDialog2.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /** Método que cierra el diálogo correspondiente al pulsar jButton3
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
         jDialog3.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /** Método que cierra el diálogo correspondiente al pulsar jButton4
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
         jDialog4.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dialogo1;

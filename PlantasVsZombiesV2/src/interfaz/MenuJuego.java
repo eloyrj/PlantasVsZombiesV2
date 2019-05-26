@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
 import Excepciones.ExcepcionJuego;
@@ -21,14 +17,19 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
+ */
+
+/** La clase-interfaz Menu Juego nos mostrará el menú princiapl o índice del juego, desde el cual
+ * podremos empezar a manejarnos como jugadores
  */
 public class MenuJuego extends javax.swing.JFrame {
-
+    
+    /** Atributo que permite iniciar una partida nueva*/
     private Juego juego;
     
-    /**
-     * Creates new form MenuJuego
+    /** Constructor de MenuJuego
+     * @param J partida en curso
      */
     public MenuJuego(Jugador J) {
         initComponents();
@@ -57,6 +58,9 @@ public class MenuJuego extends javax.swing.JFrame {
         
 
     }
+    
+    /** Método que permitirá poner los botones de la interfaz transparentes
+     */
     public void botonesTransparentes(){
         NuevoJ.setOpaque(false);
         NuevoJ.setContentAreaFilled(false);
@@ -312,12 +316,16 @@ public class MenuJuego extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** Método que, al pulsar el botón Cambiar Usuario, nos llevará de nuevo al menú de inicio
+     * para iniciar sesión de nuevo o registrarse como un nuevo jugador
+     */
     private void CambiarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarUsuarioActionPerformed
         new MenuInicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CambiarUsuarioActionPerformed
-
+    /** Método que, al pulsar el botón Clasificación, nos abrirá una tabla de clasificación de los
+     * jugadores registrados
+     */
     private void ClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClasificacionActionPerformed
         Clasificacion tblC;
         try {
@@ -330,7 +338,8 @@ public class MenuJuego extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_ClasificacionActionPerformed
-
+    /** Método que, al pulsar "fácil" (jButton3) nos iniciará una nueva partida en dificultad baja
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         juego.getComandos().nuevaPartida(juego, "BAJA", 9, 5);
         try {
@@ -341,7 +350,8 @@ public class MenuJuego extends javax.swing.JFrame {
         this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /** Método que, al pulsar "medida" (jButton4) nos iniciará una nueva partida en dificultad media
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         juego.getComandos().nuevaPartida(juego, "MEDIA", 9, 5);
         try {
@@ -352,7 +362,8 @@ public class MenuJuego extends javax.swing.JFrame {
         this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    /** Método que, al pulsar "difícul" (jButton5) nos iniciará una nueva partida en dificultad alta
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         juego.getComandos().nuevaPartida(juego, "ALTA", 9, 5);
         try {
@@ -363,7 +374,8 @@ public class MenuJuego extends javax.swing.JFrame {
         this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    /** Método que, al pulsar "imposible" (jButton6) nos iniciará una nueva partida en dificultad imposible
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         juego.getComandos().nuevaPartida(juego, "IMPOSIBLE", 9, 5);
         try {
@@ -374,15 +386,16 @@ public class MenuJuego extends javax.swing.JFrame {
         this.dispose();
         jDialog1.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    /** Método que, al pulsar el botón Nuevo Juego, nos mostrará un cuadro de diálogo emergente
+     * en el cual podremos elegir la dificultad
+     */
     private void NuevoJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoJActionPerformed
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
-
-
-     
     }//GEN-LAST:event_NuevoJActionPerformed
-
+    /** Método que, al puslar el botón Datos Jugador (NuevoDoc), nos abrirá un File Chooser para elegir
+     * en qué ruta de nustro PC queremos guardar la ficha con los datos del jugador en formato .txt o .doc
+     */
     private void NuevoDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoDocActionPerformed
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.txt", "txt");
@@ -442,7 +455,9 @@ public class MenuJuego extends javax.swing.JFrame {
     private void clasificacionInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_clasificacionInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_clasificacionInputMethodTextChanged
-
+    /** Método que, al pulsar el botón continuar (solo aparece cuando hay una partida guardada), nos llevará
+     * de vuelta al juego en el punto en el que lo habíamos dejado
+     */
     private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
         juego.setPartida(juego.getJugador().getPartidaNoFin());
         try {
