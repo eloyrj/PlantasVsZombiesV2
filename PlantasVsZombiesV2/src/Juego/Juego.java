@@ -10,8 +10,6 @@ import Personajes.Zombie;
 import Personajes.ZombieComun;
 import java.io.Serializable;
 
-
-
 /**
  *
  * @author Eloy Rodríguez y María Chantal
