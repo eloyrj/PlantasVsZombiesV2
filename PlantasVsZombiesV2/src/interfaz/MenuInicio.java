@@ -73,7 +73,7 @@ public class MenuInicio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(110, 460, 370, 120);
+        jButton1.setBounds(120, 470, 370, 120);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
