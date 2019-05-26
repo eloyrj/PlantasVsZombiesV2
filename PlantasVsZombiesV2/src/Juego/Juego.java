@@ -142,7 +142,7 @@ public class Juego implements Serializable{
                                 j.getPartida().getTablero().getTableroPos(p+1, i+1).setContador(j.getPartida().getTablero().getTableroPos(p+1, i+1).getContador()+1);
                                 j.getPartida().getTablero().getTableroPos(p+1, i+1).actua(j);
                             }
-                            else if (j.getPartida().getTablero().getTableroPos(p+1, i+1) != null && j.getPartida().getTablero().getTableroPos(p+1, i+1).muerto()){
+                            if (j.getPartida().getTablero().getTableroPos(p+1, i+1) != null && j.getPartida().getTablero().getTableroPos(p+1, i+1).muerto()){
                                 j.getPartida().getTablero().setTableroPos(p+1, i+1,null);
                             }
                         }

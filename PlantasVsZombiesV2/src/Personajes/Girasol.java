@@ -25,7 +25,7 @@ public class Girasol extends Planta {
         /** No daña a los zombies*/
         super.setDaño(0); 
         /** Turnos que lleva el Girasol en la partida*/
-        super.setContador(0);
+        super.setContador(-1);
     }
     
     /** Método que controla los soles que van generando los girasoles a lo largo de la partido

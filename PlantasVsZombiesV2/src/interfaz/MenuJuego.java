@@ -127,9 +127,7 @@ public class MenuJuego extends javax.swing.JFrame {
         continuar = new javax.swing.JButton();
         menuJ = new javax.swing.JLabel();
 
-        jDialog1.setMaximumSize(new java.awt.Dimension(490, 193));
         jDialog1.setMinimumSize(new java.awt.Dimension(490, 193));
-        jDialog1.setPreferredSize(new java.awt.Dimension(490, 193));
         jDialog1.getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
@@ -144,7 +142,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         jDialog1.getContentPane().add(jButton3);
-        jButton3.setBounds(50, 130, 70, 9);
+        jButton3.setBounds(50, 120, 70, 30);
 
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +150,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         jDialog1.getContentPane().add(jButton4);
-        jButton4.setBounds(140, 130, 80, 9);
+        jButton4.setBounds(140, 120, 90, 30);
 
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +158,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         jDialog1.getContentPane().add(jButton5);
-        jButton5.setBounds(240, 130, 60, 9);
+        jButton5.setBounds(240, 120, 80, 30);
 
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +166,7 @@ public class MenuJuego extends javax.swing.JFrame {
             }
         });
         jDialog1.getContentPane().add(jButton6);
-        jButton6.setBounds(330, 130, 90, 9);
+        jButton6.setBounds(330, 120, 90, 30);
 
         dificultad.setMaximumSize(new java.awt.Dimension(490, 193));
         dificultad.setMinimumSize(new java.awt.Dimension(490, 193));

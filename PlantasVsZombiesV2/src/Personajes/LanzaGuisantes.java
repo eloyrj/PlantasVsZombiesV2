@@ -27,7 +27,7 @@ public class LanzaGuisantes extends Planta {
         super.setDaño(1);
         super.setExcepcion(new ExcepcionPlanta());
         /** Atributo que cuenta los turnos que lleva el LanzaGuisantes en la partida*/
-        super.setContador(0);
+        super.setContador(-1);
     }
 
     /** Método que permite atacar al LanzaGuistantes

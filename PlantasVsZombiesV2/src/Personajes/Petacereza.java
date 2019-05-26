@@ -28,7 +28,7 @@ public class Petacereza extends Planta {
         /** Atributo que llama a las posibles excepciones que puede tener este personaje */
         super.setExcepcion(new ExcepcionPlanta());
         /** Atributo que cuenta los turnos que lleva el LanzaGuisantes en la partida*/
-        super.setContador(0);
+        super.setContador(-1);
     }
 
     /** Método que permite plantar Petacerezas
@@ -52,23 +52,23 @@ public class Petacereza extends Planta {
     public void actua(Juego j) {
        if (getContador() % getFrecuencia() ==0){
             
-            if ( this.getPosY()!= 0){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
+            if ( this.getPosY()!= 1){
+                if ( j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1));
                 }   
             }
             if (this.getPosY()!= j.getPartida().getTablero().lonY()){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()-1 ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1 ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX(), super.getPosY()+1));
                 }
             }
-            if ( this.getPosX()!= 0 ){
+            if ( this.getPosX()!= 1 ){
                 if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto() ){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()));
                 }
             }
             if ( this.getPosX()!= j.getPartida().getTablero().lonX()){
-                if (j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY() ) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY() ).muerto()){
+                if (j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY()) instanceof Zombie  &&  !j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY() ).muerto()){
                     Ataque(j.getPartida().getTablero().getTableroPos(super.getPosX()+1, super.getPosY()));
                 }
             }
@@ -83,6 +83,7 @@ public class Petacereza extends Planta {
     @Override
     public void Ataque(Personaje p) {
          p.setVida(p.getVida()-super.getDaño());
+         System.out.println(p.getVida());
     }
 
     

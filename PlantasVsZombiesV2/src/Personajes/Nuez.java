@@ -28,7 +28,7 @@ public class Nuez extends Planta {
         /** Atributo que llama a las posibles excepciones que puede tener este personaje */
         super.setExcepcion(new ExcepcionPlanta());
         /** Atributo que cuenta los turnos que lleva el LanzaGuisantes en la partida*/
-        super.setContador(0);
+        super.setContador(-1);
     }
     
     
