@@ -7,9 +7,13 @@ import Juego.Juego;
  *
  * @author Eloy Rodríguez y María Chantal
  */
+
+
+/** La clase Caracubo controlará las acciones del zombie tipo Caracubo
+ */
 public class Caracubo extends Zombie {
     
-    /** Constructor de zombie Caracubo
+    /** Constructor de zombie Caracubo 
      */
     public Caracubo() {
         super();
@@ -23,13 +27,11 @@ public class Caracubo extends Zombie {
         super.setContador(0);
     }
     
-    /** Método que controla el ataque de un zombie Deportista
+    /** Método que controla el ataque de un zombie Caracubo
      * @param j partida
      */
     @Override
     public void actua(Juego j) {
-        
-        
         
         if (j.getPartida().getTablero().getTableroPos(super.getPosX()-1, super.getPosY()) == null){
             if (getContador() % getVelocidad() ==0){
@@ -64,7 +66,4 @@ public class Caracubo extends Zombie {
         return "C(" + super.getVida()+")";
     }
 
-    
-    
-    
 }

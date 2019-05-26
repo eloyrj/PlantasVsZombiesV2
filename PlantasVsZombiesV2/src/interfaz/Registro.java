@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 import Juego.Jugador;
 import Juego.LecturaEscritura;
@@ -16,14 +12,24 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
  */
-public class Registro extends javax.swing.JFrame {
 
+/** La clase-interfaz Registro nos permitirá registrarnos como jugadores
+*/
+public class Registro extends javax.swing.JFrame {
+    /** Atributo que permite leer y guardar los datos del jugador */
     private LecturaEscritura lecEscr ;
+    /** Atributo que relaciona ciertos componentes del inicio con la interfaz */
     private MenuInicio inicio;
-    /**
-     * Creates new form Registro
+    
+    
+    /** Constructor de Registro
+     * @param inicio pantalla de inicio
+     * @throws java.io.FileNotFoundException señala que un intento de abrir el archivo
+        * indicado por un nombre de ruta especificado ha fallado
+     * @throws java.lang.ClassNotFoundException se lanza cuando una aplicación intenta cargar en una clase a través de su 
+         * nombre de cadena usando ciertos métodos de los cuales no se puede encontrar una para la clase con el nombre especificado.
      */
     public Registro(MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
         this.inicio = inicio;
@@ -47,6 +53,8 @@ public class Registro extends javax.swing.JFrame {
         regi.setIcon(Reg);
     }
     
+    /** Método que permitirá poner los botones de la interfaz transparentes
+     */
     public void botonesTransparentes(){
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
@@ -159,7 +167,9 @@ public class Registro extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
-
+    /** Método que, al pulsar el botón aceptar, nos mostrará un cuadro de diálogo con los datos
+     * recién introducidos para confirmar el registro
+     */
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String dni = jTextField3.getText().toUpperCase();
         String nombre = jTextField4.getText().toUpperCase();
@@ -180,7 +190,9 @@ public class Registro extends javax.swing.JFrame {
         jDialog1.setVisible(true);
         
     }//GEN-LAST:event_aceptarActionPerformed
-
+    /** Método que, al pulsar "aceptar" (jButton2) dentro del cuadro de diálogo emergente anterior, nos 
+     * llevará directamente al menú principal del juego
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText().toUpperCase()));
         inicio.dispose();
@@ -188,7 +200,9 @@ public class Registro extends javax.swing.JFrame {
         jDialog1.dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /** Método que, al pulsar "cancelar" (jButton3) dentro del cuadro de diálogo emergente anterior, nos
+     * llevará directamente al menú principal del juego
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jDialog1.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed

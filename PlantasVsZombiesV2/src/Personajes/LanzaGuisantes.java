@@ -9,7 +9,7 @@ import Excepciones.ExcepcionPlanta;
  * @author Eloy Rodríguez y María Chantal
  */
 
-/** Esta clase controlará a los LanzaGuisantes dentro de la partida
+/** Esta clase controlará el efecto de la planta tipo LanzaGuisantes dentro de la partida
 */
 public class LanzaGuisantes extends Planta {
     

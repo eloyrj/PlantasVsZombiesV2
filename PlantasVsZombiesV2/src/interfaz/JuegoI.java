@@ -11,20 +11,30 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
  */
+
+/** La clase-interfaz JuegoI controlará todo lo necesario para jugar una partida.
+*/
 public class JuegoI extends javax.swing.JFrame {
 
+    /** Atributo que pertmite jugar una partida. */
     private Juego juego;
+    /** Atributo que creará un tablero en interfaz.*/
     private JLabel[][] tableroI;
+    /** Atributo que permite leer los datos del jugador.*/
     private LecturaEscritura le;
-    /**
-     * Creates new form Juego
+    
+    /** Constructor de JuegoI
+     * @param j partida en curso
+     * @throws java.io.FileNotFoundException señala que un intento de abrir el archivo
+        * indicado por un nombre de ruta especificado ha fallado.
+     * @throws java.lang.ClassNotFoundException se lanza cuando una aplicación intenta cargar en una clase a través de su 
+         * nombre de cadena usando ciertos métodos de los cuales no se puede encontrar una para la clase con el nombre especificado.
      */
     public JuegoI(Juego j) throws IOException, FileNotFoundException, ClassNotFoundException {
         juego = j;
@@ -34,6 +44,7 @@ public class JuegoI extends javax.swing.JFrame {
         juego.setTotalEnemigos(juego.getPartida().getEnemigosAparecidos());
         
         initComponents();
+        botonesTransparentes();
         actualizarCasillas();
         progreso();
         
@@ -53,15 +64,90 @@ public class JuegoI extends javax.swing.JFrame {
         ImageIcon sol = new ImageIcon("src/img/sol.png");
         ImageIcon imagen = new ImageIcon(sol.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(),Image.SCALE_DEFAULT));
         jLabel1.setIcon(imagen);
-        jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
-        jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
-        juego.setTurnosTotales(juego.getPartida().getTurnoInicial()+30);
+        
+        ImageIcon mano = new ImageIcon("src/img/mano.png");
+        ImageIcon zombie = new ImageIcon(mano.getImage().getScaledInstance(jLabel23.getWidth(), jLabel23.getHeight(),Image.SCALE_DEFAULT));
+        jLabel23.setIcon(zombie);
+        
+        ImageIcon gano = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon Gano = new ImageIcon(gano.getImage().getScaledInstance(jLabel24.getWidth(), jLabel24.getHeight(),Image.SCALE_DEFAULT));
+        jLabel24.setIcon(Gano);
+        
+        ImageIcon perdio = new ImageIcon("src/img/dialogo.jpg");
+        ImageIcon Perdio = new ImageIcon(perdio.getImage().getScaledInstance(jLabel25.getWidth(), jLabel25.getHeight(),Image.SCALE_DEFAULT));
+        jLabel25.setIcon(Perdio);
+        
+        ImageIcon ayuda = new ImageIcon("src/img/blank.jpg");
+        ImageIcon Ayuda = new ImageIcon(ayuda.getImage().getScaledInstance(jLabel27.getWidth(), jLabel27.getHeight(),Image.SCALE_DEFAULT));
+        jLabel27.setIcon(Ayuda);
+        
+        ImageIcon normas = new ImageIcon("src/img/blank.jpg");
+        ImageIcon Normas = new ImageIcon(normas.getImage().getScaledInstance(jLabel28.getWidth(), jLabel28.getHeight(),Image.SCALE_DEFAULT));
+        jLabel28.setIcon(Normas);
+        
+        ImageIcon gs = new ImageIcon("src/img/dialogo3.jpg");
+        ImageIcon GS = new ImageIcon(gs.getImage().getScaledInstance(jLabel32.getWidth(), jLabel32.getHeight(),Image.SCALE_DEFAULT));
+        jLabel32.setIcon(GS);
+        
+        ImageIcon salir = new ImageIcon("src/img/dialogo4.jpg");
+        ImageIcon Salir = new ImageIcon(salir.getImage().getScaledInstance(jLabel34.getWidth(), jLabel34.getHeight(),Image.SCALE_DEFAULT));
+        jLabel34.setIcon(Salir);
+       
         ImageIcon tablero = new ImageIcon("src/img/tablero.jpg");
         ImageIcon cesped = new ImageIcon(tablero.getImage().getScaledInstance(tableroJ.getWidth(), tableroJ.getHeight(),Image.SCALE_DEFAULT));
         tableroJ.setIcon(cesped);
         
+        jLabel3.setText(Integer.toString(juego.getPartida().getTurno()));
+        jLabel2.setText(Integer.toString(juego.getPartida().getSoles()));
+        juego.setTurnosTotales(juego.getPartida().getTurnoInicial()+30);
+        
         
     }
+    
+    /** Método que permitirá poner los botones de la interfaz transparentes.
+     */
+    public void botonesTransparentes(){
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setBorderPainted(false);
+        
+        jButton3.setOpaque(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setBorderPainted(false);
+        
+        jButton7.setOpaque(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setBorderPainted(false);
+        
+        jButton6.setOpaque(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setBorderPainted(false);
+        
+        jButton8.setOpaque(false);
+        jButton8.setContentAreaFilled(false);
+        jButton8.setBorderPainted(false);
+        
+        jButton9.setOpaque(false);
+        jButton9.setContentAreaFilled(false);
+        jButton9.setBorderPainted(false);
+        
+        jButton10.setOpaque(false);
+        jButton10.setContentAreaFilled(false);
+        jButton10.setBorderPainted(false);
+        
+        jButton11.setOpaque(false);
+        jButton11.setContentAreaFilled(false);
+        jButton11.setBorderPainted(false);
+        
+        jButton12.setOpaque(false);
+        jButton12.setContentAreaFilled(false);
+        jButton12.setBorderPainted(false);
+        
+        
+        
+    }
+    /** Método que permitirá rellenar las casillas del tablero mediante coordenadas.
+     */
     public void rellenar(){
         tableroI[0][0]= c11;
         tableroI[1][0]= c12;
@@ -112,8 +198,10 @@ public class JuegoI extends javax.swing.JFrame {
         
     }
     
+    
+    /** Método que irá rellenando la progress bar a medida que avancen los zombies.
+     */
     public void progreso(){
-        
         progres.setValue(juego.getTotalEnemigos());
     }
     
@@ -129,9 +217,12 @@ public class JuegoI extends javax.swing.JFrame {
         gano = new javax.swing.JDialog();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         perdio = new javax.swing.JDialog();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         ayuda = new javax.swing.JDialog();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -140,6 +231,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         normas = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -150,16 +242,23 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
         salirGuardar = new javax.swing.JDialog();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         salir = new javax.swing.JDialog();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jButton12 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         c11 = new javax.swing.JLabel();
@@ -219,340 +318,278 @@ public class JuegoI extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jButton5 = new javax.swing.JButton();
         progres = new javax.swing.JProgressBar();
+        jLabel23 = new javax.swing.JLabel();
 
         gano.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        gano.setMinimumSize(new java.awt.Dimension(552, 199));
+        gano.setMaximumSize(new java.awt.Dimension(490, 193));
+        gano.setMinimumSize(new java.awt.Dimension(490, 193));
+        gano.setPreferredSize(new java.awt.Dimension(490, 193));
+        gano.getContentPane().setLayout(null);
 
-        jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        gano.getContentPane().add(jButton2);
+        jButton2.setBounds(190, 120, 100, 40);
 
+        jLabel4.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ENHORABUENA, LO HAS CONSEGUIDO , O NO ;)");
+        gano.getContentPane().add(jLabel4);
+        jLabel4.setBounds(50, 70, 430, 36);
 
-        javax.swing.GroupLayout ganoLayout = new javax.swing.GroupLayout(gano.getContentPane());
-        gano.getContentPane().setLayout(ganoLayout);
-        ganoLayout.setHorizontalGroup(
-            ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ganoLayout.createSequentialGroup()
-                .addGroup(ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ganoLayout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jButton2))
-                    .addGroup(ganoLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel4)))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        ganoLayout.setVerticalGroup(
-            ganoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ganoLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(34, 34, 34))
-        );
+        jLabel24.setMaximumSize(new java.awt.Dimension(490, 193));
+        jLabel24.setMinimumSize(new java.awt.Dimension(490, 193));
+        jLabel24.setPreferredSize(new java.awt.Dimension(490, 193));
+        gano.getContentPane().add(jLabel24);
+        jLabel24.setBounds(0, 0, 490, 193);
 
         perdio.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        perdio.setMinimumSize(new java.awt.Dimension(579, 199));
+        perdio.setMaximumSize(new java.awt.Dimension(490, 193));
+        perdio.setMinimumSize(new java.awt.Dimension(490, 193));
+        perdio.setPreferredSize(new java.awt.Dimension(490, 193));
+        perdio.getContentPane().setLayout(null);
 
-        jButton3.setText("Aceptar");
+        jButton3.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        perdio.getContentPane().add(jButton3);
+        jButton3.setBounds(190, 130, 100, 40);
 
-        jLabel5.setText("BUENO LO CONSEGUISTE, HAS LLEGADO AL FINAL DE TU VIDA POR FIN.");
+        jLabel5.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("BUENO LO CONSEGUISTE, ");
+        perdio.getContentPane().add(jLabel5);
+        jLabel5.setBounds(130, 40, 240, 50);
 
-        javax.swing.GroupLayout perdioLayout = new javax.swing.GroupLayout(perdio.getContentPane());
-        perdio.getContentPane().setLayout(perdioLayout);
-        perdioLayout.setHorizontalGroup(
-            perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(perdioLayout.createSequentialGroup()
-                .addGroup(perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(perdioLayout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jButton3))
-                    .addGroup(perdioLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel5)))
-                .addGap(20, 20, 20))
-        );
-        perdioLayout.setVerticalGroup(
-            perdioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(perdioLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(34, 34, 34))
-        );
+        jLabel26.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("HAS LLEGADO AL FINAL DE TU VIDA, POR FIN");
+        perdio.getContentPane().add(jLabel26);
+        jLabel26.setBounds(70, 80, 400, 40);
 
-        ayuda.setMinimumSize(new java.awt.Dimension(780, 432));
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
+        jLabel25.setMaximumSize(new java.awt.Dimension(490, 193));
+        jLabel25.setMinimumSize(new java.awt.Dimension(490, 193));
+        perdio.getContentPane().add(jLabel25);
+        jLabel25.setBounds(0, 0, 490, 193);
 
-        jLabel15.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 24)); // NOI18N
+        ayuda.setMaximumSize(new java.awt.Dimension(678, 427));
+        ayuda.setMinimumSize(new java.awt.Dimension(678, 427));
+        ayuda.setPreferredSize(new java.awt.Dimension(678, 427));
+        ayuda.getContentPane().setLayout(null);
+
+        jLabel15.setFont(new java.awt.Font("Bauhaus 93", 1, 24)); // NOI18N
         jLabel15.setText("Ayuda para jugar a Plantas vs Zombies: ");
+        ayuda.getContentPane().add(jLabel15);
+        jLabel15.setBounds(90, 40, 462, 32);
 
-        jLabel16.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel16.setText("- G <fila> <columna>: colocar girasol.");
+        ayuda.getContentPane().add(jLabel16);
+        jLabel16.setBounds(180, 120, 320, 17);
 
-        jLabel17.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel17.setText("- L <fila> <columna>: colocar LanzaGuisantes.");
+        ayuda.getContentPane().add(jLabel17);
+        jLabel17.setBounds(180, 150, 350, 17);
 
-        jLabel18.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel18.setText("- N <fila> <columna>: colocar una Nuez.");
+        ayuda.getContentPane().add(jLabel18);
+        jLabel18.setBounds(180, 180, 340, 17);
 
-        jLabel19.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel19.setText("- P <fila> <columna>: colocar un Petacereza.");
+        ayuda.getContentPane().add(jLabel19);
+        jLabel19.setBounds(180, 210, 360, 17);
 
-        jLabel20.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel20.setText("- Pulsa Enviar para pasar turno.");
+        ayuda.getContentPane().add(jLabel20);
+        jLabel20.setBounds(180, 240, 340, 17);
 
-        jButton7.setText("Aceptar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
+        ayuda.getContentPane().add(jButton7);
+        jButton7.setBounds(210, 310, 240, 60);
 
-        javax.swing.GroupLayout ayudaLayout = new javax.swing.GroupLayout(ayuda.getContentPane());
-        ayuda.getContentPane().setLayout(ayudaLayout);
-        ayudaLayout.setHorizontalGroup(
-            ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ayudaLayout.createSequentialGroup()
-                .addGroup(ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ayudaLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel15))
-                    .addGroup(ayudaLayout.createSequentialGroup()
-                        .addGap(321, 321, 321)
-                        .addComponent(jButton7)))
-                .addContainerGap(101, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ayudaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20))
-                .addGap(200, 200, 200))
-        );
-        ayudaLayout.setVerticalGroup(
-            ayudaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ayudaLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel15)
-                .addGap(72, 72, 72)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(jButton7)
-                .addGap(40, 40, 40))
-        );
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blank.jpg"))); // NOI18N
+        jLabel27.setMaximumSize(new java.awt.Dimension(678, 427));
+        jLabel27.setMinimumSize(new java.awt.Dimension(678, 427));
+        jLabel27.setPreferredSize(new java.awt.Dimension(678, 427));
+        ayuda.getContentPane().add(jLabel27);
+        jLabel27.setBounds(0, 0, 678, 427);
 
-        normas.setMinimumSize(new java.awt.Dimension(1125, 600));
+        normas.setMaximumSize(new java.awt.Dimension(678, 427));
+        normas.setMinimumSize(new java.awt.Dimension(678, 427));
+        normas.setPreferredSize(new java.awt.Dimension(678, 427));
+        normas.getContentPane().setLayout(null);
 
-        jLabel6.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
-        jLabel6.setText("- El objetivo del juego es eliminar a los Zombies que aparecen por la derecha mediante el uso de plantas como armas.");
+        jLabel6.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel6.setText("- El objetivo del juego es eliminar a los Zombies que aparecen por la derecha mediante el uso de ");
+        normas.getContentPane().add(jLabel6);
+        jLabel6.setBounds(10, 50, 670, 40);
 
-        jLabel7.setFont(new java.awt.Font("DejaVu Sans Mono", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bauhaus 93", 1, 24)); // NOI18N
         jLabel7.setText("Normas para jugar a Plantas vs Zombies: ");
+        normas.getContentPane().add(jLabel7);
+        jLabel7.setBounds(110, 20, 466, 36);
 
-        jLabel8.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
         jLabel8.setText("- Los soles se usan como unidad de dinero. Necesitas soles para comprar Girasoles y LanzaGuisantes.");
+        normas.getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 100, 656, 19);
 
-        jLabel9.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
         jLabel9.setText("- Los Girasoles cuestan 20 soles y, a su vez, producen 20 soles más cada 2 turnos de la partida.");
+        normas.getContentPane().add(jLabel9);
+        jLabel9.setBounds(10, 130, 602, 18);
 
-        jLabel10.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
-        jLabel10.setText("- Para plantarlas, tienes que seleccionar la casilla en la que quieres plantarlo. ¿Cómo? Mediante coordenadas.");
+        jLabel10.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel10.setText("- Para plantarlas, tienes que seleccionar la casilla en la que quieres plantarlo. ¿Cómo? Con coordenadas ");
+        normas.getContentPane().add(jLabel10);
+        jLabel10.setBounds(10, 270, 687, 18);
 
-        jLabel11.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
         jLabel11.setText("- Por su parte, los LanzaGuisantes cuestan 50 soles y son los capaces de matar a los zombies.");
+        normas.getContentPane().add(jLabel11);
+        jLabel11.setBounds(10, 160, 591, 18);
 
-        jLabel12.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
-        jLabel12.setText("- Visualiza la casilla en la que quieres plantar y teclea el número de columna y luego de fila. Al pulsar enter aparecerá.");
+        jLabel12.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel12.setText("- Visualiza la casilla en la que quieres plantar y teclea el número de columna y luego de fila. ");
+        normas.getContentPane().add(jLabel12);
+        jLabel12.setBounds(10, 290, 733, 18);
 
-        jLabel13.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
-        jLabel13.setText("- las nueces cuestan 50 soles y, pero estas aguantan mucho ya que tienen 10 puntos de vida.");
+        jLabel13.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel13.setText("- Las nueces cuestan 50 soles y, pero estas aguantan mucho ya que tienen 10 puntos de vida.");
+        normas.getContentPane().add(jLabel13);
+        jLabel13.setBounds(10, 190, 593, 18);
 
-        jLabel14.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 14)); // NOI18N
-        jLabel14.setText("- Los petacerezas cuestan 50 soles y, estos explotan a los dos turnos de ser plantados haciendo daño a todas las casillas adyacentes.");
+        jLabel14.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel14.setText("- Los petacerezas cuestan 50 soles y, estos explotan a los dos turnos de ser plantados haciendo ");
+        normas.getContentPane().add(jLabel14);
+        jLabel14.setBounds(10, 220, 608, 18);
 
-        jButton6.setText("Aceptar");
+        jLabel29.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel29.setText("plantas como armas.");
+        normas.getContentPane().add(jLabel29);
+        jLabel29.setBounds(20, 80, 620, 14);
+
+        jLabel30.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel30.setText("daño a todas las casillas adyacentes.");
+        normas.getContentPane().add(jLabel30);
+        jLabel30.setBounds(20, 240, 320, 20);
+
+        jLabel31.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
+        jLabel31.setText("Al pulsar enter aparecerá.");
+        normas.getContentPane().add(jLabel31);
+        jLabel31.setBounds(20, 310, 310, 14);
+
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
+        normas.getContentPane().add(jButton6);
+        jButton6.setBounds(270, 340, 150, 40);
 
-        javax.swing.GroupLayout normasLayout = new javax.swing.GroupLayout(normas.getContentPane());
-        normas.getContentPane().setLayout(normasLayout);
-        normasLayout.setHorizontalGroup(
-            normasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(normasLayout.createSequentialGroup()
-                .addGroup(normasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(normasLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(normasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14)))
-                    .addGroup(normasLayout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel7))
-                    .addGroup(normasLayout.createSequentialGroup()
-                        .addGap(483, 483, 483)
-                        .addComponent(jButton6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        normasLayout.setVerticalGroup(
-            normasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(normasLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel7)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addComponent(jButton6)
-                .addGap(116, 116, 116))
-        );
+        jLabel28.setMaximumSize(new java.awt.Dimension(678, 427));
+        jLabel28.setMinimumSize(new java.awt.Dimension(678, 427));
+        jLabel28.setPreferredSize(new java.awt.Dimension(678, 427));
+        normas.getContentPane().add(jLabel28);
+        jLabel28.setBounds(0, 0, 678, 427);
 
         salirGuardar.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salirGuardar.setMinimumSize(new java.awt.Dimension(860, 252));
+        salirGuardar.setMaximumSize(new java.awt.Dimension(490, 193));
+        salirGuardar.setMinimumSize(new java.awt.Dimension(490, 193));
+        salirGuardar.setPreferredSize(new java.awt.Dimension(490, 193));
+        salirGuardar.getContentPane().setLayout(null);
 
-        jButton8.setText("Aceptar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
+        salirGuardar.getContentPane().add(jButton8);
+        jButton8.setBounds(60, 120, 120, 40);
 
-        jButton9.setText("Cancelar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
+        salirGuardar.getContentPane().add(jButton9);
+        jButton9.setBounds(290, 120, 140, 40);
 
-        jLabel21.setFont(new java.awt.Font("NSimSun", 1, 24)); // NOI18N
-        jLabel21.setText("¿Seguro que deseas salir y guardar la partida?");
+        jLabel33.setFont(new java.awt.Font("Bauhaus 93", 0, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("y guardar la partida?");
+        salirGuardar.getContentPane().add(jLabel33);
+        jLabel33.setBounds(130, 60, 340, 40);
 
-        javax.swing.GroupLayout salirGuardarLayout = new javax.swing.GroupLayout(salirGuardar.getContentPane());
-        salirGuardar.getContentPane().setLayout(salirGuardarLayout);
-        salirGuardarLayout.setHorizontalGroup(
-            salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(salirGuardarLayout.createSequentialGroup()
-                .addGroup(salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(salirGuardarLayout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(167, 167, 167)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(salirGuardarLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jLabel21)))
-                .addContainerGap(146, Short.MAX_VALUE))
-        );
-        salirGuardarLayout.setVerticalGroup(
-            salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirGuardarLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(salirGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67))
-        );
+        jLabel21.setFont(new java.awt.Font("Bauhaus 93", 1, 24)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("¿Seguro que deseas salir ");
+        salirGuardar.getContentPane().add(jLabel21);
+        jLabel21.setBounds(100, 40, 330, 28);
+
+        jLabel32.setMaximumSize(new java.awt.Dimension(490, 193));
+        jLabel32.setMinimumSize(new java.awt.Dimension(490, 193));
+        jLabel32.setPreferredSize(new java.awt.Dimension(490, 193));
+        salirGuardar.getContentPane().add(jLabel32);
+        jLabel32.setBounds(0, 0, 490, 193);
 
         salir.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salir.setMinimumSize(new java.awt.Dimension(860, 252));
+        salir.setMaximumSize(new java.awt.Dimension(490, 193));
+        salir.setMinimumSize(new java.awt.Dimension(490, 193));
+        salir.setPreferredSize(new java.awt.Dimension(490, 193));
+        salir.getContentPane().setLayout(null);
 
-        jButton10.setText("Guardar y Salir");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
+        salir.getContentPane().add(jButton10);
+        jButton10.setBounds(30, 120, 130, 50);
 
-        jButton11.setText("Cancelar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
             }
         });
+        salir.getContentPane().add(jButton11);
+        jButton11.setBounds(350, 120, 110, 40);
 
-        jLabel22.setFont(new java.awt.Font("NSimSun", 1, 24)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Bauhaus 93", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("¿Seguro que deseas salir?");
+        salir.getContentPane().add(jLabel22);
+        jLabel22.setBounds(90, 50, 322, 28);
 
-        jButton12.setText("Salir");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
             }
         });
+        salir.getContentPane().add(jButton12);
+        jButton12.setBounds(200, 120, 102, 40);
 
-        javax.swing.GroupLayout salirLayout = new javax.swing.GroupLayout(salir.getContentPane());
-        salir.getContentPane().setLayout(salirLayout);
-        salirLayout.setHorizontalGroup(
-            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(salirLayout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jButton10)
-                .addGap(77, 77, 77)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(257, 257, 257))
-        );
-        salirLayout.setVerticalGroup(
-            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, salirLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(53, 53, 53)
-                .addGroup(salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67))
-        );
+        jLabel34.setMaximumSize(new java.awt.Dimension(490, 193));
+        jLabel34.setMinimumSize(new java.awt.Dimension(490, 193));
+        jLabel34.setPreferredSize(new java.awt.Dimension(490, 193));
+        salir.getContentPane().add(jLabel34);
+        jLabel34.setBounds(0, 0, 490, 193);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 0));
@@ -897,6 +934,8 @@ public class JuegoI extends javax.swing.JFrame {
 
         progres.setForeground(new java.awt.Color(107, 228, 21));
 
+        jLabel23.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -920,7 +959,9 @@ public class JuegoI extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(436, 436, 436)
+                        .addGap(355, 355, 355)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(progres, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -928,8 +969,13 @@ public class JuegoI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(progres, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(progres, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(13, 13, 13)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,7 +991,7 @@ public class JuegoI extends javax.swing.JFrame {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap(46, Short.MAX_VALUE))
+                        .addContainerGap(60, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -954,7 +1000,9 @@ public class JuegoI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /** Método que, al pulsar el botón "enviar", plantará la planta seleccionada en las coordenadas
+     * introducidas por el usuario.
+     */
     private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
         if (juego.isFinMalo()) finLose();
         juego.getComandos().lecturaComando(jTextField1.getText(), juego);
@@ -969,7 +1017,9 @@ public class JuegoI extends javax.swing.JFrame {
         if (juego.isFinMalo()) finLose();
         
     }//GEN-LAST:event_enviarActionPerformed
-
+    /** Método que, al pulsar "aceptar" en el cuadro de diálogo que aparece una vez 
+     * ganas la partida, nos llevará de vuelta al menú del juego guardando los puntos obtenidos.
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         juego.getJugador().actualizar(juego.getPartida());
         le.borrarJugador(juego.getJugador().getDNI());
@@ -984,7 +1034,9 @@ public class JuegoI extends javax.swing.JFrame {
         gano.dispose();
         MenuJuego mj = new MenuJuego(juego.getJugador());
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /** Método que, al pulsar "aceptar" en el cuadro de diálogo que aparece una vez 
+     * pierdes la partida, nos llevará de vuelta al menú del juego.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         juego.getJugador().actualizar(juego.getPartida());
@@ -1001,23 +1053,28 @@ public class JuegoI extends javax.swing.JFrame {
         perdio.dispose();
         MenuJuego mj = new MenuJuego(juego.getJugador());
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /** Método que, al pulsar "ayuda", nos abrirá un cuadro de diálogo con la ayuda necesaria para
+     * poder jugar la partida.
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         ayuda.setLocationRelativeTo(this);
         ayuda.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         ayuda.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo de Normas, cerrará el cuadro.
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         normas.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    /** Método que, al pulsar "Normas", nos abrirá un cuadro de diálogo con las normas del juego.
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         normas.setLocationRelativeTo(this);
         normas.setIconImage(new ImageIcon("src/img/icono.png").getImage());
         normas.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo de Ayuda, cerrará el cuadro. 
+     */
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         ayuda.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1025,7 +1082,10 @@ public class JuegoI extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+    /** Método que, al pulsar "aceptar" dentro del cuadro de diálogo que aprece al pulsar el botón de
+     * guardar y salir, nos guardará los datos recolectados en la partida y nos llevará de vuelta al
+     * menú principal del juego. 
+     */
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
@@ -1040,21 +1100,30 @@ public class JuegoI extends javax.swing.JFrame {
         this.dispose();
         salirGuardar.dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    /** Método que, al pulsar "cancelar" dentro del cuadro de diálogo que aparece al pulsar el botón de 
+     * guardar y salir, nos cerrará el cuadro y nos llevará de vuelta a la partida
+     */
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         salirGuardar.dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
-
+    /** Método que, al pulsar la X en la esquina superior derecha de la pantalla, nos mostrará el cuadro
+     * de diálogo de Salir en el centro de la pantalla. 
+     */
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         salir.setLocationRelativeTo(this);
         salir.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
-
+    /** Método que, al pulsar Guardar Salir en la esquina superior derecha de la pantalla, nos mostrará 
+     * el cuadro de diálogo de Guardar Salir en el centro de la pantalla. 
+     */
     private void gSBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gSBtnActionPerformed
         salirGuardar.setLocationRelativeTo(this);
         salirGuardar.setVisible(true);
     }//GEN-LAST:event_gSBtnActionPerformed
-
+    /** Método que, al pulsar "guardar y salir" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos llevará de vuelta al menú principal del juego guardando la partida sin
+     * finalizar.
+     */
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         juego.getPartida().setEnemigosAparecidos(juego.getTotalEnemigos());
         juego.getJugador().setPartidaNoFin(juego.getPartida());
@@ -1069,17 +1138,23 @@ public class JuegoI extends javax.swing.JFrame {
         this.dispose();
         salir.dispose();
     }//GEN-LAST:event_jButton10ActionPerformed
-
+    /** Método que, al pulsar "canceal" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos cerrará el cuadro para volver a la partida.
+     */
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         salir.dispose();
     }//GEN-LAST:event_jButton11ActionPerformed
-
+    /** Método que, al pulsar "salir" dentro del cuadro de diálogo que aparece al pulsar la X en la esquina 
+     * superior derecha de la pantalla, nos llevará de vuelta al menú principal del juego. 
+     */
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         MenuJuego mj = new MenuJuego(juego.getJugador());
         this.dispose();
         salir.dispose();
     }//GEN-LAST:event_jButton12ActionPerformed
     
+    /** Método que guardará los datos y puntos del jugador al ganar una partida.
+     */
     public void finWin(){
         enviar.setVisible(false);
         juego.getPartida().ganada();
@@ -1090,6 +1165,8 @@ public class JuegoI extends javax.swing.JFrame {
         
     }
     
+    /** Método que guardará los datos del jugador al perder una partida.
+     */
     public void finLose(){
         enviar.setVisible(false);
         perdio.setLocationRelativeTo(this);
@@ -1098,6 +1175,9 @@ public class JuegoI extends javax.swing.JFrame {
 
     }
     
+    /** Método que actualizará las casillas del tablero a cada turno que pasa
+     * También se incluirán las imágenes relativas al personaje en cada casilla. 
+     */
     public void actualizarCasillas(){
         rellenar();
         Tablero t = juego.getPartida().getTablero();
@@ -1223,7 +1303,19 @@ public class JuegoI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

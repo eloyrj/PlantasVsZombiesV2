@@ -20,11 +20,8 @@ public class Comandos implements Serializable{
 
     /** Constructor de Comandos*/
     public Comandos() {
-        
     }
 
-    
-    
     /** Método que pondrá todos los comandos introducidos por teclado en mayúscula
      * @param comando el comando introducido por el usuario
      * @return dicho comando en mayúscula
@@ -58,13 +55,8 @@ public class Comandos implements Serializable{
                     
                     g.setPosX(x);
                     g.setPosY(y);
-
-
-                    
                 }
-                
             }
-
         } 
         /** El comando "L" servirá para plantar un Lanzaguisantes
          */
@@ -79,11 +71,8 @@ public class Comandos implements Serializable{
                     
                     l.setPosX(x);
                     l.setPosY(y);
-
-                    
                 }
-            }
-           
+            } 
         }
         /** El comando "P" servirá para plantar un Petacereza
          */
@@ -98,11 +87,8 @@ public class Comandos implements Serializable{
                     
                     l.setPosX(x);
                     l.setPosY(y);
-
-                    
                 }
-            }
-            
+            }  
         }
         /** El comando "N" servirá para plantar una Nuez
          */
@@ -117,11 +103,8 @@ public class Comandos implements Serializable{
                     
                     l.setPosX(x);
                     l.setPosY(y);
-
-                    
                 }
             }
-            
         }
         
         /**El comando servirá para pasar el turno cada vez que el usuario pulse "enter"
@@ -129,7 +112,6 @@ public class Comandos implements Serializable{
         else if ("".equals(modo)){
             if (j.getPartida() != null){
                 j.getPartida().setTurno(j.getPartida().getTurno()+1);
-                
             }
         }
         else   dialog = new Excepciones(new javax.swing.JFrame(), true,4);
@@ -160,7 +142,6 @@ public class Comandos implements Serializable{
             Partida p = new Partida(50,0,Dificultad,t,50,5);
             j.setPartida(p);
         }
-            
     }
     
     

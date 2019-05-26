@@ -9,12 +9,11 @@ import java.io.Serializable;
  * @author Eloy Rodríguez y María Chantal
  */
 
-/** La clase Tablero creará un tablero (array) a partir de las preferencias del usuario 
+/** La clase Tablero es un array de arrays que almacena los personajes en la partida
  */
 public class Tablero implements Serializable{
     
-    /** Atributo que introduce un personaje en el tablero
-     */
+    /** Atributo que introduce un personaje en el tablero */
     private Personaje[][] tablero;
 
     
@@ -23,7 +22,6 @@ public class Tablero implements Serializable{
      * @param y que son las columnas
      */
     public Tablero(int x, int y) {
-        
         tablero = new Personaje[y][x];
     }
 

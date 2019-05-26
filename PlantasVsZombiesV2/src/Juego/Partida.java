@@ -32,7 +32,7 @@ public class Partida implements Serializable {
     private boolean ganada;
     /** Atributo que indica los puntos obtenidos en la partida*/
     private int puntos;
-    
+    /** Atributo que indica los enemigos que han aparecido hasta el momento en la partida*/
     private int enemigosAparecidos;
                               
     /** Constructor de Partida
@@ -62,8 +62,7 @@ public class Partida implements Serializable {
     public void setEnemigosAparecidos(int enemigosAparecidos) {
         this.enemigosAparecidos = enemigosAparecidos;
     }
-    
-
+ 
     public int getSoles() {
         return soles;
     }
@@ -132,6 +131,7 @@ public class Partida implements Serializable {
         this.puntos = puntos;
     }
     
+    /** Método que permitirá calcular los puntos en la partida ganada*/
     public void calcularPuntos(){
         int puntosPlantados = 0;
         for (int i=0; i < tablero.getTablero().length; i++) {

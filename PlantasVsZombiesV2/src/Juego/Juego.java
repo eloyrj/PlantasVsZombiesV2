@@ -32,10 +32,11 @@ public class Juego implements Serializable{
     private int turnosTotales;
     /** Atributo que controla el turno anterior al actual*/
     private int turnoAnt;
-    
+    /** Atributo que indica el jugador jugando actualmente la partida*/
     private Jugador jugador;
-        
+    /** Atributo que indica cuándo se gana la partida*/
     private boolean fin;
+    /** Atributo que indica cuándose pierde la partida*/
     private boolean finMalo;
 
 
@@ -48,7 +49,6 @@ public class Juego implements Serializable{
         this.excepcionJuego = excepcionJuego;
         fin = false;
         finMalo=false;
-        
     }
 
     public Comandos getComandos() {
@@ -80,8 +80,6 @@ public class Juego implements Serializable{
         this.totalEnemigos = totalEnemigos;
     }
     
-    
-
     public int getTurnosTotales() {
         return turnosTotales;
     }
@@ -89,17 +87,9 @@ public class Juego implements Serializable{
     public void setTurnosTotales(int turnosTotales) {
         this.turnosTotales = turnosTotales;
     }
-    
-    
-
+ 
     public void setExcepcionJuego(ExcepcionJuego excepcionJuego) {
         this.excepcionJuego = excepcionJuego;
-    }
-
-    
-
-    public boolean isFinMalo() {
-        return finMalo;
     }
 
     public void setFinMalo(boolean finMalo) {
@@ -123,18 +113,23 @@ public class Juego implements Serializable{
         this.jugador = jugador;
     }
 
-    public boolean isFin() {
-        return fin;
-    }
-
     public void setFin(boolean fin) {
         this.fin = fin;
     }
     
-    
-    
-    
-    
+    /** Método que indica si se pierde la partida
+     * @return devuelve si se ha perdido la partida
+    */
+    public boolean isFinMalo() {
+        return finMalo;
+    }
+  
+    /** Método que indica si se gana la partida
+    * @return devuelve si se ha ganado la partida
+    */
+    public boolean isFin() {
+        return fin;
+    }
     
     /** Método que actualiza la partida a cada turno que pasa
      * @param j partida en curso

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
 import Juego.Jugador;
@@ -16,14 +12,23 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author eloy
+ * @author Eloy Rodríguez y María Chantal
+ */
+
+/** La clase-interfaz IniSesión nos permitirá inciar sesión como usuario previaente registrado
  */
 public class IniSesion extends javax.swing.JFrame {
-    
+    /** Atributo que relaciona ciertos componentes del inicio con la interfaz*/
     private MenuInicio inicio;
+    /** Atributo que permite leer los datos del jugador*/
     private LecturaEscritura lecEscr;
-    /**
-     * Creates new form iniSesion
+    
+    /** Constructor de IniSesión
+     * @param inicio pantalla de inicio
+     * @throws java.io.FileNotFoundException señala que un intento de abrir el archivo
+        * indicado por un nombre de ruta especificado ha fallado
+     * @throws java.lang.ClassNotFoundException se lanza cuando una aplicación intenta cargar en una clase a través de su 
+         * nombre de cadena usando ciertos métodos de los cuales no se puede encontrar una para la clase con el nombre especificado.
      */
     public IniSesion( MenuInicio inicio) throws IOException, FileNotFoundException, ClassNotFoundException {
         this.inicio = inicio;
@@ -55,6 +60,8 @@ public class IniSesion extends javax.swing.JFrame {
         fallo.setLocationRelativeTo(this);
     }
 
+    /** Método que permitirá poner los botones de la interfaz transparentes
+     */
     public void botonesTransparentes(){
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
@@ -100,9 +107,7 @@ public class IniSesion extends javax.swing.JFrame {
         inise = new javax.swing.JLabel();
 
         iniS.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        iniS.setMaximumSize(new java.awt.Dimension(490, 193));
         iniS.setMinimumSize(new java.awt.Dimension(490, 193));
-        iniS.setPreferredSize(new java.awt.Dimension(490, 193));
         iniS.getContentPane().setLayout(null);
         iniS.getContentPane().add(jLabel3);
         jLabel3.setBounds(90, 30, 400, 40);
@@ -136,9 +141,7 @@ public class IniSesion extends javax.swing.JFrame {
         dialogo.setBounds(0, 0, 500, 193);
 
         fallo.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        fallo.setMaximumSize(new java.awt.Dimension(490, 193));
         fallo.setMinimumSize(new java.awt.Dimension(490, 193));
-        fallo.setPreferredSize(new java.awt.Dimension(490, 193));
         fallo.getContentPane().setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
@@ -162,8 +165,6 @@ public class IniSesion extends javax.swing.JFrame {
         jLabel2.setBounds(100, 90, 280, 30);
 
         fail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
-        fail.setMaximumSize(new java.awt.Dimension(490, 193));
-        fail.setMinimumSize(new java.awt.Dimension(490, 193));
         fallo.getContentPane().add(fail);
         fail.setBounds(0, 0, 490, 193);
 
@@ -201,6 +202,9 @@ public class IniSesion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    /** Método que nos mosotrará los cuadros de diálogo correspondientes (si funciona 
+     * correctamente o si hay algún fallo) al puslar el botón aceptar
+     */
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String dni = jTextField1.getText().toUpperCase();
         if (lecEscr.buscarJugador(dni)!= null){
@@ -217,7 +221,9 @@ public class IniSesion extends javax.swing.JFrame {
         else fallo.setVisible(true);
         
     }//GEN-LAST:event_aceptarActionPerformed
-
+    /** Método que te llevará al menú principal del juego al pulsar "sí" (jButton2) en el
+     * cuadro de diálogo emergente al confirmar el inicio de sesión
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String dni = jTextField1.getText().toUpperCase();
         Jugador j = lecEscr.buscarJugador(dni);
@@ -228,11 +234,15 @@ public class IniSesion extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /** Método que cerrará el cuadro de diálogo emergente para denegar la opción
+     * a entrar al menú principal del juego pulsando "no" (jButton3)
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         iniS.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /** Método que cerrará el cuadro de diálogo emergente al pulsar "aceptar" (jButton4) 
+     * debido a un fallo en el inicio de sesión
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         fallo.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
