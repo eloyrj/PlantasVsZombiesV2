@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
  */
 
 /** La clase-interfaz Menu Inicio nos mostrará el primer contacto visual con el juego, donde se podrá
- * inciiar sesión o registrar un usuario
+ * iniciar sesión o registrar un usuario
  */
 public class MenuInicio extends javax.swing.JFrame {
     
