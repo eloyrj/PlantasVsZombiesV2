@@ -43,13 +43,7 @@ public class Girasol extends Planta {
     public void Ataque(Personaje p) {
     }
     
-    /** Método que localiza al Girasol en el tablero
-     * @return la posición del Girasol en el tablero
-    */
-    @Override
-    public String localizador() {
-        return "G(" + super.getVida()+")";
-    }
+    
  
     /** Método que permite plantar Girasoles
      * @param x coordenada x dentro del tablero donde se quiere situar 

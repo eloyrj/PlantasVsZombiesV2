@@ -83,7 +83,6 @@ public abstract class Personaje implements Serializable{
     
     public abstract void Ataque(Personaje p);
     
-    public abstract String localizador();
     
     
     

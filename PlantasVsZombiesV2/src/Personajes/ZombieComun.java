@@ -34,12 +34,7 @@ public class ZombieComun extends Zombie {
         p.setVida(p.getVida()-super.getDaño());
     }
 
-    /** Método que localiza al ZombieComún en el tablero
-     * @return la posición del zombie Común y las vidas que le quedan */
-    @Override
-    public String localizador() {
-        return "Z(" + super.getVida()+")";
-    }
+    
 
     /** Método que controla el ataque de un ZombieComún
      * @param j partida

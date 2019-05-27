@@ -56,11 +56,6 @@ public class Deportista extends Zombie {
         p.setVida(p.getVida()-super.getDaño());
     }
 
-    /** Método que localiza al Deportista en el tablero
-     * @return la posición del zombie Deportista y las vidas que le quedan */
-    @Override
-    public String localizador() {
-        return "D(" + super.getVida()+")";
-    }
+    
     
 }

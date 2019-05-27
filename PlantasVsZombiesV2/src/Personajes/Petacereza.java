@@ -87,9 +87,6 @@ public class Petacereza extends Planta {
     }
 
     
-    @Override
-    public String localizador() {
-        return "P(" + super.getVida()+")";
-    }
+    
     
 }

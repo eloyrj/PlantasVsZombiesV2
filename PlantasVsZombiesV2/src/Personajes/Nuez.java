@@ -62,9 +62,6 @@ public class Nuez extends Planta {
     }
 
     
-    @Override
-    public String localizador() {
-        return "N(" + super.getVida()+")";
-    }
+    
     
 }

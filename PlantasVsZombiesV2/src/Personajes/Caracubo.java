@@ -59,11 +59,6 @@ public class Caracubo extends Zombie {
     }
     
     
-    /** Método que localiza al Caracubo en el tablero
-     * @return la posición del zombie Caracubo y las vidas que le quedan */
-    @Override
-    public String localizador() {
-        return "C(" + super.getVida()+")";
-    }
+    
 
 }

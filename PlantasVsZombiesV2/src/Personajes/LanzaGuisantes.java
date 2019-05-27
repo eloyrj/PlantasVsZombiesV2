@@ -38,13 +38,7 @@ public class LanzaGuisantes extends Planta {
         p.setVida(p.getVida()-super.getDaño());
     }
 
-    /** Método que localiza al LanzaGuisantes en el tablero
-     * @return la posición del LanzaGuisantes en el tablero
-     */
-    @Override
-    public String localizador() {
-        return "L(" + super.getVida()+")";
-    }
+    
 
     /** Método que permite plantar LanzaGuisantes
      * @param x coordenada x dentro del tablero donde se quiere situar 
