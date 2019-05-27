@@ -165,7 +165,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="- G &lt;fila&gt; &lt;columna&gt;: colocar girasol."/>
+            <Property name="text" type="java.lang.String" value="- G &lt;columna&gt; &lt;fila&gt; : colocar girasol."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -178,7 +178,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="- L &lt;fila&gt; &lt;columna&gt;: colocar LanzaGuisantes."/>
+            <Property name="text" type="java.lang.String" value="- L &lt;columna&gt; &lt;fila&gt; : colocar LanzaGuisantes."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -191,7 +191,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="- N &lt;fila&gt; &lt;columna&gt;: colocar una Nuez."/>
+            <Property name="text" type="java.lang.String" value="- N &lt;columna&gt; &lt;fila&gt; : colocar una Nuez."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -204,7 +204,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Rounded MT Bold" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="- P &lt;fila&gt; &lt;columna&gt;: colocar un Petacereza."/>
+            <Property name="text" type="java.lang.String" value="- P &lt;columna&gt; &lt;fila&gt; : colocar un Petacereza."/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -231,16 +231,11 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="310" width="240" height="60"/>
+              <AbsoluteConstraints x="230" y="330" width="240" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel27">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/blank.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="678" height="427"/>

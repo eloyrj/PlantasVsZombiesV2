@@ -321,9 +321,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
 
         gano.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        gano.setMaximumSize(new java.awt.Dimension(490, 193));
         gano.setMinimumSize(new java.awt.Dimension(490, 193));
-        gano.setPreferredSize(new java.awt.Dimension(490, 193));
         gano.getContentPane().setLayout(null);
 
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -347,9 +345,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel24.setBounds(0, 0, 490, 193);
 
         perdio.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        perdio.setMaximumSize(new java.awt.Dimension(490, 193));
         perdio.setMinimumSize(new java.awt.Dimension(490, 193));
-        perdio.setPreferredSize(new java.awt.Dimension(490, 193));
         perdio.getContentPane().setLayout(null);
 
         jButton3.setFont(new java.awt.Font("Bauhaus 93", 0, 18)); // NOI18N
@@ -375,14 +371,10 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel26.setBounds(70, 80, 400, 40);
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dialogo.jpg"))); // NOI18N
-        jLabel25.setMaximumSize(new java.awt.Dimension(490, 193));
-        jLabel25.setMinimumSize(new java.awt.Dimension(490, 193));
         perdio.getContentPane().add(jLabel25);
         jLabel25.setBounds(0, 0, 490, 193);
 
-        ayuda.setMaximumSize(new java.awt.Dimension(678, 427));
         ayuda.setMinimumSize(new java.awt.Dimension(678, 427));
-        ayuda.setPreferredSize(new java.awt.Dimension(678, 427));
         ayuda.getContentPane().setLayout(null);
 
         jLabel15.setFont(new java.awt.Font("Bauhaus 93", 1, 24)); // NOI18N
@@ -391,22 +383,22 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel15.setBounds(90, 40, 462, 32);
 
         jLabel16.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel16.setText("- G <fila> <columna>: colocar girasol.");
+        jLabel16.setText("- G <columna> <fila> : colocar girasol.");
         ayuda.getContentPane().add(jLabel16);
         jLabel16.setBounds(180, 120, 320, 17);
 
         jLabel17.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel17.setText("- L <fila> <columna>: colocar LanzaGuisantes.");
+        jLabel17.setText("- L <columna> <fila> : colocar LanzaGuisantes.");
         ayuda.getContentPane().add(jLabel17);
         jLabel17.setBounds(180, 150, 350, 17);
 
         jLabel18.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel18.setText("- N <fila> <columna>: colocar una Nuez.");
+        jLabel18.setText("- N <columna> <fila> : colocar una Nuez.");
         ayuda.getContentPane().add(jLabel18);
         jLabel18.setBounds(180, 180, 340, 17);
 
         jLabel19.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel19.setText("- P <fila> <columna>: colocar un Petacereza.");
+        jLabel19.setText("- P <columna> <fila> : colocar un Petacereza.");
         ayuda.getContentPane().add(jLabel19);
         jLabel19.setBounds(180, 210, 360, 17);
 
@@ -421,18 +413,11 @@ public class JuegoI extends javax.swing.JFrame {
             }
         });
         ayuda.getContentPane().add(jButton7);
-        jButton7.setBounds(210, 310, 240, 60);
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/blank.jpg"))); // NOI18N
-        jLabel27.setMaximumSize(new java.awt.Dimension(678, 427));
-        jLabel27.setMinimumSize(new java.awt.Dimension(678, 427));
-        jLabel27.setPreferredSize(new java.awt.Dimension(678, 427));
+        jButton7.setBounds(230, 330, 240, 60);
         ayuda.getContentPane().add(jLabel27);
         jLabel27.setBounds(0, 0, 678, 427);
 
-        normas.setMaximumSize(new java.awt.Dimension(678, 427));
         normas.setMinimumSize(new java.awt.Dimension(678, 427));
-        normas.setPreferredSize(new java.awt.Dimension(678, 427));
         normas.getContentPane().setLayout(null);
 
         jLabel6.setFont(new java.awt.Font("Arial Nova", 0, 14)); // NOI18N
@@ -510,9 +495,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel28.setBounds(0, 0, 678, 427);
 
         salirGuardar.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salirGuardar.setMaximumSize(new java.awt.Dimension(490, 193));
         salirGuardar.setMinimumSize(new java.awt.Dimension(490, 193));
-        salirGuardar.setPreferredSize(new java.awt.Dimension(490, 193));
         salirGuardar.getContentPane().setLayout(null);
 
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -550,9 +533,7 @@ public class JuegoI extends javax.swing.JFrame {
         jLabel32.setBounds(0, 0, 490, 193);
 
         salir.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        salir.setMaximumSize(new java.awt.Dimension(490, 193));
         salir.setMinimumSize(new java.awt.Dimension(490, 193));
-        salir.setPreferredSize(new java.awt.Dimension(490, 193));
         salir.getContentPane().setLayout(null);
 
         jButton10.addActionListener(new java.awt.event.ActionListener() {
