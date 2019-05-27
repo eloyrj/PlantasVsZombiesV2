@@ -64,7 +64,7 @@ public class Girasol extends Planta {
     */
     @Override
     public void actua(Juego j) {
-            if (getContador() % getFrecuencia() ==0){
+            if (getContador()!= 0 && getContador() % getFrecuencia() ==0){
                 j.getPartida().setSoles(ganaSoles(j.getPartida().getSoles()));
                 
         }
