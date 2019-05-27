@@ -83,7 +83,7 @@ public class Petacereza extends Planta {
     @Override
     public void Ataque(Personaje p) {
          p.setVida(p.getVida()-super.getDaño());
-         System.out.println(p.getVida());
+         
     }
 
     
