@@ -173,19 +173,12 @@ public class Registro extends javax.swing.JFrame {
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         String dni = jTextField3.getText().toUpperCase();
         String nombre = jTextField4.getText().toUpperCase();
-        lecEscr.añadirJugador(new Jugador(nombre,dni));
-        Jugador j = lecEscr.buscarJugador(dni);
-        try {
-            lecEscr.guardarDatos();
-        } catch (IOException ex) {
-            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
-        }
         jLabel6.setForeground(Color.white);
         jLabel6.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
         jLabel2.setForeground(Color.white);
         jLabel2.setFont(new Font("Bauhaus 93", Font.PLAIN, 18));
-        jLabel6.setText("Estas apunto de registrarte como: "+ j.getNombre());
-        jLabel2.setText(" con DNI: "+j.getDNI());
+        jLabel6.setText("Estas apunto de registrarte como: "+ nombre);
+        jLabel2.setText(" con DNI: "+ dni);
         jDialog1.setLocationRelativeTo(this);
         jDialog1.setVisible(true);
         
@@ -194,7 +187,16 @@ public class Registro extends javax.swing.JFrame {
      * llevará directamente al menú principal del juego
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        MenuJuego mj = new MenuJuego(lecEscr.buscarJugador(jTextField3.getText().toUpperCase()));
+        String dni = jTextField3.getText().toUpperCase();
+        String nombre = jTextField4.getText().toUpperCase();
+        lecEscr.añadirJugador(new Jugador(nombre,dni));
+        Jugador j = lecEscr.buscarJugador(dni);
+        try {
+            lecEscr.guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        MenuJuego mj = new MenuJuego(j);
         inicio.dispose();
         this.dispose();
         jDialog1.dispose();
